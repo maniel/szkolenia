@@ -19,6 +19,8 @@ class TrainingsController < ApplicationController
 
   # GET /trainings/1/edit
   def edit
+    @locations_array=Location.all.map {|location| [location.name, location.id]}
+    @cat_array=Category.all.map { |cat| [cat.name,cat.id] }
   end
 
   # POST /trainings
@@ -40,7 +42,15 @@ class TrainingsController < ApplicationController
   # PATCH/PUT /trainings/1
   # PATCH/PUT /trainings/1.json
   def update
+    puts "dupa"
+    p params
     respond_to do |format|
+      puts"bifor"
+      p training_params
+      training_params[:location]=Location.find(training_params[:location].to_i)
+      training_params[:category]=Category.find(training_params[:category].to_i)
+      puts "after"
+      p training_params
       if @training.update(training_params)
         format.html { redirect_to @training, notice: 'Training was successfully updated.' }
         format.json { head :no_content }
@@ -69,6 +79,6 @@ class TrainingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def training_params
-      params.require(:training).permit(:name, :program, :localization, :organizer)
+      params.require(:training).permit(:name, :info, :moreinfo, :studies, :postgrad, :elearning, :paid, :costs, :term, :address, :organizer, :location_id, :category_id, :location, :category)
     end
 end

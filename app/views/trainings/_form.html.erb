@@ -16,16 +16,52 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :program %><br>
-    <%= f.text_area :program %>
+    <%= f.label :info %><br>
+    <%= f.text_area :info %>
   </div>
   <div class="field">
-    <%= f.label :localization %><br>
-    <%= f.text_area :localization %>
+    <%= f.label :moreinfo %><br>
+    <%= f.text_area :moreinfo %>
+  </div>
+  <div class="field">
+    <%= f.label :studies %><br>
+    <%= f.check_box :studies %>
+  </div>
+  <div class="field">
+    <%= f.label :postgrad %><br>
+    <%= f.check_box :postgrad %>
+  </div>
+  <div class="field">
+    <%= f.label :elearning %><br>
+    <%= f.check_box :elearning %>
+  </div>
+  <div class="field">
+    <%= f.label :paid %><br>
+    <%= f.check_box :paid %>
+  </div>
+  <div class="field">
+    <%= f.label :costs %><br>
+    <%= f.text_area :costs %>
+  </div>
+  <div class="field">
+    <%= f.label :term %><br>
+    <%= f.text_area :term %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
   </div>
   <div class="field">
     <%= f.label :organizer %><br>
-    <%= f.text_area :organizer %>
+    <%= f.text_field :organizer %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.select(:location, @locations_array) %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select(:category, @cat_array) %>
   </div>
   <div class="actions">
     <%= f.submit %>

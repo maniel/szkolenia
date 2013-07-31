@@ -2,12 +2,30 @@
 
 one:
   name: MyString
-  program: MyText
-  localization: MyText
-  organizer: MyText
+  info: MyText
+  moreinfo: MyText
+  studies: false
+  postgrad: false
+  elearning: false
+  paid: false
+  costs: MyText
+  term: MyText
+  address: MyText
+  organizer: MyString
+  location_id: 
+  category_id: 
 
 two:
   name: MyString
-  program: MyText
-  localization: MyText
-  organizer: MyText
+  info: MyText
+  moreinfo: MyText
+  studies: false
+  postgrad: false
+  elearning: false
+  paid: false
+  costs: MyText
+  term: MyText
+  address: MyText
+  organizer: MyString
+  location_id: 
+  category_id: 

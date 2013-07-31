@@ -11,15 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130729184630) do
+ActiveRecord::Schema.define(version: 20130731200423) do
 
-  create_table "trainings", force: true do |t|
+  create_table "categories", force: true do |t|
+    t.boolean  "studies"
     t.string   "name"
-    t.text     "program"
-    t.text     "localization"
-    t.text     "organizer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trainings", force: true do |t|
+    t.string   "name"
+    t.text     "info"
+    t.text     "moreinfo"
+    t.boolean  "studies"
+    t.boolean  "postgrad"
+    t.boolean  "elearning"
+    t.boolean  "paid"
+    t.text     "costs"
+    t.text     "term"
+    t.text     "address"
+    t.string   "organizer"
+    t.integer  "location_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id"
+  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id"
 
 end

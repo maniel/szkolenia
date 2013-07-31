@@ -18,7 +18,7 @@ class TrainingsControllerTest < ActionController::TestCase
 
   test "should create training" do
     assert_difference('Training.count') do
-      post :create, training: { localization: @training.localization, name: @training.name, organizer: @training.organizer, program: @training.program }
+      post :create, training: { address: @training.address, category_id: @training.category_id, costs: @training.costs, elearning: @training.elearning, info: @training.info, location_id: @training.location_id, moreinfo: @training.moreinfo, name: @training.name, organizer: @training.organizer, paid: @training.paid, postgrad: @training.postgrad, studies: @training.studies, term: @training.term }
     end
 
     assert_redirected_to training_path(assigns(:training))
@@ -35,7 +35,7 @@ class TrainingsControllerTest < ActionController::TestCase
   end
 
   test "should update training" do
-    patch :update, id: @training, training: { localization: @training.localization, name: @training.name, organizer: @training.organizer, program: @training.program }
+    patch :update, id: @training, training: { address: @training.address, category_id: @training.category_id, costs: @training.costs, elearning: @training.elearning, info: @training.info, location_id: @training.location_id, moreinfo: @training.moreinfo, name: @training.name, organizer: @training.organizer, paid: @training.paid, postgrad: @training.postgrad, studies: @training.studies, term: @training.term }
     assert_redirected_to training_path(assigns(:training))
   end
 

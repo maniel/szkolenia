@@ -4,9 +4,18 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Program</th>
-      <th>Localization</th>
+      <th>Info</th>
+      <th>Moreinfo</th>
+      <th>Studies</th>
+      <th>Postgrad</th>
+      <th>Elearning</th>
+      <th>Paid</th>
+      <th>Costs</th>
+      <th>Term</th>
+      <th>Address</th>
       <th>Organizer</th>
+      <th>Location</th>
+      <th>Category</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,9 +26,18 @@
     <% @trainings.each do |training| %>
       <tr>
         <td><%= training.name %></td>
-        <td><%= training.program %></td>
-        <td><%= training.localization %></td>
+        <td><%= training.info %></td>
+        <td><%= training.moreinfo %></td>
+        <td><%= training.studies %></td>
+        <td><%= training.postgrad %></td>
+        <td><%= training.elearning %></td>
+        <td><%= training.paid %></td>
+        <td><%= training.costs %></td>
+        <td><%= training.term %></td>
+        <td><%= training.address %></td>
         <td><%= training.organizer %></td>
+        <td><%= training.location.name %></td>
+        <td><%= training.category.name %></td>
         <td><%= link_to 'Show', training %></td>
         <td><%= link_to 'Edit', edit_training_path(training) %></td>
         <td><%= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' } %></td>
