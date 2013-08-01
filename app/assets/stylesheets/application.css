@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+table {
+	border-color: black;
+	border-width: 2px;
+	border-spacing: 2px;
+}
+tbody td:nth-of-type(odd),
+thead th:nth-of-type(odd){
+	background:rgba(255,255,136,0.5);
+}
