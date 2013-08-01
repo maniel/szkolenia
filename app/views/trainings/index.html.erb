@@ -3,19 +3,19 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nazwa</th>
       <th>Info</th>
-      <th>Moreinfo</th>
-      <th>Studies</th>
-      <th>Postgrad</th>
-      <th>Elearning</th>
-      <th>Paid</th>
-      <th>Costs</th>
-      <th>Term</th>
-      <th>Address</th>
-      <th>Organizer</th>
-      <th>Location</th>
-      <th>Category</th>
+      <th>Info2</th>
+      <th>Studia</th>
+      <th>Podyplomowe</th>
+      <th>E-learning</th>
+      <th>Płatne</th>
+      <th>Koszta</th>
+      <th>Terminy</th>
+      <th>Miejsce</th>
+      <th>Organizator</th>
+      <th>Lokalizacja (powiat)</th>
+      <th>Kategoria (dziedzina)</th>
       <th></th>
       <th></th>
       <th></th>
@@ -38,9 +38,9 @@
         <td><%= training.organizer %></td>
         <td><%= training.location.name %></td>
         <td><%= training.category.name %></td>
-        <td><%= link_to 'Show', training %></td>
-        <td><%= link_to 'Edit', edit_training_path(training) %></td>
-        <td><%= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'pokaż', training %></td>
+        <td><%= link_to 'edytuj', edit_training_path(training) %></td>
+        <td><%= link_to 'usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -48,4 +48,4 @@
 
 <br>
 
-<%= link_to 'New Training', new_training_path %>
+<%= link_to 'Nowe szkolenie lub studia' , new_training_path %>

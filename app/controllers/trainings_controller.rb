@@ -1,3 +1,4 @@
+# coding: utf-8
 class TrainingsController < ApplicationController
   before_action :set_training, only: [:show, :edit, :update, :destroy]
 
@@ -33,11 +34,9 @@ class TrainingsController < ApplicationController
     @training.category=Category.find(training_params[:category_id].to_i)
     respond_to do |format|
       if @training.save
-        format.html { redirect_to @training, notice: 'Training was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @training }
+        format.html { redirect_to @training, notice: 'Zapisano pomyślnie' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @training.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,7 +48,7 @@ class TrainingsController < ApplicationController
       @training.location=Location.find(training_params[:location_id].to_i)
       @training.category=Category.find(training_params[:category_id].to_i)
       if @training.update(training_params)
-        format.html { redirect_to @training, notice: 'Training was successfully updated.' }
+        format.html { redirect_to @training, notice: 'Zaktualizowano pomyślnie' }
       else
         format.html { render action: 'edit' }
       end
