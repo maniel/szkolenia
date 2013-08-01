@@ -50,10 +50,8 @@ class TrainingsController < ApplicationController
       @training.category=Category.find(training_params[:category_id].to_i)
       if @training.update(training_params)
         format.html { redirect_to @training, notice: 'Training was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @training.errors, status: :unprocessable_entity }
       end
     end
   end
