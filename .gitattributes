@@ -1,8 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-* text=auto
-
 # Declare files that will always have LF line endings on checkout.
 *.rb      text eol=lf
 *.yml     text eol=lf
