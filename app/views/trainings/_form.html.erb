@@ -56,12 +56,12 @@
     <%= f.text_field :organizer %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
-    <%= f.select(:location, @locations_array) %>
+    <%= f.label :location_id %><br>
+    <%= f.select(:location_id, @locations_array) %>
   </div>
   <div class="field">
-    <%= f.label :category %><br>
-    <%= f.select(:category, @cat_array) %>
+    <%= f.label :category_id %><br>
+    <%= f.select(:category_id, @cat_array) %>
   </div>
   <div class="actions">
     <%= f.submit %>
