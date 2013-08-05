@@ -5,7 +5,20 @@ class TrainingsController < ApplicationController
   # GET /trainings
   # GET /trainings.json
   def index
-    @trainings = Training.all
+    p params
+    if params[:studies] and params[:postgrad] #studia
+      puts ">>podyplomowe"
+      @trainings = Training.where(studies:true, postgrad:true) #podyplomowe
+    elsif params[:studies] and !params[:postgrad]
+      puts ">>normalne"
+      @trainings = Training.where(studies:true, postgrad:false) #normalne
+    elsif !params[:studies]
+      puts ">>szkolenia"
+      @trainings = Training.where(studies:false) #szkolenia
+    else
+      @trainings = Training.all
+      puts "trainings"
+    end
   end
 
   # GET /trainings/1

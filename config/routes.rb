@@ -1,6 +1,10 @@
 Szkolenia::Application.routes.draw do
   resources :trainings
 
+  get "szkolenia", "trainings#index", :defaults => {:studies => false}
+  get "studia" => "trainings#index", :defaults => {:studies => true, :postgrad => false}
+  get "podyplomowe" => "trainings#index", :defaults => {:studies => true, :postgrad => true}
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
