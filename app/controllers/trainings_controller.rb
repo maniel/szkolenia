@@ -21,9 +21,34 @@ class TrainingsController < ApplicationController
     end
   end
 
+  def studia
+    @trainings = Training.where(studies:true, postgrad:false)
+  end
+
+  def podyplomowe
+    @trainings = Training.where(studies:true, postgrad:true)    
+  end
+
+  def szkolenia
+    @trainings = Training.where(studies:false)
+  end
+
   # GET /trainings/1
   # GET /trainings/1.json
   def show
+    if @training.studies and @training.postgrad #studia
+      puts ">>podyplomowe"
+      render "show_podyplomowe"
+    elsif @training.studies and !@training.postgrad
+      puts ">>normalne"
+      render "show_studia"
+    elsif !@training.studies
+      puts ">>szkolenia"
+      render "show_szkolenia"
+    else
+      puts "error!!!!"
+      redirect_to :index
+    end
   end
 
   # GET /trainings/new
