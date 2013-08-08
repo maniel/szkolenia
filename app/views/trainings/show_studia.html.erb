@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nazwa kierunku:</strong>
+  <%= @training.name %>
+</p>
+
+<p>
+  <strong>Podstawowe informacje o kierunku:</strong>
+  <%= @training.info %>
+</p>
+
+<p>
+  <strong>Organizacja studiów:</strong>
+  <%= @training.moreinfo %>
+</p>
+
+<p>
+  <strong>Adres:</strong>
+  <%= @training.address %>
+</p>
+
+<p>
+  <strong>Uczelnia:</strong>
+  <%= @training.organizer %>
+</p>
+
+<p>
+  <strong>E-learning:</strong>
+  <%= @training.elearning ? "Tak" : "Nie" %>
+</p>
+
+<p>
+  <strong>Płatne:</strong>
+  <%= @training.paid ? "Tak" : "Nie" %>
+</p>
+
+<p>
+  <strong>Podyplomowe:</strong>
+  <%= @training.postgrad ? "Tak" : "Nie" %>
+</p>
+
+<p>
+  <strong>Koszty:</strong>
+  <%= @training.costs %>
+</p>
+
+<p>
+  <strong>Termin:</strong>
+  <%= @training.term %>
+</p>
+
+
+<p>
+  <strong>Lokalizacja (powiat):</strong>
+  <%= @training.location.name %>
+</p>
+
+<p>
+  <strong>Kategoria: (dziedzina)</strong>
+  <%= @training.category.name %>
+</p>
+
+<%= link_to 'Edycja', edit_training_path(@training) %> |
+<% if @training.postgrad %>
+<%= link_to 'Wstecz', podyplomowe_trainings_path %>
+<% else %>
+<%= link_to 'Wstecz', studia_trainings_path %>
+<% end %>

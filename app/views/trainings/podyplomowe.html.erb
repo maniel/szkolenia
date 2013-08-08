@@ -1,0 +1,35 @@
+<h1>Lista studiów podyplomowych</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kierunek studiów</th>
+      <th>Uczelnia</th>
+      <th>E-learning</th>
+      <th>Płatne</th>
+      <th>Lokalizacja (powiat)</th>
+      <th>Kategoria (dziedzina)</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trainings.each do |training| %>
+      <tr>
+        <td><%= link_to training.name, training %></td>
+        <td><%= training.organizer %></td>
+        <td><%= training.elearning ? "Tak" : "Nie" %></td>
+        <td><%= training.paid ? "Tak" : "Nie" %></td>
+        <td><%= training.location.name %></td>
+        <td><%= training.category.name %></td>
+        <td><%= link_to 'edytuj', edit_training_path(training) %></td>
+        <td><%= link_to 'usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nowe studia' , nowestudia_trainings_path %>

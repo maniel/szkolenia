@@ -2,23 +2,11 @@
 class TrainingsController < ApplicationController
   before_action :set_training, only: [:show, :edit, :update, :destroy]
 
+
   # GET /trainings
   # GET /trainings.json
   def index
-    p params
-    if params[:studies] and params[:postgrad] #studia
-      puts ">>podyplomowe"
-      @trainings = Training.where(studies:true, postgrad:true) #podyplomowe
-    elsif params[:studies] and !params[:postgrad]
-      puts ">>normalne"
-      @trainings = Training.where(studies:true, postgrad:false) #normalne
-    elsif !params[:studies]
-      puts ">>szkolenia"
-      @trainings = Training.where(studies:false) #szkolenia
-    else
-      @trainings = Training.all
-      puts "trainings"
-    end
+    @trainings = Training.all    
   end
 
   def studia
@@ -33,21 +21,16 @@ class TrainingsController < ApplicationController
     @trainings = Training.where(studies:false)
   end
 
+
   # GET /trainings/1
   # GET /trainings/1.json
   def show
-    if @training.studies and @training.postgrad #studia
-      puts ">>podyplomowe"
-      render "show_podyplomowe"
-    elsif @training.studies and !@training.postgrad
-      puts ">>normalne"
+    if @training.studies
+      puts ">>studia"
       render "show_studia"
-    elsif !@training.studies
-      puts ">>szkolenia"
-      render "show_szkolenia"
     else
-      puts "error!!!!"
-      redirect_to :index
+      puts ">>szkolenia"
+      render "show_szkolenie"
     end
   end
 
@@ -55,13 +38,31 @@ class TrainingsController < ApplicationController
   def new
     @training = Training.new
     @locations_array=Location.all.map {|location| [location.name, location.id]}
-    @cat_array=Category.all.map { |cat| [cat.name,cat.id] }
+  end
+
+  def noweszkolenie
+    new
+    @cat_array=Category.where(studies: false).map { |cat| [cat.name,cat.id] }
+  end
+
+  def nowestudia
+    new
+    @cat_array=Category.where(studies: true).map { |cat| [cat.name,cat.id] }
   end
 
   # GET /trainings/1/edit
   def edit
     @locations_array=Location.all.map {|location| [location.name, location.id]}
-    @cat_array=Category.all.map { |cat| [cat.name,cat.id] }
+    # @cat_array=Category.all.map { |cat| [cat.name,cat.id] }
+    if @training.studies
+      puts ">>studia"
+      @cat_array=Category.where(studies: true).map { |cat| [cat.name,cat.id] }
+      render :edit_studia
+    else
+      puts ">>szkolenia"
+      @cat_array=Category.where(studies: false).map { |cat| [cat.name,cat.id] }
+      render :edit_szkolenie
+    end
   end
 
   # POST /trainings
@@ -96,9 +97,16 @@ class TrainingsController < ApplicationController
   # DELETE /trainings/1
   # DELETE /trainings/1.json
   def destroy
+    if @training.szkolenie?
+      red_url=szkolenia_trainings_url
+    elsif @training.studia?
+      red_url=studia_trainings_url
+    else
+      red_url=podyplomowe_trainings_url
+    end        
     @training.destroy
     respond_to do |format|
-      format.html { redirect_to trainings_url }
+      format.html { redirect_to red_url }
       format.json { head :no_content }
     end
   end

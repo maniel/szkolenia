@@ -1,0 +1,63 @@
+<%= form_for(@training) do |f| %>
+  <% if @training.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@training.errors.count, "błędów") %> przeszkodziło w zachowaniu danych</h2>
+
+      <ul>
+      <% @training.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Nazwa szkolenia" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :info, "Program szkolenia" %><br>
+    <%= f.text_area :info %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :organizer %><br>
+    <%= f.text_field :organizer %>
+  </div>
+  <div class="field">
+    <%= f.label :costs %><br>
+    <%= f.text_area :costs %>
+  </div>
+  <div class="field">
+    <%= f.label :term %><br>
+    <%= f.text_area :term %>
+  </div>
+  <div class="field">
+    <%= f.label :moreinfo, "Trener/-rzy" %><br>
+    <%= f.text_area :moreinfo %>
+  <div class="field">
+    <%= f.label :elearning %><br>
+    <%= f.check_box :elearning %>
+  </div>
+  <div class="field">
+    <%= f.label :paid %><br>
+    <%= f.check_box :paid %>
+  </div>
+  </div>  
+  <div class="field">
+    <%= f.label :location_id %><br>
+    <%= f.select(:location_id, @locations_array) %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.select(:category_id, @cat_array) %>
+  </div>
+  <%= f.hidden_field :postgrad, :value => 0 %>
+  <%= f.hidden_field :studies, :value => 0 %>
+  <div class="actions">
+    <%= f.submit "Zapisz" %>
+  </div>
+<% end %>

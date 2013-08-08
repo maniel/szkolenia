@@ -3,9 +3,25 @@ class Training < ActiveRecord::Base
   belongs_to :location
   belongs_to :category
 
-  validate :_type_valid?
+  validate :_type_valid, :_category_valid
   
-  def _type_valid?
+  def szkolenie?
+  	!studies  	
+  end
+
+  def studia?
+  	studies and !postgrad  	
+  end
+
+  def podyplomowe?
+  	studies and postgrad
+  end
+
+  def _category_valid
+  	studies==category.studies
+  end
+
+  def _type_valid
   	(studies and postgrad) or (studies and !postgrad) or not (!studies and postgrad)
   	# tudzież (studies && postgrad) || (studies && !postgrad) || !(!studies && postgrad)
   	# czyli dopuszczalne nastepujące typy: 

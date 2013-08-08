@@ -1,0 +1,10 @@
+<h1>Edycja studiów</h1>
+
+<%= render 'studia_form' %>
+
+<%= link_to 'Pokaż', @training %> |
+<% if @training.postgrad %>
+<%= link_to 'Wstecz', podyplomowe_trainings_path %>
+<% else %>
+<%= link_to 'Wstecz', studia_trainings_path %>
+<% end %>

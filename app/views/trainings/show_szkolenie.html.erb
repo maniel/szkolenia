@@ -1,38 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nazwa:</strong>
+  <strong>Nazwa szkolenia:</strong>
   <%= @training.name %>
 </p>
 
 <p>
-  <strong>Info:</strong>
+  <strong>Program szkolenia:</strong>
   <%= @training.info %>
 </p>
 
 <p>
-  <strong>Info2:</strong>
+  <strong>Trener/-rzy:</strong>
   <%= @training.moreinfo %>
 </p>
 
 <p>
-  <strong>Studia:</strong>
-  <%= @training.studies %>
-</p>
-
-<p>
-  <strong>Podyplomowe:</strong>
-  <%= @training.postgrad %>
-</p>
-
-<p>
   <strong>E-learning:</strong>
-  <%= @training.elearning %>
+  <%= @training.elearning ? "Tak" : "Nie" %>
 </p>
 
 <p>
   <strong>Płatne:</strong>
-  <%= @training.paid %>
+  <%= @training.paid ? "Tak" : "Nie" %>
 </p>
 
 <p>
@@ -66,4 +56,4 @@
 </p>
 
 <%= link_to 'Edycja', edit_training_path(@training) %> |
-<%= link_to 'Wstecz', trainings_path %>
+<%= link_to 'Wstecz', szkolenia_trainings_path %>
