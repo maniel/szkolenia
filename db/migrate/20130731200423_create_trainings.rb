@@ -3,15 +3,26 @@ class CreateTrainings < ActiveRecord::Migration
     create_table :trainings do |t|
       t.string :name
       t.text :info
-      t.text :moreinfo
+      t.text :moreinfo #uwagi
+      t.string :target #szolenia: cel szolenia
+      t.string :methods #szolenia: metody
+      t.string :groupsize #szolenia: wielkość grupy
       t.boolean :studies
       t.boolean :postgrad
       t.boolean :elearning
       t.boolean :paid
-      t.text :costs
-      t.text :term
+      t.string :costs
+      t.text :costs_info
+      t.text :trainer_info
+      t.string :term
+      t.text :term_info
+      t.date :begin_date
+      t.date :end_date
       t.text :address
-      t.string :organizer
+      t.string :organizer_name
+      t.string :organizer_address
+      t.string :organizer_contact
+      t.string :organizer_link
       t.references :location, index: true
       t.references :category, index: true
 

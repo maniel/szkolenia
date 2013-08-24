@@ -5,61 +5,64 @@
   <%= @training.name %>
 </p>
 
-<p>
-  <strong>Podstawowe informacje o kierunku:</strong>
-  <%= @training.info %>
-</p>
+<div id="info">
+  <p>
+    <strong>Opis kierunku:</strong>
+    <%= @training.info %>
+  </p>
+  <p>
+    <strong>Główne przedmioty nauczania</strong>
+    <%= @training.methods %>
+  </p>
+</div>
 
-<p>
-  <strong>Organizacja studiów:</strong>
-  <%= @training.moreinfo %>
-</p>
+<div id="orgzanizacja_s">
+  <p>
+    <%= @training.moreinfo %>
+  </p>
+</div>
 
-<p>
-  <strong>Adres:</strong>
-  <%= @training.address %>
-</p>
-
-<p>
-  <strong>Uczelnia:</strong>
-  <%= @training.organizer %>
-</p>
-
-<p>
-  <strong>E-learning:</strong>
-  <%= @training.elearning ? "Tak" : "Nie" %>
-</p>
-
-<p>
-  <strong>Płatne:</strong>
-  <%= @training.paid ? "Tak" : "Nie" %>
-</p>
-
-<p>
-  <strong>Podyplomowe:</strong>
-  <%= @training.postgrad ? "Tak" : "Nie" %>
-</p>
-
-<p>
-  <strong>Koszty:</strong>
-  <%= @training.costs %>
-</p>
-
-<p>
-  <strong>Termin:</strong>
-  <%= @training.term %>
-</p>
-
-
-<p>
-  <strong>Lokalizacja (powiat):</strong>
-  <%= @training.location.name %>
-</p>
-
-<p>
-  <strong>Kategoria: (dziedzina)</strong>
-  <%= @training.category.name %>
-</p>
+<div id="uczelnia">
+  <p>
+    <strong>Nazwa uczelni:</strong>
+    <%= @training.organizer_name %>
+  </p>
+  <p>
+    <strong>Adres uczelni:</strong>
+    <%= @training.organizer_address %>
+  </p>
+  <p>
+    <strong>Kontakt:</strong>
+    <%= @training.organizer_contact %>
+  </p>
+  <p>
+    <strong>Strona WWW uczelni:</strong>
+    <%= @training.organizer_link %>
+  </p>
+</div>
+<div id="lokalizacja">
+  <p>
+    <strong>Adres wydziału:</strong>
+    <%= @training.address %>
+  </p>
+  <p>
+    <strong><a href="<%= @training.target %>"></a></strong>
+  </p>
+</div>
+<div id="koszty">
+<% if @training.paid %>
+  <p>Studia są bezpłatne</p>
+<% else %>
+  <p>
+    <strong>Koszty uczestnictwa jednej osoby:</strong>
+    <%= @training.costs %>
+  </p>
+  <p>
+    <strong>Dodatkowe informacje na temat kosztów:</strong>
+    <%= @training.costs_info %>
+  </p>
+<% end %>
+</div>
 
 <%= link_to 'Edycja', edit_training_path(@training) %> |
 <% if @training.postgrad %>

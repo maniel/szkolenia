@@ -4,56 +4,103 @@
   <strong>Nazwa szkolenia:</strong>
   <%= @training.name %>
 </p>
+<div id="program">
+  <p>
+    <strong>Cel szkolenia:</strong>
+    <%= @training.target %>
+  </p>
+  <p>
+    <strong>Forma szkolenia:</strong>
+    <%= @training.elearning ? "E-learning" : "Stacjonarne" %>
+  </p>
+  <p>
+    <strong>Program szkolenia:</strong>
+    <%= @training.info %>
+  </p>
+  <p>
+    <strong>Metody szkolenia:</strong>
+    <%= @training.methods %>
+  </p>
+  <p>
+    <strong>Wielkość grupy:</strong>
+    <%= @training.groupsize %>
+  </p>
+  <p>
+    <strong>Uwagi:</strong>
+    <%= @training.moreinfo %>
+  </p>
+</div>
 
-<p>
-  <strong>Program szkolenia:</strong>
-  <%= @training.info %>
-</p>
 
-<p>
-  <strong>Trener/-rzy:</strong>
-  <%= @training.moreinfo %>
-</p>
+<div id="lokalizacja">
 
-<p>
-  <strong>E-learning:</strong>
-  <%= @training.elearning ? "Tak" : "Nie" %>
-</p>
+  <p>
+    <strong>Miejsce szkolenia:</strong>
+    <%= @training.address %>
+  </p>
+  <div id="mapa">
+  </div>
+</div>
 
-<p>
-  <strong>Płatne:</strong>
-  <%= @training.paid ? "Tak" : "Nie" %>
-</p>
+<div id="organizator">
+  <p>
+    <strong>Nazwa organizatora:</strong>
+    <%= @training.organizer_name %>
+  </p>
+  <p>
+    <strong>Adres organizatora:</strong>
+    <%= @training.organizer_address %>
+  </p>
+  <p>
+    <strong>Kontakt:</strong>
+    <%= @training.organizer_contact %>
+  </p>
+  <p>
+    <strong>Strona WWW organizatora:</strong>
+    <%= @training.organizer_link %>
+  </p>
+</div>
 
-<p>
-  <strong>Koszty:</strong>
-  <%= @training.costs %>
-</p>
+<div id="koszty">
+<% if @training.paid %>
+  <p>Szkolenie jest bezpłatne</p>
+<% else %>
+  <p>
+    <strong>Koszty uczestnictwa jednej osoby:</strong>
+    <%= @training.costs %>
+  </p>
+  <p>
+    <strong>Dodatkowe informacje na temat kosztów:</strong>
+    <%= @training.costs_info %>
+  </p>
+<% end %>
+</div>
 
-<p>
-  <strong>Termin:</strong>
-  <%= @training.term %>
-</p>
+<div id="termin">
+  <p>
+    <strong>Termin zgłoszenia:</strong>
+    <%= @training.term %>
+  </p>
+  <p>
+    <strong>Czas trwania szkolenia:</strong>
+    <%= @training.term_info %>
+  </p>
+  <p>
+    <strong>Data rozpoczęcia:</strong>
+    <%= @training.begin_date %>
+  </p>
+  <p>
+    <strong>Data zakończenia:</strong>
+    <%= @training.end_date %>
+  </p>
+</div>
+<div id="trener">
+  <p>
+    <strong>Trener/-rzy:</strong>
+    <%= @training.trainer_info %>
+  </p>
+</div>
 
-<p>
-  <strong>Adres:</strong>
-  <%= @training.address %>
-</p>
-
-<p>
-  <strong>Organizator:</strong>
-  <%= @training.organizer %>
-</p>
-
-<p>
-  <strong>Lokalizacja (powiat):</strong>
-  <%= @training.location.name %>
-</p>
-
-<p>
-  <strong>Kategoria: (dziedzina)</strong>
-  <%= @training.category.name %>
-</p>
 
 <%= link_to 'Edycja', edit_training_path(@training) %> |
 <%= link_to 'Wstecz', szkolenia_trainings_path %>
