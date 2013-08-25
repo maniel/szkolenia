@@ -15,38 +15,101 @@
     <%= f.label :name, "Nazwa szkolenia" %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :info, "Program szkolenia" %><br>
-    <%= f.text_area :info %>
+  <div id="program">
+    <h2>Program</h2>
+    <div class="field">
+      <%= f.label :target, "Cel szkolenia" %><br>
+      <%= f.text_area :target %>
+    </div>
+    <div class="field">
+      <%= f.label :elearning, "Forma szkolenia (zaznacz jeśli E-learning)" %><br>
+      <%= f.check_box :elearning %>
+    </div>
+    <div class="field">
+      <%= f.label :info, "Program szkolenia" %><br>
+      <%= f.text_area :info %>
+    </div>
+    <div class="field">
+      <%= f.label :methods, "Metody szkolenia" %><br>
+      <%= f.text_area :methods %>
+    </div>
+    <div class="field">
+      <%= f.label :groupsize, "Wielkość grupy" %><br>
+      <%= f.text_area :groupsize %>
+    </div>
+    <div class="field">
+      <%= f.label :moreinfo, "Uwagi" %><br>
+      <%= f.text_area :moreinfo %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_area :address %>
+  <div id="lokalizacja">
+    <h2>Lokalizacja</h2>
+    <div class="field">
+      <%= f.label :address, "Miejsce odbywania szkolenia" %><br>
+      <%= f.text_area :address %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :organizer %><br>
-    <%= f.text_field :organizer %>
+  <div id="organizator">
+    <h2>Organizator</h2>
+    <div class="field">
+      <%= f.label :organizer_name, "Nazwa organizatora" %><br>
+      <%= f.text_field :organizer_name %>
+    </div>
+    <div class="field">
+      <%= f.label :organizer_address, "Adres organizatora" %><br>
+      <%= f.text_field :organizer_address %>
+    </div>
+    <div class="field">
+      <%= f.label :organizer_contact, "Kontakt" %><br>
+      <%= f.text_field :organizer_contact %>
+    </div>
+    <div class="field">
+      <%= f.label :organizer_link, "Strona WWW organizatora" %><br>
+      <%= f.text_field :organizer_link %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :costs %><br>
-    <%= f.text_area :costs %>
+  <div id="koszty">
+    <h2>Koszty</h2>
+    <div class="field">
+      <%= f.label :paid %><br>
+      <%= f.check_box :paid %>
+    </div>
+    <div class="field">
+      <%= f.label :costs, "Koszty uczestnictwa jednej osoby" %><br>
+      <%= f.text_field :costs %>
+    </div>
+    <div class="field">
+      <%= f.label :costs_info, "Dodatkowe informacje na temat kosztów" %><br>
+      <%= f.text_area :costs_info %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :term %><br>
-    <%= f.text_area :term %>
+  <div id="termin">
+  <h2>Termin</h2>
+    <div class="field">
+      <%= f.label :term, "Termin zgłoszenia" %><br>
+      <%= f.text_field :term %>
+    </div>
+    <div class="field">
+      <%= f.label :term_info, "Czas trwania szkolenia" %><br>
+      <%= f.text_area :term_info %>
+    </div>
+    <div class="field">
+      <%= f.label :begin_date, "Data rozpoczęcia" %><br>
+      <%= f.date_field :begin_date %>
+    </div>
+    <div class="field">
+      <%= f.label :end_date, "Data zakończenia" %><br>
+      <%= f.date_field :end_date %>
+    </div>    
   </div>
-  <div class="field">
-    <%= f.label :moreinfo, "Trener/-rzy" %><br>
-    <%= f.text_area :moreinfo %>
-  <div class="field">
-    <%= f.label :elearning %><br>
-    <%= f.check_box :elearning %>
+  <div id="trener">
+    <h2>Trener/-rzy:</h2>
+    <div class="field">
+      <%= f.label :trainer_info, "Informacje o trenerze" %><br>
+      <%= f.text_area :trainer_info %>
+    </div>    
   </div>
-  <div class="field">
-    <%= f.label :paid %><br>
-    <%= f.check_box :paid %>
-  </div>
-  </div>  
+  
   <div class="field">
     <%= f.label :location_id %><br>
     <%= f.select(:location_id, @locations_array) %>

@@ -4,11 +4,10 @@
   <thead>
     <tr>
       <th>Nazwa szkolenia</th>
-      <th>Organizator</th>
-      <th>E-learning</th>
-      <th>Płatne</th>
+      <th>Data rozpoczęcia</th>
+      <th>Czas trwania</th>
       <th>Lokalizacja (powiat)</th>
-      <th>Kategoria (dziedzina)</th>
+      <th>Płatne</th>
       <th></th>
       <th></th>
     </tr>
@@ -18,12 +17,10 @@
     <% @trainings.each do |training| %>
       <tr>
         <td><%= link_to training.name, training %></td>
-        <td><%= training.organizer %></td>
-        <td><%= training.elearning ? "Tak" : "Nie" %></td>
-        <td><%= training.paid ? "Tak" : "Nie" %></td>
+        <td><%= training.begin_date %></td>        
+        <td><%= training.term_info %></td>        
         <td><%= training.location.name %></td>
-        <td><%= training.category.name %></td>
-        <td><%= link_to 'pokaż', training %></td>
+        <td><%= training.paid ? "Tak" : "Nie" %></td>
         <td><%= link_to 'edytuj', edit_training_path(training) %></td>
         <td><%= link_to 'usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       </tr>
