@@ -15,11 +15,14 @@ Gemfile*  text eol=lf
 Rakefile  text eol=lf
 README    text eol=lf
 *.ru      text eol=lf
-.rvmrc    text eol=lf
+*.rvmrc    text eol=lf
 *.txt     text eol=lf
-.gitattributes  text eol=lf
-.gitignore      text eol=lf
-.rspec          text eol=lf
+*.gitattributes  text eol=lf
+*.gitignore      text eol=lf
+*.rspec          text eol=lf
+*.css          text eol=lf
+*.scss          text eol=lf
+*.jbuilder
 
 
 # Denote all files that are truly binary and should not be modified.
