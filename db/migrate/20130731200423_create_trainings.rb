@@ -19,10 +19,8 @@ class CreateTrainings < ActiveRecord::Migration
       t.date :begin_date
       t.date :end_date
       t.text :address
-      t.string :organizer_name
-      t.string :organizer_address
-      t.string :organizer_contact
-      t.string :organizer_link
+      t.references :trainer, index: true
+      t.references :organizer, index: true
       t.references :location, index: true
       t.references :category, index: true
 

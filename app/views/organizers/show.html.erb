@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organizer.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @organizer.address %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @organizer.contact %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @organizer.link %>
+</p>
+
+<%= link_to 'Edit', edit_organizer_path(@organizer) %> |
+<%= link_to 'Back', organizers_path %>

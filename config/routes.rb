@@ -1,6 +1,10 @@
 Szkolenia::Application.routes.draw do
   
 
+  resources :trainers
+
+  resources :organizers
+
   resources :trainings do
     collection do
       get :noweszkolenie, :nowestudia, :szkolenia, :podyplomowe, :studia
