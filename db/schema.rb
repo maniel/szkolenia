@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130731200423) do
+ActiveRecord::Schema.define(version: 20130906072528) do
 
   create_table "categories", force: true do |t|
     t.boolean  "studies"
@@ -22,6 +22,23 @@ ActiveRecord::Schema.define(version: 20130731200423) do
 
   create_table "locations", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organizers", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "contact"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trainers", force: true do |t|
+    t.string   "name"
+    t.text     "info"
+    t.binary   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
