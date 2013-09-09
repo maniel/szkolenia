@@ -3,11 +3,13 @@
 one:
   name: MyString
   address: MyText
-  contact: MyString
+  contact: MyText
   link: MyString
+  college: Nie
 
 two:
   name: MyString
   address: MyText
-  contact: MyString
+  contact: MyText
   link: MyString
+  college: Nie

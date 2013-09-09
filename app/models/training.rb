@@ -2,6 +2,8 @@
 class Training < ActiveRecord::Base
   belongs_to :location
   belongs_to :category
+  belongs_to :organizer
+  belongs_to :trainer
 
   validate :_type_valid, :_category_valid
   

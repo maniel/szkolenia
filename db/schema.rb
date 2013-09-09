@@ -62,10 +62,8 @@ ActiveRecord::Schema.define(version: 20130906072528) do
     t.date     "begin_date"
     t.date     "end_date"
     t.text     "address"
-    t.string   "organizer_name"
-    t.string   "organizer_address"
-    t.string   "organizer_contact"
-    t.string   "organizer_link"
+    t.integer  "trainer_id"
+    t.integer  "organizer_id"
     t.integer  "location_id"
     t.integer  "category_id"
     t.datetime "created_at"
@@ -74,5 +72,7 @@ ActiveRecord::Schema.define(version: 20130906072528) do
 
   add_index "trainings", ["category_id"], name: "index_trainings_on_category_id"
   add_index "trainings", ["location_id"], name: "index_trainings_on_location_id"
+  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id"
+  add_index "trainings", ["trainer_id"], name: "index_trainings_on_trainer_id"
 
 end

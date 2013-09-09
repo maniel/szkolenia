@@ -3,8 +3,9 @@ class CreateOrganizers < ActiveRecord::Migration
     create_table :organizers do |t|
       t.string :name
       t.text :address
-      t.string :contact
+      t.text :contact
       t.string :link
+      t.boolean :college
 
       t.timestamps
     end

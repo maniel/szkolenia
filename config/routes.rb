@@ -1,9 +1,9 @@
 Szkolenia::Application.routes.draw do
   
 
-  resources :trainers
-
   resources :organizers
+
+  resources :trainers
 
   resources :trainings do
     collection do

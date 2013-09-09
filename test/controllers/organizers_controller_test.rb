@@ -18,7 +18,7 @@ class OrganizersControllerTest < ActionController::TestCase
 
   test "should create organizer" do
     assert_difference('Organizer.count') do
-      post :create, organizer: { address: @organizer.address, contact: @organizer.contact, link: @organizer.link, name: @organizer.name }
+      post :create, organizer: { address: @organizer.address, college: @organizer.college, contact: @organizer.contact, link: @organizer.link, name: @organizer.name }
     end
 
     assert_redirected_to organizer_path(assigns(:organizer))
@@ -35,7 +35,7 @@ class OrganizersControllerTest < ActionController::TestCase
   end
 
   test "should update organizer" do
-    patch :update, id: @organizer, organizer: { address: @organizer.address, contact: @organizer.contact, link: @organizer.link, name: @organizer.name }
+    patch :update, id: @organizer, organizer: { address: @organizer.address, college: @organizer.college, contact: @organizer.contact, link: @organizer.link, name: @organizer.name }
     assert_redirected_to organizer_path(assigns(:organizer))
   end
 
