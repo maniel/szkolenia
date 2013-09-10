@@ -1,7 +1,7 @@
 <%= form_for(@training) do |f| %>
   <% if @training.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@training.errors.count, "błędów") %> przeszkodziło w zachowaniu danych</h2>
+      <h2><%= "#{@training.errors.count} błędów" %> przeszkodziło w zachowaniu danych</h2>
 
       <ul>
       <% @training.errors.full_messages.each do |msg| %>
@@ -35,20 +35,8 @@
   </div>
   <div id="uczelnia">
     <div class="field">
-      <%= f.label :organizer_name, "Nazwa uczelni" %><br>
-      <%= f.text_field :organizer_name %>
-    </div>
-    <div class="field">
-      <%= f.label :organizer_address, "Adres uczelni" %><br>
-      <%= f.text_field :organizer_address %>
-    </div>
-    <div class="field">
-      <%= f.label :organizer_contact, "Kontakt" %><br>
-      <%= f.text_field :organizer_contact %>
-    </div>
-    <div class="field">
-      <%= f.label :organizer_link, "Strona WWW uczelni" %><br>
-      <%= f.text_field :organizer_link %>
+      <%= f.label :organizer_id %><br>
+      <%= f.select(:organizer_id, @org_array) %>
     </div>
   </div>
   <div id="lokalizacja">

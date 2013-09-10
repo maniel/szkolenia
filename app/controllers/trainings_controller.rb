@@ -42,12 +42,14 @@ class TrainingsController < ApplicationController
 
   def noweszkolenie
     new
-    @cat_array=Category.where(studies: false).map { |cat| [cat.name,cat.id] }
+    @cat_array=Category.where(studies: false).map { |cat| [cat.name, cat.id] }
+    @org_array=Organizer.all.map { |org| [org.name, org.id] }
   end
 
   def nowestudia
     new
-    @cat_array=Category.where(studies: true).map { |cat| [cat.name,cat.id] }
+    @cat_array=Category.where(studies: true).map { |cat| [cat.name, cat.id] }
+    @org_array=Organizer.where(college: true).map { |org| [org.name, org.id] }
   end
 
   # GET /trainings/1/edit
@@ -57,10 +59,12 @@ class TrainingsController < ApplicationController
     if @training.studies
       puts ">>studia"
       @cat_array=Category.where(studies: true).map { |cat| [cat.name,cat.id] }
+      @org_array=Organizer.where(college: true).map { |org| [org.name, org.id] }
       render :edit_studia
     else
       puts ">>szkolenia"
       @cat_array=Category.where(studies: false).map { |cat| [cat.name,cat.id] }
+      @org_array=Organizer.all.map { |org| [org.name, org.id] }
       render :edit_szkolenie
     end
   end
@@ -69,13 +73,25 @@ class TrainingsController < ApplicationController
   # POST /trainings.json
   def create
     @training = Training.new(training_params)
-    @training.location=Location.find(training_params[:location_id].to_i)
-    @training.category=Category.find(training_params[:category_id].to_i)
+    @training.location=Location.find(training_params[:location_id].to_i) unless training_params[:location_id].blank?
+    @training.category=Category.find(training_params[:category_id].to_i) unless training_params[:category_id].blank?
+    @training.organizer=Organizer.find(training_params[:organizer_id].to_i) unless training_params[:organizer_id].blank?
     respond_to do |format|
       if @training.save
         format.html { redirect_to @training, notice: 'Zapisano pomyślnie' }
       else
-        format.html { render action: 'new' }
+        format.html {
+          @locations_array=Location.all.map {|location| [location.name, location.id]}
+          if @training.szkolenie?
+            @cat_array=Category.where(studies: false).map { |cat| [cat.name, cat.id] }
+            @org_array=Organizer.all.map { |org| [org.name, org.id] }
+            render action: "noweszkolenie"
+          else
+            @cat_array=Category.where(studies: true).map { |cat| [cat.name, cat.id] }
+            @org_array=Organizer.where(college: true).map { |org| [org.name, org.id] }
+            render action: "nowestudia"
+          end
+          }
       end
     end
   end
@@ -84,8 +100,9 @@ class TrainingsController < ApplicationController
   # PATCH/PUT /trainings/1.json
   def update
     respond_to do |format|
-      @training.location=Location.find(training_params[:location_id].to_i)
-      @training.category=Category.find(training_params[:category_id].to_i)
+      @training.location=Location.find(training_params[:location_id].to_i) unless training_params[:location_id].blank?
+      @training.category=Category.find(training_params[:category_id].to_i) unless training_params[:category_id].blank?
+      @training.organizer=Organizer.find(training_params[:organizer_id].to_i) unless training_params[:organizer_id].blank?
       if @training.update(training_params)
         format.html { redirect_to @training, notice: 'Zaktualizowano pomyślnie' }
       else
@@ -122,7 +139,6 @@ class TrainingsController < ApplicationController
       params.require(:training).permit(
         :name, :info, :moreinfo, :target, :methods, :groupsize, :trainer_info,
         :studies, :postgrad, :elearning, :paid, :costs, :costs_info, :term,
-        :term_info, :begin_date, :end_date,:address, :organizer_name, :organizer_address,
-        :organizer_contact, :organizer_link, :location_id, :category_id)
+        :term_info, :begin_date, :end_date,:address, :organizer_id, :location_id, :category_id)
     end
 end

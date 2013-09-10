@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906072528) do
+ActiveRecord::Schema.define(version: 20130909195156) do
 
   create_table "categories", force: true do |t|
     t.boolean  "studies"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20130906072528) do
   create_table "organizers", force: true do |t|
     t.string   "name"
     t.text     "address"
-    t.string   "contact"
+    t.text     "contact"
     t.string   "link"
+    t.boolean  "college"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

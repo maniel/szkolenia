@@ -5,7 +5,13 @@ class Training < ActiveRecord::Base
   belongs_to :organizer
   belongs_to :trainer
 
-  validate :_type_valid, :_category_valid
+  validates_presence_of :category, message: "Nie wybrano kategorii!"
+  validates_presence_of :location, message: "Nie wybrano lokalizacji!"
+  validates_presence_of :organizer, message: "Nie wybrano organizatora!"
+
+
+
+  #validate :_type_valid, :_category_valid
   
   def szkolenie?
   	!studies  	
@@ -16,22 +22,22 @@ class Training < ActiveRecord::Base
   end
 
   def podyplomowe?
-  	studies and postgrad
+  	@studies and @postgrad
   end
 
-  def _category_valid
-  	studies==category.studies
-  end
+ #  def _category_valid
+ #  	@studies==@category.studies
+ #  end
 
-  def _type_valid
-  	(studies and postgrad) or (studies and !postgrad) or not (!studies and postgrad)
-  	# tudzież (studies && postgrad) || (studies && !postgrad) || !(!studies && postgrad)
-  	# czyli dopuszczalne nastepujące typy: 
-  	# *studia podyplomowe
-  	# *studia normalne
-  	# *szkolenia
-  	# nie dopuszczamy innych, szkolenia [czyli nie-studia] podyplomowe będą błędne
-  	# formularze nie powinny na to pozwolić, ale ktoś może przy nich manipulować, takze tak na wszelki wypadek:)
-	# prawdopodobnie możnaby było się ograniczyć do `!(!studies && postgrad)`
-  end
+ #  def _type_valid
+ #  	(studies and postgrad) or (studies and !postgrad) or not (!studies and postgrad)
+ #  	# tudzież (studies && postgrad) || (studies && !postgrad) || !(!studies && postgrad)
+ #  	# czyli dopuszczalne nastepujące typy: 
+ #  	# *studia podyplomowe
+ #  	# *studia normalne
+ #  	# *szkolenia
+ #  	# nie dopuszczamy innych, szkolenia [czyli nie-studia] podyplomowe będą błędne
+ #  	# formularze nie powinny na to pozwolić, ale ktoś może przy nich manipulować, takze tak na wszelki wypadek:)
+	# # prawdopodobnie możnaby było się ograniczyć do `!(!studies && postgrad)`
+ #  end
 end
