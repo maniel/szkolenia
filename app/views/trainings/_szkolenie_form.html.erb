@@ -93,10 +93,11 @@
     </div>    
   </div>
   <div id="trener">
-    <h2>Trener/-rzy:</h2>
     <div class="field">
-      <%= f.label :trainer_info, "Informacje o trenerze" %><br>
-      <%= f.text_area :trainer_info %>
+      <%= f.label :trainer_id, "Informacje o trenerze" %><br>
+      <%= f.select (:trainer_id,
+      Trainers.all.map {|trainer| [trainer.name, trainer.id]},
+      {include_blank: "Wybierz trenera"}) %>
     </div>    
   </div>
   

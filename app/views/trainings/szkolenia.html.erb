@@ -21,8 +21,8 @@
         <td><%= training.term_info %></td>        
         <td><%= training.location.name %></td>
         <td><%= training.paid ? "Tak" : "Nie" %></td>
-        <td><%= link_to 'edytuj', edit_training_path(training) %></td>
-        <td><%= link_to 'usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+        <td><%= link_to 'Edytuj', edit_training_path(training) %></td>
+        <td><%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       </tr>
     <% end %>
   </tbody>

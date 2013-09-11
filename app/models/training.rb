@@ -8,6 +8,7 @@ class Training < ActiveRecord::Base
   validates_presence_of :category, message: "Nie wybrano kategorii!"
   validates_presence_of :location, message: "Nie wybrano lokalizacji!"
   validates_presence_of :organizer, message: "Nie wybrano organizatora!"
+  # validates_presence_of :trainer, message: "Nie wybrano trenera!"
 
 
 

@@ -1,7 +1,7 @@
 <%= form_for(@organizer) do |f| %>
   <% if @organizer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= "#{@training.errors.count} błędów" %> przeszkodziło w zachowaniu danych:</h2>
+      <h2><%= "#{@organizer.errors.count} błędów" %> przeszkodziło w zachowaniu danych:</h2>
 
       <ul>
       <% @organizer.errors.messages.each do |msg| %>

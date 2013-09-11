@@ -1,0 +1,25 @@
+<%= form_for(@trainer) do |f| %>
+  <% if @trainer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= "#{@trainer.errors.count} błędów" %> przeszkodziło w zachowaniu danych:</h2>
+
+      <ul>
+      <% @trainer.errors.messages.each do |msg| %>
+        <li><%= msg[1][0] %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Imię i nazwisko trenera" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :info,  "Dodatkowe informacje o trenerze" %><br>
+    <%= f.text_area :info %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
