@@ -1,14 +1,13 @@
-<h1>Listing organizers</h1>
+<h1>Lista organizatorów</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Contact</th>
-      <th>Link</th>
-      <th>College</th>
-      <th></th>
+      <th>Nazwa</th>
+      <th>Addres</th>
+      <th>Kontakt</th>
+      <th>WWW</th>
+      <th>Uczelnia</th>
       <th></th>
       <th></th>
     </tr>
@@ -17,14 +16,13 @@
   <tbody>
     <% @organizers.each do |organizer| %>
       <tr>
-        <td><%= organizer.name %></td>
+        <td><%= link_to organizer.name, organizer %></td>
         <td><%= organizer.address %></td>
         <td><%= organizer.contact %></td>
         <td><%= organizer.link %></td>
-        <td><%= organizer.college %></td>
-        <td><%= link_to 'Show', organizer %></td>
+        <td><%= organizer.college ? "Tak" : "Nie" %></td>
         <td><%= link_to 'Edit', edit_organizer_path(organizer) %></td>
-        <td><%= link_to 'Destroy', organizer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', organizer, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Organizer', new_organizer_path %>
+<%= link_to 'Nowy organizator', new_organizer_path %>

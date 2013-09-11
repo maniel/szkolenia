@@ -18,7 +18,7 @@
     <% @trainings.each do |training| %>
       <tr>
         <td><%= link_to training.name, training %></td>
-        <td><%= training.organizer %></td>
+        <td><%= training.organizer.name %></td>
         <td><%= training.elearning ? "Tak" : "Nie" %></td>
         <td><%= training.paid ? "Tak" : "Nie" %></td>
         <td><%= training.location.name %></td>

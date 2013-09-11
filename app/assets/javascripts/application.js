@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready( function() {
+    $('tbody > tr').click( function() {
+        window.location = $(this).find('a').attr('href');
+    }).hover( function() {
+        $(this).toggleClass('hover');
+    });
+});

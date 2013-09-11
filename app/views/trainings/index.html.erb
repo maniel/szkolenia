@@ -35,7 +35,7 @@
         <td><%= training.costs %></td>
         <td><%= training.term %></td>
         <td><%= training.address %></td>
-        <td><%= training.organizer %></td>
+        <td><%= training.organizer.name %></td>
         <td><%= training.location.name %></td>
         <td><%= training.category.name %></td>
         <td><%= link_to 'pokaż', training %></td>
@@ -45,7 +45,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Nowe szkolenie lub studia' , new_training_path %>

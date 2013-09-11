@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nazwa organizatora/uczelni:</strong>
   <%= @organizer.name %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Adres organizatora/uczelni:</strong>
   <%= @organizer.address %>
 </p>
 
 <p>
-  <strong>Contact:</strong>
+  <strong>Dane kontaktowe:</strong>
   <%= @organizer.contact %>
 </p>
 
 <p>
-  <strong>Link:</strong>
+  <strong>Adres WWW organizatora/uczelni:</strong>
   <%= @organizer.link %>
 </p>
 
 <p>
-  <strong>College:</strong>
-  <%= @organizer.college %>
+  <strong>Uczelnia:</strong>
+  <%= @organizer.college ? "Tak" : "Nie" %>
 </p>
 
-<%= link_to 'Edit', edit_organizer_path(@organizer) %> |
-<%= link_to 'Back', organizers_path %>
+<%= link_to 'Edycja', edit_organizer_path(@organizer) %> |
+<%= link_to 'Wstecz', organizers_path %>

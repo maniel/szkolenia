@@ -53,7 +53,9 @@
     <h2>Organizator</h2>
     <div class="field">
       <%= f.label :organizer_id %><br>
-      <%= f.select(:organizer_id, @org_array, {include_blank: "Wybierz organizatora"}) %>
+      <%= f.select(:organizer_id, 
+        Organizer.all.map { |org| [org.name, org.id] },
+        {include_blank: "Wybierz organizatora"}) %>
     </div>
   </div>
   <div id="koszty">
@@ -100,11 +102,15 @@
   
   <div class="field">
     <%= f.label :location_id %><br>
-    <%= f.select(:location_id, @locations_array, {include_blank: "Wybierz lokalizację"}) %>
+    <%= f.select(:location_id, 
+      Location.all.map {|location| [location.name, location.id]},
+      {include_blank: "Wybierz lokalizację"}) %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.select(:category_id, @cat_array, {include_blank: "Wybierz kategorię"}) %>
+    <%= f.select(:category_id, 
+      Category.where(studies: false).map { |cat| [cat.name, cat.id] },
+      {include_blank: "Wybierz kategorię"}) %>
   </div>
   <%= f.hidden_field :postgrad, :value => 0 %>
   <%= f.hidden_field :studies, :value => 0 %>

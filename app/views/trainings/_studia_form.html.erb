@@ -4,8 +4,8 @@
       <h2><%= "#{@training.errors.count} błędów" %> przeszkodziło w zachowaniu danych</h2>
 
       <ul>
-      <% @training.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% @training.errors.messages.each do |msg| %>
+        <li><%= msg[1][0] %></li>
       <% end %>
       </ul>
     </div>
@@ -36,7 +36,9 @@
   <div id="uczelnia">
     <div class="field">
       <%= f.label :organizer_id %><br>
-      <%= f.select(:organizer_id, @org_array) %>
+      <%= f.select(:organizer_id,
+        Organizer.where(college: true).map { |org| [org.name, org.id] },
+        {include_blank: "Wybierz organizatora"}) %>
     </div>
   </div>
   <div id="lokalizacja">
@@ -56,16 +58,24 @@
     </div>
     <div class="field">
       <%= f.label :costs_info, "Dodatkowe informacje na temat kosztów" %><br>
-      <%= f.check_box :costs_info %>
+      <%= f.text_area :costs_info %>
     </div>
   </div>
   <div class="field">
+    <%= f.label :postgrad, "Podyplomowe" %></br>
+    <%= f.check_box :postgrad %>
+  </div>
+  <div class="field">
     <%= f.label :location_id %><br>
-    <%= f.select(:location_id, @locations_array) %>
+    <%= f.select(:location_id,
+      Location.all.map {|location| [location.name, location.id]},
+      {include_blank: "Wybierz lokalizację"}) %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.select(:category_id, @cat_array) %>
+    <%= f.select(:category_id,
+      Category.where(studies: true).map { |cat| [cat.name,cat.id]},
+      {include_blank: "Wybierz kategorię"}) %>
   </div>
   <%= f.hidden_field :studies, :value => 1 %>
   <div class="actions">

@@ -5,6 +5,7 @@ class TrainingsController < ApplicationController
 
   # GET /trainings
   # GET /trainings.json
+
   def index
     @trainings = Training.all    
   end
@@ -37,34 +38,27 @@ class TrainingsController < ApplicationController
   # GET /trainings/new
   def new
     @training = Training.new
-    @locations_array=Location.all.map {|location| [location.name, location.id]}
   end
 
-  def noweszkolenie
-    new
-    @cat_array=Category.where(studies: false).map { |cat| [cat.name, cat.id] }
-    @org_array=Organizer.all.map { |org| [org.name, org.id] }
-  end
+  
+  alias_method :noweszkolenie, :new
+  alias_method :nowestudia, :new
 
-  def nowestudia
-    new
-    @cat_array=Category.where(studies: true).map { |cat| [cat.name, cat.id] }
-    @org_array=Organizer.where(college: true).map { |org| [org.name, org.id] }
-  end
+  # def noweszkolenie
+  #   new
+  # end
+
+  # def nowestudia
+  #   new
+  # end
 
   # GET /trainings/1/edit
   def edit
-    @locations_array=Location.all.map {|location| [location.name, location.id]}
-    # @cat_array=Category.all.map { |cat| [cat.name,cat.id] }
     if @training.studies
       puts ">>studia"
-      @cat_array=Category.where(studies: true).map { |cat| [cat.name,cat.id] }
-      @org_array=Organizer.where(college: true).map { |org| [org.name, org.id] }
       render :edit_studia
     else
       puts ">>szkolenia"
-      @cat_array=Category.where(studies: false).map { |cat| [cat.name,cat.id] }
-      @org_array=Organizer.all.map { |org| [org.name, org.id] }
       render :edit_szkolenie
     end
   end
@@ -80,18 +74,13 @@ class TrainingsController < ApplicationController
       if @training.save
         format.html { redirect_to @training, notice: 'Zapisano pomyślnie' }
       else
-        format.html {
-          @locations_array=Location.all.map {|location| [location.name, location.id]}
-          if @training.szkolenie?
-            @cat_array=Category.where(studies: false).map { |cat| [cat.name, cat.id] }
-            @org_array=Organizer.all.map { |org| [org.name, org.id] }
-            render action: "noweszkolenie"
+        format.html do
+          if @training.studies
+            render action: "nowestudia"            
           else
-            @cat_array=Category.where(studies: true).map { |cat| [cat.name, cat.id] }
-            @org_array=Organizer.where(college: true).map { |org| [org.name, org.id] }
-            render action: "nowestudia"
+            render action: "noweszkolenie"
           end
-          }
+        end
       end
     end
   end
@@ -106,7 +95,13 @@ class TrainingsController < ApplicationController
       if @training.update(training_params)
         format.html { redirect_to @training, notice: 'Zaktualizowano pomyślnie' }
       else
-        format.html { render action: 'edit' }
+        format.html do
+          if @training.studies
+            render action: 'edit_studia'
+          else            
+            render action: 'edit_szkolenie'
+          end
+        end          
       end
     end
   end
