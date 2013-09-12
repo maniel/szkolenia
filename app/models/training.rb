@@ -3,13 +3,18 @@ class Training < ActiveRecord::Base
   belongs_to :location
   belongs_to :category
   belongs_to :organizer
-  belongs_to :trainer
+  has_and_belongs_to_many :trainers
 
+
+  # validates_presence_of :trainers, message: "Nie wybrano trenera!", unless: :studies
+  validates_presence_of :organizer, message: "Nie wybrano organizatora!"
   validates_presence_of :category, message: "Nie wybrano kategorii!"
   validates_presence_of :location, message: "Nie wybrano lokalizacji!"
-  validates_presence_of :organizer, message: "Nie wybrano organizatora!"
-  # validates_presence_of :trainer, message: "Nie wybrano trenera!"
+  validate :has_trainers?
 
+  def has_trainers?
+    errors.add(:trainers, 'nie wybrano żadnych trenerów!') if self.trainers.blank?
+  end
 
 
   #validate :_type_valid, :_category_valid

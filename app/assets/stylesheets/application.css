@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .
  */
+.field {
+	border: 1px solid green;
+	width: 500px;
+	height: 100px;
+}
 
 tr.hover {
 	text-decoration: underline;

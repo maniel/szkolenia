@@ -95,7 +95,11 @@
 <div id="trener">
   <p>
     <strong>Trener/-rzy:</strong>
-    <%= @training.trainer_info %>
+    <ul>
+    <% @training.trainers.each do |trainer| %>
+      <li><%= link_to trainer.name, trainer %></li>
+    <% end %>
+    </ul>
   </p>
 </div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130911200213) do
+ActiveRecord::Schema.define(version: 20130911203042) do
 
   create_table "categories", force: true do |t|
     t.boolean  "studies"
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(version: 20130911200213) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "trainers_trainings", force: true do |t|
+    t.integer "trainer_id"
+    t.integer "training_id"
+  end
+
   create_table "trainings", force: true do |t|
     t.string   "name"
     t.text     "info"
@@ -66,7 +71,6 @@ ActiveRecord::Schema.define(version: 20130911200213) do
     t.date     "begin_date"
     t.date     "end_date"
     t.text     "address"
-    t.integer  "trainer_id"
     t.integer  "organizer_id"
     t.integer  "location_id"
     t.integer  "category_id"
@@ -77,6 +81,5 @@ ActiveRecord::Schema.define(version: 20130911200213) do
   add_index "trainings", ["category_id"], name: "index_trainings_on_category_id"
   add_index "trainings", ["location_id"], name: "index_trainings_on_location_id"
   add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id"
-  add_index "trainings", ["trainer_id"], name: "index_trainings_on_trainer_id"
 
 end

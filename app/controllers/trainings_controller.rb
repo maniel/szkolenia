@@ -2,7 +2,6 @@
 class TrainingsController < ApplicationController
   before_action :set_training, only: [:show, :edit, :update, :destroy]
 
-
   # GET /trainings
   # GET /trainings.json
 
@@ -70,6 +69,7 @@ class TrainingsController < ApplicationController
     @training.location=Location.find(training_params[:location_id].to_i) unless training_params[:location_id].blank?
     @training.category=Category.find(training_params[:category_id].to_i) unless training_params[:category_id].blank?
     @training.organizer=Organizer.find(training_params[:organizer_id].to_i) unless training_params[:organizer_id].blank?
+    p training_params
     respond_to do |format|
       if @training.save
         format.html { redirect_to @training, notice: 'Zapisano pomyślnie' }
@@ -92,6 +92,7 @@ class TrainingsController < ApplicationController
       @training.location=Location.find(training_params[:location_id].to_i) unless training_params[:location_id].blank?
       @training.category=Category.find(training_params[:category_id].to_i) unless training_params[:category_id].blank?
       @training.organizer=Organizer.find(training_params[:organizer_id].to_i) unless training_params[:organizer_id].blank?
+      @training.trainers=Trainer.find(training_params[:trainer_ids][1..-1].map {|trainer_id| trainer_id.to_i}) unless training_params[:trainer_ids].blank?
       if @training.update(training_params)
         format.html { redirect_to @training, notice: 'Zaktualizowano pomyślnie' }
       else
@@ -134,6 +135,7 @@ class TrainingsController < ApplicationController
       params.require(:training).permit(
         :name, :info, :moreinfo, :target, :methods, :groupsize, :trainer_info,
         :studies, :postgrad, :elearning, :paid, :costs, :costs_info, :term,
-        :term_info, :begin_date, :end_date,:address, :organizer_id, :location_id, :category_id)
+        :term_info, :begin_date, :end_date,:address, :organizer_id, :location_id, 
+        :category_id, trainer_ids: [] )
     end
 end

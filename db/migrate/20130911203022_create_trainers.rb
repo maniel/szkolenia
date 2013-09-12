@@ -6,5 +6,10 @@ class CreateTrainers < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    create_table :trainers_trainings do |t|
+		t.belongs_to :trainer
+		t.belongs_to :training
+    end
   end
 end

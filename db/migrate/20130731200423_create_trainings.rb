@@ -19,7 +19,6 @@ class CreateTrainings < ActiveRecord::Migration
       t.date :begin_date
       t.date :end_date
       t.text :address
-      t.references :trainer, index: true
       t.references :organizer, index: true
       t.references :location, index: true
       t.references :category, index: true

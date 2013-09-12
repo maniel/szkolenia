@@ -67,15 +67,11 @@
   </div>
   <div class="field">
     <%= f.label :location_id %><br>
-    <%= f.select(:location_id,
-      Location.all.map {|location| [location.name, location.id]},
-      {include_blank: "Wybierz lokalizację"}) %>
+    <%= f.select(:location_id, Location.all.map {|location| [location.name, location.id]}, {include_blank: "Wybierz lokalizację"}) %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.select(:category_id,
-      Category.where(studies: true).map { |cat| [cat.name,cat.id]},
-      {include_blank: "Wybierz kategorię"}) %>
+    <%= f.select(:category_id, Category.where(studies: true).map { |cat| [cat.name,cat.id]}, {include_blank: "Wybierz kategorię"}) %>
   </div>
   <%= f.hidden_field :studies, :value => 1 %>
   <div class="actions">
