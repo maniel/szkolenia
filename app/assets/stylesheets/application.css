@@ -11,11 +11,61 @@
  *= require_self
  *= require_tree .
  */
-.field {
-	border: 1px solid green;
-	width: 500px;
-	height: 100px;
+form fieldset legend {
+	font-size: 2em;
+	font-weight: bold;
 }
+
+form {  /* set width in form, not fieldset (still takes up more room w/ fieldset width */
+  font:100% verdana,arial,sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: 800px;
+  width: 560px; 
+}
+
+form fieldset {
+  border-color: #000;
+  border-width: 2px;
+  border-style: solid;
+  padding: 10px;
+  margin: 0;
+}
+
+form label { 
+	display: inline-block;  /* block float the labels to left column, set a width */
+	float: left; 	
+	padding: 5px 0 5px 0;
+	width: 150px;  /* set top margin same as form input - textarea etc. elements */
+	text-align: right; 
+}
+
+form .field {
+	padding: 5px 0 5px 0;
+	display: block;
+}
+form .field:nth-child(odd) {
+	background-color: lightblue;
+}
+form textarea {
+	width: 600px;
+	min-height: 150px;
+	resize: vertical;
+	/* display: inline; inline display must not be set or will hide submit buttons in IE 5x mac */
+	/*width:auto;       set width of form elements to auto-size, otherwise watch for wrap on resize */
+	margin:5px 0 0 10px; /* set margin on left of form elements rather than right of
+                              label aligns textarea better in IE */
+}
+
+form input {
+	/* display: inline; inline display must not be set or will hide submit buttons in IE 5x mac */
+	width:auto;     /*  set width of form elements to auto-size, otherwise watch for wrap on resize */
+	margin:5px 0 0 10px; /* set margin on left of form elements rather than right of
+                              label aligns textarea better in IE */
+}
+
+
+textarea { overflow: auto; }
 
 tr.hover {
 	text-decoration: underline;

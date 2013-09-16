@@ -15,6 +15,10 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).ready(function(){
+    $('textarea').autosize();   
+});
+
 $(document).ready( function() {
     $('tbody > tr').click( function() {
         window.location = $(this).find('a').attr('href');
