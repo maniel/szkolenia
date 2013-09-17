@@ -40,6 +40,22 @@ form label {
 	text-align: right; 
 }
 
+#nav {
+	float: left;
+	width:250px;
+}
+
+#content {
+	float: left;
+}
+
+#nav ul {
+	margin: 5px;
+	padding: 5px;
+	list-style:none;
+	display: box;
+}
+
 form .field {
 	padding: 5px 0 5px 0;
 	display: block;

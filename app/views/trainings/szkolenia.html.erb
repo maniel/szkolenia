@@ -15,14 +15,14 @@
 
   <tbody>
     <% @trainings.each do |training| %>
-      <tr>
-        <td><%= link_to training.name, training %></td>
-        <td><%= training.begin_date %></td>        
-        <td><%= training.term_info %></td>        
-        <td><%= training.location.name %></td>
-        <td><%= training.paid ? "Tak" : "Nie" %></td>
-        <td><%= link_to 'Edytuj', edit_training_path(training) %></td>
-        <td><%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td class="c1"><%= link_to training.name, training %></td>
+        <td class="c2"><%= training.begin_date %></td>        
+        <td class="c1"><%= training.term_info %></td>        
+        <td class="c2"><%= training.location.name %></td>
+        <td class="c1"><%= training.paid ? "Tak" : "Nie" %></td>
+        <td class="nolink c2"><%= link_to 'Edytuj', edit_training_path(training) %></td>
+        <td class="nolink c1"><%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       </tr>
     <% end %>
   </tbody>

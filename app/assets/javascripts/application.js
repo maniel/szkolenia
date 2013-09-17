@@ -25,4 +25,5 @@ $(document).ready( function() {
     }).hover( function() {
         $(this).toggleClass('hover');
     });
+    $('.nolink').click(function(e){ e.stopPropagation() });
 });
