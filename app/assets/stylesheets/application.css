@@ -41,12 +41,17 @@ form label {
 }
 
 #nav {
+	display: block;
 	float: left;
-	width:250px;
+	width:150px;
+	position: fixed;
+	overflow-y: auto;
 }
 
 #content {
 	float: left;
+	position: absolute;
+	left: 160px;
 }
 
 #nav ul {

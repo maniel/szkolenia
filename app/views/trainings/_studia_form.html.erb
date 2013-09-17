@@ -12,65 +12,64 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, "Nazwa kierunku" %><br>
+    <%= f.label :name, "Nazwa studiów" %><br>
     <%= f.text_field :name %>
   </div>
 
-  <div id="info">
+  <%= field_set_tag "Podstawowe informacje o studiach", id:"info" do %>
     <div class="field">
-      <%= f.label :info, "Opis kierunku" %><br>
+      <%= f.label :info, "Opis studiów" %>
       <%= f.text_area :info %>
     </div>
     <div class="field">
-      <%= f.label :methods, "Główne przedmioty nauczania" %><br>
+      <%= f.label :methods, "Specjalności" %>
       <%= f.text_area :methods %>
     </div>
-  </div>
+  <% end %>
 
-  <div id="organizacja_s">
+  <%= field_set_tag "Organizacja studiów", id:"organizacja_s" do %>
     <div class="field">
-      <%= f.label :moreinfo, "Organizacja studiów" %><br>
       <%= f.text_area :moreinfo %>
     </div>
-  </div>
-  <div id="uczelnia">
-    <div class="field">
-      <%= f.label :organizer_id %><br>
+  <% end %>
+  <%= field_set_tag "Uczelnia", id:"uczelnia" do %>
+    <div class="field hint--info hint--bottom" data-hint="Wyświetlani są tylko organizatorzy oznaczeni jako Uczelnia">
+      <%= f.label :organizer_id %>
       <%= f.select(:organizer_id,
         Organizer.where(college: true).map { |org| [org.name, org.id] },
-        {include_blank: "Wybierz organizatora"}) %>
+        {include_blank: "Wybierz uczelnię"}) %>
     </div>
-  </div>
+  <% end %>
   <div id="lokalizacja">
     <div class="field">
-      <%= f.label :address, "Adres wydziału" %><br>
+      <%= f.label :address, "Adres wydziału" %>
       <%= f.text_area :address %>
     </div>
   </div>
   <div id="koszty">
     <div class="field">
-      <%= f.label :paid %><br>
+      <%= f.label :paid %>
       <%= f.check_box :paid %>
     </div>
     <div class="field">
-      <%= f.label :costs, "Koszt studiów" %><br>
+      <%= f.label :costs, "Koszt studiów" %>
       <%= f.text_area :costs %>
     </div>
     <div class="field">
-      <%= f.label :costs_info, "Dodatkowe informacje na temat kosztów" %><br>
+      <%= f.label :costs_info, "Dodatkowe informacje na temat kosztów" %>
       <%= f.text_area :costs_info %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :postgrad, "Podyplomowe" %></br>
+    <%= f.label :postgrad, "Podyplomowe" %>
     <%= f.check_box :postgrad %>
   </div>
   <div class="field">
-    <%= f.label :location_id %><br>
+    <%= f.label :location_id %>
     <%= f.select(:location_id, Location.all.map {|location| [location.name, location.id]}, {include_blank: "Wybierz lokalizację"}) %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br>
+    <%= f.label :category_id %>
     <%= f.select(:category_id, Category.where(studies: true).map { |cat| [cat.name,cat.id]}, {include_blank: "Wybierz kategorię"}) %>
   </div>
   <%= f.hidden_field :studies, :value => 1 %>
