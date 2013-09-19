@@ -45,3 +45,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem "paperclip", "~> 3.0"
+
+gem "puma"
