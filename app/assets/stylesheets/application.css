@@ -11,6 +11,58 @@
  *= require_self
  *= require_tree .
  */
+
+.szkolenie {
+	background: #528e1a;
+	color:#111;
+	padding:5px 5px;
+	width:800px;
+	border:1px solid #222;
+	margin:8px auto;
+}
+
+.szkolenie > ul > li { 
+	list-style: none;
+	float: left;
+}
+
+.szkolenie > ul a {
+	display: block;
+	padding: 6px 10px;
+	text-decoration: none!important;
+	margin: 1px;
+	margin-left: 0;
+	font: 20px Verdana;
+	color: #FFF;
+	background: #3a670f;
+}
+
+.szkolenie > ul a:hover {
+	color: #FFF;
+	background: #2a3c18;
+}
+
+.szkolenie > ul a.selected {
+	margin-bottom: 0;
+	color: #000;
+	background: #f2ffe5;
+	border-bottom: 1px solid #f2ffe5;
+	cursor: default;
+}
+
+.szkolenie div {
+	padding: 10px 10px 8px 10px;
+	*padding-top: 3px;
+	*margin-top: -15px;
+	clear: left;
+	background: #f2ffe5;
+}
+
+.szkolenie div a {
+	color: #000;
+	font-weight: bold;
+}
+
 form fieldset legend {
 	font-size: 2em;
 	font-weight: bold;
@@ -49,17 +101,17 @@ form label {
 	overflow-y: auto;
 }
 
-#content {
-	float: left;
-	position: absolute;
-	left: 160px;
-}
-
 #nav ul {
 	margin: 5px;
 	padding: 5px;
 	list-style: none;
 	display: block;
+}
+
+#content {
+	float: left;
+	position: absolute;
+	left: 160px;
 }
 
 form .field {

@@ -1,22 +1,12 @@
-<h1>Lista szkoleń (studiów)</h1>
+<h1>Lista szkoleń oraz studiów</h1>
 
 <table>
   <thead>
     <tr>
       <th>Nazwa</th>
-      <th>Info</th>
-      <th>Info2</th>
-      <th>Studia</th>
-      <th>Podyplomowe</th>
-      <th>E-learning</th>
-      <th>Płatne</th>
-      <th>Koszty</th>
-      <th>Terminy</th>
-      <th>Miejsce</th>
       <th>Organizator</th>
       <th>Lokalizacja (powiat)</th>
       <th>Kategoria (dziedzina)</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -26,19 +16,9 @@
     <% @trainings.each do |training| %>
       <tr>
         <td><%= training.name %></td>
-        <td><%= training.info %></td>
-        <td><%= training.moreinfo %></td>
-        <td><%= training.studies %></td>
-        <td><%= training.postgrad %></td>
-        <td><%= training.elearning %></td>
-        <td><%= training.paid %></td>
-        <td><%= training.costs %></td>
-        <td><%= training.term %></td>
-        <td><%= training.address %></td>
         <td><%= training.organizer.name %></td>
         <td><%= training.location.name %></td>
         <td><%= training.category.name %></td>
-        <td><%= link_to 'pokaż', training %></td>
         <td><%= link_to 'edytuj', edit_training_path(training) %></td>
         <td><%= link_to 'usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       </tr>
