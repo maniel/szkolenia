@@ -7,7 +7,7 @@ Szkolenia::Application.routes.draw do
 
   resources :trainings do
     collection do
-      get :noweszkolenie, :nowestudia, :szkolenia, :podyplomowe, :studia
+      get :noweszkolenie, :nowestudia, :szkolenia, :studia_podyplomowe, :studia_wyzsze
     end    
   end
 

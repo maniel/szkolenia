@@ -42,7 +42,7 @@
       <%= f.text_area :moreinfo %>
     </div>
   <% end %>
-  <%= field_set_tag "Lokalizacja", id: "Lokalizacja" do %>
+  <%= field_set_tag "Lokalizacja", id: "lokalizacja" do %>
     <div class="field">
       <%= f.label :address, "Miejsce odbywania szkolenia" %>
       <%= f.text_area :address %>
@@ -54,8 +54,7 @@
       <%= f.select(:organizer_id, Organizer.all.map { |org| [org.name, org.id] }, {include_blank: "Wybierz organizatora"}) %>
     </div>
   <% end %>
-  <div id="koszty">
-    <h2>Koszty</h2>
+  <%= field_set_tag "Koszty", id: "koszty" do %>
     <div class="field">
       <%= f.label :paid %>
       <%= f.check_box :paid %>
@@ -68,9 +67,8 @@
       <%= f.label :costs_info, "Dodatkowe informacje na temat kosztów" %>
       <%= f.text_area :costs_info %>
     </div>
-  </div>
-  <div id="termin">
-  <h2>Termin</h2>
+  <% end %>
+  <%= field_set_tag "Termin", id: "termin" do %>
     <div class="field">
       <%= f.label :term, "Termin zgłoszenia" %>
       <%= f.text_field :term %>
@@ -87,22 +85,20 @@
       <%= f.label :end_date, "Data zakończenia" %>
       <%= f.date_field :end_date %>
     </div>    
-  </div>
-  <div id="trener">
-    <div class="field">
-      <%= f.label :trainer_id, "Trenerzy" %>
+  <% end %>
+  <%= field_set_tag "Trener/-rzy", id: "trener" do %>
       <%= f.collection_select(:trainer_ids, Trainer.all, :id, :name, {}, {:multiple => true}) %>
-    </div>    
-  </div>
-  
-  <div class="field">
-    <%= f.label :location_id %>
-    <%= f.select(:location_id, Location.all.map {|location| [location.name, location.id]}, {include_blank: "Wybierz lokalizację"}) %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.select(:category_id, Category.where(studies: false).map { |cat| [cat.name, cat.id] }, {include_blank: "Wybierz kategorię"}) %>
-  </div>
+  <% end %>
+  <%= field_set_tag "Rejon i kategoria", id: "loccat" do %>
+    <div class="field">
+      <%= f.label :location_id %>
+      <%= f.select(:location_id, Location.all.map {|location| [location.name, location.id]}, {include_blank: "Wybierz lokalizację"}) %>
+    </div>
+    <div class="field">
+      <%= f.label :category_id %>
+      <%= f.select(:category_id, Category.where(studies: false).map { |cat| [cat.name, cat.id] }, {include_blank: "Wybierz kategorię"}) %>
+    </div>
+  <% end %>
   <%= f.hidden_field :postgrad, :value => 0 %>
   <%= f.hidden_field :studies, :value => 0 %>
   <div class="actions">

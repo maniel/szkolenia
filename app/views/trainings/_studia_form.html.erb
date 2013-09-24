@@ -32,6 +32,14 @@
       <%= f.text_area :moreinfo %>
     </div>
   <% end %>
+
+  <%= field_set_tag "Lokalizacja", id: "lokalizacja" do %>
+    <div class="field">
+      <%= f.label :address, "Adres wydziału" %>
+      <%= f.text_area :address %>
+    </div>
+  <% end %>
+
   <%= field_set_tag "Uczelnia", id:"uczelnia" do %>
     <div class="field hint--info hint--bottom" data-hint="Wyświetlani są tylko organizatorzy oznaczeni jako Uczelnia">
       <%= f.label :organizer_id %>
@@ -40,13 +48,8 @@
         {include_blank: "Wybierz uczelnię"}) %>
     </div>
   <% end %>
-  <div id="lokalizacja">
-    <div class="field">
-      <%= f.label :address, "Adres wydziału" %>
-      <%= f.text_area :address %>
-    </div>
-  </div>
-  <div id="koszty">
+
+  <%= field_set_tag "Koszty", id: "koszty" do %>
     <div class="field">
       <%= f.label :paid %>
       <%= f.check_box :paid %>
@@ -59,19 +62,23 @@
       <%= f.label :costs_info, "Dodatkowe informacje na temat kosztów" %>
       <%= f.text_area :costs_info %>
     </div>
-  </div>
-  <div class="field">
-    <%= f.label :postgrad, "Podyplomowe" %>
-    <%= f.check_box :postgrad %>
-  </div>
-  <div class="field">
-    <%= f.label :location_id %>
-    <%= f.select(:location_id, Location.all.map {|location| [location.name, location.id]}, {include_blank: "Wybierz lokalizację"}) %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.select(:category_id, Category.where(studies: true).map { |cat| [cat.name,cat.id]}, {include_blank: "Wybierz kategorię"}) %>
-  </div>
+  <% end %>
+  <%= field_set_tag "Forma studiów", id: "postgrad" do %>
+    <div class="field">
+      <%= f.label :postgrad, "Podyplomowe" %>
+      <%= f.check_box :postgrad %>
+    </div>
+  <% end %>
+  <%= field_set_tag "Rejon i kategoria", id: "loccat" do %>
+    <div class="field">
+      <%= f.label :location_id %>
+      <%= f.select(:location_id, Location.all.map {|location| [location.name, location.id]}, {include_blank: "Wybierz lokalizację"}) %>
+    </div>
+    <div class="field">
+      <%= f.label :category_id %>
+      <%= f.select(:category_id, Category.where(studies: true).map { |cat| [cat.name,cat.id]}, {include_blank: "Wybierz kategorię"}) %>
+    </div>
+  <% end %>
   <%= f.hidden_field :studies, :value => 1 %>
   <div class="actions">
     <%= f.submit "Zapisz" %>

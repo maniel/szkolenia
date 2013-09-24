@@ -63,7 +63,7 @@
 
 <%= link_to 'Edycja', edit_training_path(@training) %> |
 <% if @training.postgrad %>
-<%= link_to 'Wstecz', podyplomowe_trainings_path %>
+<%= link_to 'Wstecz', studia_podyplomowe_trainings_path %>
 <% else %>
-<%= link_to 'Wstecz', studia_trainings_path %>
+<%= link_to 'Wstecz', studia_wyzsze_trainings_path %>
 <% end %>

@@ -36,6 +36,7 @@ form label {
 	display: inline-block;  /* block float the labels to left column, set a width */
 	float: left; 	
 	padding: 5px 0 5px 0;
+	/*margin: 5px 0 5px 0;*/
 	width: 150px;  /* set top margin same as form input - textarea etc. elements */
 	text-align: right; 
 }
@@ -57,8 +58,8 @@ form label {
 #nav ul {
 	margin: 5px;
 	padding: 5px;
-	list-style:none;
-	display: box;
+	list-style: none;
+	display: block;
 }
 
 form .field {

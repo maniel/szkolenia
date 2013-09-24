@@ -6,11 +6,11 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body onunload="function(){}">
+<body>
 <div id="nav">
 	<ul>
-		<li><%= link_to 'podyplomowe', podyplomowe_trainings_path %></li>
-		<li><%= link_to 'studia', studia_trainings_path %></li>
+		<li><%= link_to 'studia podyplomowe', studia_podyplomowe_trainings_path %></li>
+		<li><%= link_to 'studia wyzsze', studia_wyzsze_trainings_path %></li>
 		<li><%= link_to 'szkolenia', szkolenia_trainings_path %></li>
 		<li><%= link_to 'organizatorzy', organizers_path %></li>
 		<li><%= link_to 'trenerzy', trainers_path %></li>

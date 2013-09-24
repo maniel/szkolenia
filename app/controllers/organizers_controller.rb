@@ -1,3 +1,4 @@
+# coding: utf-8
 class OrganizersController < ApplicationController
   before_action :set_organizer, only: [:show, :edit, :update, :destroy]
 
@@ -28,11 +29,9 @@ class OrganizersController < ApplicationController
 
     respond_to do |format|
       if @organizer.save
-        format.html { redirect_to @organizer, notice: 'Organizer was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @organizer }
+        format.html { redirect_to @organizer, notice: 'Organizator został pomyślnie dodany.' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @organizer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +41,9 @@ class OrganizersController < ApplicationController
   def update
     respond_to do |format|
       if @organizer.update(organizer_params)
-        format.html { redirect_to @organizer, notice: 'Organizer was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to @organizer, notice: 'Dane organizatora zostąły pomyślnie zaktualizowane.' }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @organizer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +54,6 @@ class OrganizersController < ApplicationController
     @organizer.destroy
     respond_to do |format|
       format.html { redirect_to organizers_url }
-      format.json { head :no_content }
     end
   end
 

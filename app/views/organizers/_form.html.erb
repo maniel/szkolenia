@@ -2,7 +2,6 @@
   <% if @organizer.errors.any? %>
     <div id="error_explanation">
       <h2><%= "#{@organizer.errors.count} błędów" %> przeszkodziło w zachowaniu danych:</h2>
-
       <ul>
       <% @organizer.errors.messages.each do |msg| %>
         <li><%= msg[1][0] %></li>
@@ -12,23 +11,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, "Nazwa organizatora/uczelni" %><br>
+    <%= f.label :name, "Nazwa organizatora/uczelni" %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address, "Adres organizatora/uczelni" %><br>
+    <%= f.label :address, "Adres organizatora/uczelni" %>
     <%= f.text_area :address %>
   </div>
   <div class="field">
-    <%= f.label :contact, "Dane kontaktowe" %><br>
+    <%= f.label :contact, "Dane kontaktowe" %>
     <%= f.text_area :contact %>
   </div>
   <div class="field">
-    <%= f.label :link, "Adres WWW organizatora/uczelni" %><br>
+    <%= f.label :link, "Adres WWW organizatora/uczelni" %>
     <%= f.text_field :link %>
   </div>
   <div class="field">
-    <%= f.label :college, "Uczelnia" %><br>
+    <%= f.label :college, "Uczelnia" %>
     <%= f.check_box :college %>
   </div>
   <div class="actions">

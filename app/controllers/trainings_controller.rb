@@ -9,11 +9,11 @@ class TrainingsController < ApplicationController
     @trainings = Training.all    
   end
 
-  def studia
+  def studia_wyzsze
     @trainings = Training.where(studies:true, postgrad:false)
   end
 
-  def podyplomowe
+  def studia_podyplomowe
     @trainings = Training.where(studies:true, postgrad:true)    
   end
 
@@ -42,14 +42,6 @@ class TrainingsController < ApplicationController
   
   alias_method :noweszkolenie, :new
   alias_method :nowestudia, :new
-
-  # def noweszkolenie
-  #   new
-  # end
-
-  # def nowestudia
-  #   new
-  # end
 
   # GET /trainings/1/edit
   def edit
@@ -113,9 +105,9 @@ class TrainingsController < ApplicationController
     if @training.szkolenie?
       red_url=szkolenia_trainings_url
     elsif @training.studia?
-      red_url=studia_trainings_url
+      red_url=studia_wyzsze_trainings_url
     else
-      red_url=podyplomowe_trainings_url
+      red_url=studia_podyplomowe_trainings_url
     end        
     @training.destroy
     respond_to do |format|
