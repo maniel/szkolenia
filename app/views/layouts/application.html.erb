@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id='flash'>
+<% flash.each do |key, value| -%>
+  <div id='flash_<%= key %>'><%=h value %></div>
+<% end %>
+</div>
 <div id="nav">
+<% if signed_in? -%>
 	<ul>
 		<li><%= link_to 'studia podyplomowe', studia_podyplomowe_trainings_path %></li>
 		<li><%= link_to 'studia wyzsze', studia_wyzsze_trainings_path %></li>
@@ -19,6 +25,11 @@
 		<li><%= link_to 'nowy organizator', new_organizer_path %></li>
 		<li><%= link_to 'nowy trener', new_trainer_path %></li>
 	</ul>
+	<p> Zalogowany jako <%=current_user.email%></p>
+	<%= link_to "Wyloguj", sign_out_path, :method => :delete %>
+<% else -%>
+    <%= link_to "Zaloguj", sign_in_path %>
+<% end -%>
 </div>
 <div id="content">
 <%= yield %>

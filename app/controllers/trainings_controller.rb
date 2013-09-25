@@ -1,6 +1,7 @@
 # coding: utf-8
 class TrainingsController < ApplicationController
   before_action :set_training, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:noweszkolenie, :nowestudia, :create, :edit, :update, :destroy]
 
   # GET /trainings
   # GET /trainings.json
@@ -19,6 +20,14 @@ class TrainingsController < ApplicationController
 
   def szkolenia
     @trainings = Training.where(studies:false)
+  end
+
+  def wyszukajszkolenia
+  	conditions = {studies: false}
+  	namelike = "%#{params[:query]}%"
+  	conditions[:location] = Location.find(training_params[:location_id].to_i) unless training_params[:location_id].blank?
+  	conditions[:category] = Category.find(training_params[:category_id].to_i) unless training_params[:category_id].blank?
+  	@trainings = Training.where(conditions).where("name LIKE ?", namelike)
   end
 
 
@@ -41,6 +50,7 @@ class TrainingsController < ApplicationController
 
   
   alias_method :noweszkolenie, :new
+
   alias_method :nowestudia, :new
 
   # GET /trainings/1/edit

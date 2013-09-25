@@ -1,6 +1,7 @@
 # coding: utf-8
 class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /trainers
   # GET /trainers.json
@@ -14,6 +15,7 @@ class TrainersController < ApplicationController
   end
 
   # GET /trainers/new
+
   def new
     @trainer = Trainer.new
   end

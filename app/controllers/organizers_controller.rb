@@ -1,6 +1,7 @@
 # coding: utf-8
 class OrganizersController < ApplicationController
   before_action :set_organizer, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /organizers
   # GET /organizers.json

@@ -16,7 +16,6 @@ class Training < ActiveRecord::Base
     errors.add(:trainers, 'nie wybrano żadnych trenerów!') if self.trainers.blank?
   end
 
-
   #validate :_type_valid, :_category_valid
   
   def szkolenie?

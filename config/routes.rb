@@ -7,8 +7,8 @@ Szkolenia::Application.routes.draw do
 
   resources :trainings do
     collection do
-      get :noweszkolenie, :nowestudia, :szkolenia, :studia_podyplomowe, :studia_wyzsze
-    end    
+    	get :noweszkolenie, :nowestudia, :szkolenia, :studia_podyplomowe, :studia_wyzsze
+	end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
