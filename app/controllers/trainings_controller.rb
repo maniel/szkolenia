@@ -10,6 +10,15 @@ class TrainingsController < ApplicationController
     @trainings = Training.all    
   end
 
+  def prepare_conditions(conditions)
+  	conditions[:location] = Location.find(params[:location_id].to_i) unless params[:location_id].blank?
+    conditions[:category] = Category.find(params[:category_id].to_i) unless params[:category_id].blank?
+  	conditions[:elearning] = params[:elearning]=='1'?true:false 
+  	conditions[:paid] = params[:paid]=='1'?true:false
+  	puts ">> conditions"
+  	p conditions
+  end
+
   def studia_wyzsze
     @trainings = Training.where(studies:true, postgrad:false)
   end
@@ -18,18 +27,16 @@ class TrainingsController < ApplicationController
     @trainings = Training.where(studies:true, postgrad:true)    
   end
 
-  def szkolenia
-    @trainings = Training.where(studies:false)
-  end
-
-  def wyszukajszkolenia
+  def szkolenia  	
   	conditions = {studies: false}
-  	namelike = "%#{params[:query]}%"
-  	conditions[:location] = Location.find(training_params[:location_id].to_i) unless training_params[:location_id].blank?
-  	conditions[:category] = Category.find(training_params[:category_id].to_i) unless training_params[:category_id].blank?
-  	@trainings = Training.where(conditions).where("name LIKE ?", namelike)
+  	prepare_conditions(conditions) if params[:commit]
+  	unless params[:query].blank?
+  		namelike = "%#{params[:query]}%"
+  		@trainings = Training.where(conditions).where("name LIKE ?", namelike)
+  	else
+  		@trainings = Training.where(conditions)
+  	end
   end
-
 
   # GET /trainings/1
   # GET /trainings/1.json

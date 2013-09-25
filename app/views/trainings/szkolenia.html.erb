@@ -1,5 +1,30 @@
-<h1>Lista szkoleń</h1>
-
+<div class="search">
+<%= form_tag szkolenia_trainings_path, method: "get" do %>
+<%= field_set_tag "Szkolenia", id: "szkoleniasearch" do %>
+	<div class="field">
+	    <%= label_tag :query, "Słowo kluczowe" %>
+	    <%= text_field_tag :query, params[:query] %>
+	</div>
+	<div class="field">
+	    <%= label_tag :location_id, "Lokalizacja" %>
+		<%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name, params[:location_id]), prompt: "Wybierz lokalizację") %>
+	</div>
+	<div class="field">
+	    <%= label_tag :training_category_id, "Kategoria" %>
+		<%= select_tag(:category_id, options_from_collection_for_select(Category.where(studies: false), :id, :name, params[:category_id]), prompt: "Wybierz kategorię") %>
+	</div>
+	<div class="field">
+      <%= label_tag :paid, "Płatne" %>
+      <%= check_box_tag :paid, '1', params[:paid]=='1'?true:false %>
+    </div>
+    <div class="field hint--info hint--bottom" data-hint="Zaznacz jeśli E-learning">
+      <%= label_tag :elearning, "Forma szkolenia" %>
+      <%= check_box_tag :elearning, '1', params[:elearning]=='1'?true:false %>
+    </div>
+	<%= submit_tag "Wyszukaj" %> 
+<% end %>
+<% end %>
+</div>
 <table>
   <thead>
     <tr>
@@ -8,8 +33,10 @@
       <th>Czas trwania</th>
       <th>Lokalizacja (powiat)</th>
       <th>Płatne</th>
+	<% if signed_in? %>
       <th></th>
       <th></th>
+	<% end %> 
     </tr>
   </thead>
 
@@ -21,8 +48,10 @@
         <td class="c1"><%= training.term_info %></td>        
         <td class="c2"><%= training.location.name %></td>
         <td class="c1"><%= training.paid ? "Tak" : "Nie" %></td>
+    <% if signed_in? %>
         <td class="nolink c2"><%= link_to 'Edytuj', edit_training_path(training) %></td>
         <td class="nolink c1"><%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+    <% end %>
       </tr>
     <% end %>
   </tbody>
