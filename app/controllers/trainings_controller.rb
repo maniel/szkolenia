@@ -20,11 +20,25 @@ class TrainingsController < ApplicationController
   end
 
   def studia_wyzsze
-    @trainings = Training.where(studies:true, postgrad:false)
+  	conditions= {studies: true, postgrad: false}
+  	prepare_conditions(conditions) if params[:commit]
+  	unless params[:query].blank?
+  		namelike = "%#{params[:query]}%"
+  		@trainings = Training.where(conditions).where("name LIKE ?", namelike)
+  	else
+  		@trainings = Training.where(conditions)
+  	end
   end
 
   def studia_podyplomowe
-    @trainings = Training.where(studies:true, postgrad:true)    
+  	conditions= {studies: true, postgrad: true}
+  	prepare_conditions(conditions) if params[:commit]
+  	unless params[:query].blank?
+  		namelike = "%#{params[:query]}%"
+  		@trainings = Training.where(conditions).where("name LIKE ?", namelike)
+  	else
+  		@trainings = Training.where(conditions)
+  	end
   end
 
   def szkolenia  	

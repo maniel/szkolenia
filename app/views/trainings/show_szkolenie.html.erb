@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @training.name %></h2>
+<h2><%=link_to @training.category.name, szkolenia_trainings_path(category_id: @training.category.id, commit: true) %>/<%= @training.name %></h2>
 
 <div class="szkolenie">
   <ul class="idTabs">

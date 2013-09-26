@@ -1,0 +1,17 @@
+	<div class="field">
+	    <%= label_tag :query, "Słowo kluczowe" %>
+	    <%= text_field_tag :query, params[:query] %>
+	</div>
+	<div class="field">
+	    <%= label_tag :location_id, "Lokalizacja" %>
+		<%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name, params[:location_id]), prompt: "Wybierz lokalizację") %>
+	</div>
+	<div class="field">
+	    <%= label_tag :training_category_id, "Kategoria" %>
+		<%= select_tag(:category_id, options_from_collection_for_select(Category.where(studies: true), :id, :name, params[:category_id]), prompt: "Wybierz kategorię") %>
+	</div>
+	<div class="field">
+      <%= label_tag :paid, "Płatne" %>
+      <%= check_box_tag :paid, '1', params[:paid]=='1'?true:false %>
+    </div>
+	<%= submit_tag "Wyszukaj" %> 

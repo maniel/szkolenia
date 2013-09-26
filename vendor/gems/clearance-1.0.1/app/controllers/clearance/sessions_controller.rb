@@ -1,3 +1,4 @@
+# coding: utf-8
 class Clearance::SessionsController < ApplicationController
   skip_before_filter :authorize, :only => [:create, :new, :destroy]
   protect_from_forgery :except => :create
@@ -25,10 +26,14 @@ class Clearance::SessionsController < ApplicationController
 
   private
 
+  # def flash_failure_after_create
+  #   flash.now[:notice] = translate(:bad_email_or_password,
+  #     :scope => [:clearance, :controllers, :sessions],
+  #     :default => t('flashes.failure_after_create', :sign_up_path => sign_up_path).html_safe)
+  # end
+
   def flash_failure_after_create
-    flash.now[:notice] = translate(:bad_email_or_password,
-      :scope => [:clearance, :controllers, :sessions],
-      :default => t('flashes.failure_after_create', :sign_up_path => sign_up_path).html_safe)
+    flash.now[:notice] = "Złe hasło!"
   end
 
   def url_after_create

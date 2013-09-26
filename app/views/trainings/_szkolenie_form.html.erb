@@ -11,7 +11,7 @@
       </ul>
     </div>
   <% end %>
-
+<div id="szkolenieform">
   <div class="field">
     <%= f.label :name, "Nazwa szkolenia" %>
     <%= f.text_field :name %>
@@ -103,5 +103,6 @@
   <%= f.hidden_field :studies, :value => 0 %>
   <div class="actions">
     <%= f.submit "Zapisz" %>
+  </div>
   </div>
 <% end %>

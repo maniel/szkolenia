@@ -8,18 +8,20 @@
 </head>
 <body>
 <div id="nav">
-<% if signed_in? -%>
 	<ul>
-		<li><%= link_to 'studia podyplomowe', studia_podyplomowe_trainings_path %></li>
-		<li><%= link_to 'studia wyzsze', studia_wyzsze_trainings_path %></li>
-		<li><%= link_to 'szkolenia', szkolenia_trainings_path %></li>
-		<li><%= link_to 'organizatorzy', organizers_path %></li>
-		<li><%= link_to 'trenerzy', trainers_path %></li>
-		<li><%= link_to 'nowe studia', nowestudia_trainings_path %></li>
-		<li><%= link_to 'nowe szkolenie', noweszkolenie_trainings_path %></li>
-		<li><%= link_to 'nowy organizator', new_organizer_path %></li>
-		<li><%= link_to 'nowy trener', new_trainer_path %></li>
+		<li><%= link_to 'Szkolenia/kursy', szkolenia_trainings_path, class: "szkolenie_link" %></li>
+		<li><%= link_to 'Studia wyższe', studia_wyzsze_trainings_path, class: "studiaw_link" %></li>
+		<li><%= link_to 'Studia podyplomowe', studia_podyplomowe_trainings_path, class: "studiap_link" %></li>
+	<% if signed_in? -%>
+		<li><%= link_to 'Organizatorzy', organizers_path %></li>
+		<li><%= link_to 'Trenerzy', trainers_path %></li>
+		<li><%= link_to 'Nowe szkolenie', noweszkolenie_trainings_path %></li>
+		<li><%= link_to 'Nowe studia', nowestudia_trainings_path %></li>
+		<li><%= link_to 'Nowy organizator', new_organizer_path %></li>
+		<li><%= link_to 'Nowy trener', new_trainer_path %></li>
+	<% end -%>
 	</ul>
+<% if signed_in? -%>
 	<p> Zalogowany jako <%=current_user.email%></p>
 	<%= link_to "Wyloguj", sign_out_path, :method => :delete %>
 <% else -%>

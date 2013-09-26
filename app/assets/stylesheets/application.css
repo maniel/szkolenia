@@ -12,18 +12,64 @@
  *= require_tree .
  */
 
+/*
+kolory dla szkoleń
+83BA00
+759C1A
+648F00
+9DD122
+A5D13E
+
+kolory dla studiów wyższych
+FFDD00
+D5BD23
+C4AA00
+FFE22A
+FFE74C
+*/
+
+table td a:visited {
+	color: #000;
+}
+
+table.szkolenia .odd {
+ 	background: #A5D13E;
+}
+
+table.szkolenia .even {
+ 	background: #83BA00;
+}
 
 
-.odd .c1 {
- 	background: #e0fac7;
- }
 
-.even .c1 {
- 	background: #f2ffe5;
- }
+table.szkolenia {
+	border: 1px solid #648F00;
+    table-layout: fixed;
+    border-spacing: 0;
+    margin-top: 10px;
+}
+
+table.szkolenia thead {
+	background-color: #648F00;
+	color: #fff;
+	border-color: #9DD122!important;
+}
+
+table.szkolenie th,	 td {	
+	width: 200px;
+}
+table.szkolenia td {	
+	border: 1px solid #648F00;	
+}
+
+table.szkolenie th {
+	border: 1px solid #648F00;	
+}
+
+
 
 .szkolenie {
-	background: #528e1a;
+	background: #9DD122;
 	color: #111;
 	padding: 5px 5px;
 	width: 800px;
@@ -47,7 +93,8 @@
 	background: #3a670f;
 }
 
-.szkolenie > ul a:hover {
+
+.szkolenie > ul.idTabs a:hover {
 	color: #FFF;
 	background: #2a3c18;
 }
@@ -68,9 +115,20 @@
 	background: #f2ffe5;
 }
 
+
+.szkolenie div a:hover {
+	color: #111;
+	background-color: #9DD122;
+	font-weight: bold;
+}
+
 .szkolenie div a {
 	color: #000;
 	font-weight: bold;
+}
+
+h1.szkolenie_green {
+	color: #648F00;
 }
 
 form fieldset legend {
@@ -78,35 +136,42 @@ form fieldset legend {
 	font-weight: bold;
 }
 
-form {  /* set width in form, not fieldset (still takes up more room w/ fieldset width */
-  font:100% verdana,arial,sans-serif;
-  margin: 0;
-  padding: 0;
-  min-width: 800px;
-  width: 560px; 
+form {
+	font:100% verdana,arial,sans-serif;
+	margin: 0;
+	padding: 0;
+	min-width: 800px;
+	width: 560px; 
 }
 
 form fieldset {
-  border-color: #000;
-  border-width: 2px;
-  border-style: solid;
-  padding: 10px;
-  margin: 0;
+	border-color: #000;
+	border-width: 2px;
+	border-style: solid;
+	padding: 10px;
+	margin: 0;
+}
+
+form #szkolenieform fieldset {
+	border-color: #648F00;
+}
+
+form #szkolenieform fieldset legend {
+	color: #648F00;
 }
 
 form label { 
-	display: inline-block;  /* block float the labels to left column, set a width */
+	display: inline-block; 
 	float: left; 	
 	padding: 5px 0 5px 0;
-	/*margin: 5px 0 5px 0;*/
-	width: 150px;  /* set top margin same as form input - textarea etc. elements */
+	width: 150px;
 	text-align: right; 
 }
 
 #nav {
 	display: block;
 	float: left;
-	width:150px;
+	width: 200px;
 	position: fixed;
 	overflow-y: auto;
 }
@@ -118,19 +183,43 @@ form label {
 	display: block;
 }
 
+#nav ul a {
+	display: block;
+	color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+
+a.szkolenie_link {
+	background: #9DD122;
+}
+
+a.szkolenie_link:hover {
+	background: #83BA00;
+}
+
 #content {
 	float: left;
 	position: absolute;
-	left: 160px;
+	left: 220px;
 }
 
 form .field {
 	padding: 5px 0 5px 0;
 	display: block;
 }
+
 form .field:nth-child(odd) {
 	background-color: lightblue;
 }
+
+#szkolenieform .field:nth-child(odd) {
+	background-color: #9DD122;
+}
+
 form textarea {
 	width: 600px;
 	min-height: 150px;
@@ -139,6 +228,10 @@ form textarea {
 	/*width:auto;       set width of form elements to auto-size, otherwise watch for wrap on resize */
 	margin:5px 0 0 10px; /* set margin on left of form elements rather than right of
                               label aligns textarea better in IE */
+}
+
+form select {
+	margin:5px 0 0 10px;
 }
 
 form input {
