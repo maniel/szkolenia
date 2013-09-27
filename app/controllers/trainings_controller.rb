@@ -13,7 +13,7 @@ class TrainingsController < ApplicationController
   def prepare_conditions(conditions)
   	conditions[:location] = Location.find(params[:location_id].to_i) unless params[:location_id].blank?
     conditions[:category] = Category.find(params[:category_id].to_i) unless params[:category_id].blank?
-  	conditions[:elearning] = params[:elearning]=='1'?true:false 
+  	conditions[:elearning] = (params[:elearning]=='1'?true:false) unless conditions[:studies]
   	conditions[:paid] = params[:paid]=='1'?true:false
   	puts ">> conditions"
   	p conditions

@@ -1,40 +1,14 @@
-<div class="search studia podyplomowe">
+<div class="search studiapodyplomowe">
 <%= form_tag studia_podyplomowe_trainings_path, method: "get" do %>
-<%= field_set_tag "Studia wyższe", id: "search" do %>
+<div id="studiapform">
+<%= field_set_tag "Studia podyplomowe" do %>
  <%= render "studia_search_form" %>
 <% end %>
+</div>
 <% end %>
 </div>
-<table>
-  <thead>
-    <tr>
-      <th>Kierunek studiów</th>
-      <th>Uczelnia</th>
-      <th>E-learning</th>
-      <th>Płatne</th>
-      <th>Lokalizacja (powiat)</th>
-      <th>Kategoria (dziedzina)</th>
-    <% if signed_in? %>
-      <th></th>
-      <th></th>
-    <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trainings.each do |training| %>
-      <tr>
-        <td><%= link_to training.name, training %></td>
-        <td><%= training.organizer.name %></td>
-        <td><%= training.elearning ? "Tak" : "Nie" %></td>
-        <td><%= training.paid ? "Tak" : "Nie" %></td>
-        <td><%= training.location.name %></td>
-        <td><%= training.category.name %></td>
-      <% if signed_in? %>
-        <td><%= link_to 'Edytuj', edit_training_path(training) %></td>
-        <td><%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
+<% if signed_in? or params[:commit] %>
+<table class="studiapodyplomowe">
+   <%= render "studia_table" %>
 </table>
+ <% end %>

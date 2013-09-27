@@ -1,0 +1,29 @@
+<thead>
+    <tr>
+      <th>Kierunek studiów</th>
+      <th>Uczelnia</th>
+      <th>E-learning</th>
+      <th>Płatne</th>
+      <th>Lokalizacja (powiat)</th>
+      <th>Kategoria (dziedzina)</th>
+  <% if signed_in? %>
+      <th></th>
+  <% end %> 
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trainings.each do |training| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td><%= link_to training.name, training %></td>
+        <td><%= training.organizer.name %></td>
+        <td><%= training.elearning ? "Tak" : "Nie" %></td>
+        <td><%= training.paid ? "Tak" : "Nie" %></td>
+        <td><%= training.location.name %></td>
+        <td><%= training.category.name %></td>
+      <% if signed_in? %>
+        <td><%= link_to 'Edytuj', edit_training_path(training) %> | <%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>

@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div id="<%= @training.postgrad ? 'studiapform' : 'studiawform' %>">
   <div class="field">
     <%= f.label :name, "Nazwa studiów" %>
     <%= f.text_field :name %>
@@ -83,4 +83,5 @@
   <div class="actions">
     <%= f.submit "Zapisz" %>
   </div>
+</div>
 <% end %>

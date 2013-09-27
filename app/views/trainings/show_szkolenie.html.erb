@@ -15,7 +15,7 @@
   <div id="program">
     <p>
       <strong>Cel szkolenia:</strong>
-      <%= @training.target %>
+      <%= @training.target.gsub(/\n/, '<br />') %>
     </p>
     <p>
       <strong>Forma szkolenia:</strong>
@@ -23,19 +23,19 @@
     </p>
     <p>
       <strong>Program szkolenia:</strong>
-      <%= @training.info %>
+      <%= @training.info.gsub(/\n/, '<br />') %>
     </p>
     <p>
       <strong>Metody szkolenia:</strong>
-      <%= @training.methods %>
+      <%= @training.methods.gsub(/\n/, '<br />') %>
     </p>
     <p>
       <strong>Wielkość grupy:</strong>
-      <%= @training.groupsize %>
+      <%= @training.groupsize.gsub(/\n/, '<br />') %>
     </p>
     <p>
       <strong>Uwagi:</strong>
-      <%= @training.moreinfo %>
+      <%= @training.moreinfo.gsub(/\n/, '<br />') %>
     </p>
   </div>
 
@@ -44,7 +44,7 @@
 
     <p>
       <strong>Miejsce szkolenia:</strong>
-      <%= @training.address %>
+      <%= @training.address.gsub(/\n/, '<br />') %>
     </p>
     <div id="mapa">
     </div>
@@ -53,24 +53,24 @@
   <div id="organizator">
     <p>
       <strong>Nazwa organizatora:</strong>
+      <% unless @training.organizer.link.blank? %>
+      <a href="<%= @training.organizer.link %>"><%= @training.organizer.name %></a>
+      <% else %>
       <%= @training.organizer.name %>
+      <% end %>
     </p>
     <p>
       <strong>Adres organizatora:</strong>
-      <%= @training.organizer.address %>
+      <%= @training.organizer.address.gsub(/\n/, '<br />') %>
     </p>
     <p>
       <strong>Kontakt:</strong>
-      <%= @training.organizer.contact %>
-    </p>
-    <p>
-      <strong>Strona WWW organizatora:</strong>
-      <%= @training.organizer.link %>
+      <%= @training.organizer.contact.gsub(/\n/, '<br />') %>
     </p>
   </div>
 
   <div id="koszty">
-  <% if @training.paid %>
+  <% unless @training.paid %>
     <p>Szkolenie jest bezpłatne</p>
   <% else %>
     <p>
@@ -79,7 +79,7 @@
     </p>
     <p>
       <strong>Dodatkowe informacje na temat kosztów:</strong>
-      <%= @training.costs_info %>
+      <%= @training.costs_info.gsub(/\n/, '<br />') %>
     </p>
   <% end %>
   </div>
@@ -111,5 +111,6 @@
   </div>
 </div>
 
-<%= link_to 'Edycja', edit_training_path(@training) %> |
-<%= link_to 'Wstecz', szkolenia_trainings_path %>
+<% if signed_in? %>
+  <%= link_to 'Edycja', edit_training_path(@training), class: "szkolenie_link_block" %>
+<% end %>

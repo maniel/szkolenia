@@ -1,0 +1,138 @@
+/* 
+style dla studiów wyższych 
+*/
+
+/*
+kolory dla studiów wyższych
+FFDD00
+D5BD23
+C4AA00
+FFE22A
+FFE74C
+*/
+
+a.studiaw_link {
+	background: #FFE74C;
+}
+
+a.studiaw_link:hover {
+	background: #FFDD00;
+}
+
+a.studiaw_link_block {
+	background: #FFE74C;
+	padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+
+a.studiaw_link_block:hover {
+	background: #FFDD00;
+	color: black;
+}
+
+table.studiawyzsze .odd {
+ 	background: #FFE74C;
+}
+
+table.studiawyzsze .even {
+ 	background: #FFDD00;
+}
+
+table.studiawyzsze {
+	border: 1px solid #FFE74C;
+    table-layout: fixed;
+    border-spacing: 0;
+    margin-top: 10px;
+}
+
+table.studiawyzsze thead {
+	background-color: #C4AA00;
+	color: #fff;
+	border-color: #9DD122!important;
+}
+
+table.studiawyzsze th,	 td {	
+	width: 200px;
+}
+table.studiawyzsze td {	
+	border: 1px solid #C4AA00;	
+}
+
+table.studiawyzsze th {
+	border: 1px solid #FFDD00;	
+}
+table.studiawyzsze td a:hover {
+	color: #fff;
+	background-color: green;
+}
+
+
+.studiaw {
+	background: #C4AA00;
+	color: #111;
+	padding: 5px 5px;
+	width: 900px;
+	border: 1px solid #222;
+	margin: 8px auto;
+}
+
+.studiaw > ul > li { 
+	list-style: none;
+	float: left;
+}
+
+.studiaw > ul a {
+	display: block;
+	padding: 6px 10px;
+	text-decoration: none!important;
+	margin: 1px;
+	margin-left: 0;
+	font: 20px Verdana;
+	color: black;
+	background: #D5BD23;
+}
+
+
+.studiaw > ul.idTabs a:hover {
+	color: #FFF;
+	background: #000;
+}
+
+.studiaw > ul a.selected {
+	margin-bottom: 0;
+	color: #000;
+	background: #FFE74C;
+	border-bottom: 1px solid #FFDD00;
+	cursor: default;
+}
+
+.studiaw div {
+	padding: 10px 10px 8px 10px;
+	*padding-top: 3px;
+	*margin-top: -15px;
+	clear: left;
+	background: #FFE74C;
+}
+
+
+.studiaw div a:hover {
+	color: #111;
+	background-color: #9DD122;
+	font-weight: bold;
+}
+
+.studiaw div a {
+	color: #000;
+	font-weight: bold;
+}
+
+form #studiawform fieldset {
+	border-color: #C4AA00;
+}
+
+#studiawform .field:nth-child(odd) {
+	background-color: #FFDD00;
+}

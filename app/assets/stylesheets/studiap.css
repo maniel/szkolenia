@@ -1,0 +1,138 @@
+/* 
+style dla studiów podyplomowych 
+*/
+
+/*
+kolory dla studiów podyplomowych
+FF8E00
+BE8030
+A45C00
+FFA93D
+FFBF6E
+*/
+
+a.studiap_link {
+	background: #FFBF6E;
+}
+
+a.studiap_link:hover {
+	background: #FF8E00;
+}
+
+a.studiap_link_block {
+	background: #FFBF6E;
+	padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+
+a.studiap_link_block:hover {
+	background: #FF8E00;
+	color: black;
+}
+
+table.studiapodyplomowe .odd {
+ 	background: #FFBF6E;
+}
+
+table.studiapodyplomowe .even {
+ 	background: #FF8E00;
+}
+
+table.studiapodyplomowe {
+	border: 1px solid #FFBF6E;
+    table-layout: fixed;
+    border-spacing: 0;
+    margin-top: 10px;
+}
+
+table.studiapodyplomowe thead {
+	background-color: #A45C00;
+	color: #fff;
+	border-color: #9DD122!important;
+}
+
+table.studiapodyplomowe th,	 td {	
+	width: 200px;
+}
+table.studiapodyplomowe td {	
+	border: 1px solid #A45C00;	
+}
+
+table.studiapodyplomowe th {
+	border: 1px solid #FF8E00;	
+}
+table.studiapodyplomowe td a:hover {
+	color: #fff;
+	background-color: green;
+}
+
+
+.studiap {
+	background: #A45C00;
+	color: #111;
+	padding: 5px 5px;
+	width: 900px;
+	border: 1px solid #222;
+	margin: 8px auto;
+}
+
+.studiap > ul > li { 
+	list-style: none;
+	float: left;
+}
+
+.studiap > ul a {
+	display: block;
+	padding: 6px 10px;
+	text-decoration: none!important;
+	margin: 1px;
+	margin-left: 0;
+	font: 20px Verdana;
+	color: black;
+	background: #BE8030;
+}
+
+
+.studiap > ul.idTabs a:hover {
+	color: #FFF;
+	background: #000;
+}
+
+.studiap > ul a.selected {
+	margin-bottom: 0;
+	color: #000;
+	background: #FFBF6E;
+	border-bottom: 1px solid #FF8E00;
+	cursor: default;
+}
+
+.studiap div {
+	padding: 10px 10px 8px 10px;
+	*padding-top: 3px;
+	*margin-top: -15px;
+	clear: left;
+	background: #FFBF6E;
+}
+
+
+.studiap div a:hover {
+	color: #111;
+	background-color: #9DD122;
+	font-weight: bold;
+}
+
+.studiap div a {
+	color: #000;
+	font-weight: bold;
+}
+
+form #studiapform fieldset {
+	border-color: #A45C00;
+}
+
+#studiapform .field:nth-child(odd) {
+	background-color: #FF8E00;
+}

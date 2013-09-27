@@ -1,69 +1,76 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @training.name %></h2>
+<h2><%=link_to @training.category.name, @training.postgrad ? studia_podyplomowe_trainings_path(category_id: @training.category.id, commit: true) : studia_wyzsze_trainings_path(category_id: @training.category.id, commit: true) %>/<%= @training.name %></h2>
 
-<div id="info">
-  <p>
-    <strong>Opis studiów:</strong>
-    <%= @training.info %>
-  </p>
-  <p>
-    <strong>Specjalności</strong>
-    <%= @training.methods %>
-  </p>
+<div class="<%= @training.postgrad ? 'studiap' : 'studiaw' %>">
+ <ul class="idTabs">
+    <li><a href="#info">Informacje o kierunku</a></li>    
+    <li><a href="#orgzanizacja_s">Organizacja studiów</a></li>
+    <li><a href="#uczelnia">Uczelnia</a></li>
+    <li><a href="#lokalizacja">Lokalizacja</a></li>
+    <li><a href="#koszty">Koszty</a></li>
+  </ul>
+  <div id="info">
+    <p>
+      <strong>Opis studiów:</strong>
+      <%= @training.info.gsub(/\n/, '<br />') %>
+    </p>
+    <p>
+      <strong>Specjalności:</strong>
+      <%= @training.methods.gsub(/\n/, '<br />') %>
+    </p>
+  </div>
+
+  <div id="orgzanizacja_s">
+    <p>
+      <%= @training.moreinfo.gsub(/\n/, '<br />') %>
+    </p>
+  </div>
+
+  <div id="uczelnia">
+    <p>
+      <strong>Nazwa uczelni:</strong>
+      <% unless @training.organizer.link.blank? %>
+      <a href="<%= @training.organizer.link %>"><%= @training.organizer.name %></a>
+      <% else %>
+      <%= @training.organizer.name %>
+      <% end %>
+    </p>
+    <p>
+      <strong>Adres uczelni:</strong>
+      <%= @training.organizer.address.gsub(/\n/, '<br />') %>
+    </p>
+    <p>
+      <strong>Kontakt:</strong>
+      <%= @training.organizer.contact.gsub(/\n/, '<br />') %>
+    </p>\`
+  </div>
+  <div id="lokalizacja">
+    <p>
+      <strong>Adres wydziału:</strong>
+      <%= @training.address.gsub(/\n/, '<br />') %>
+    </p>
+    <p>
+      <strong><a href="<%= @training.target %>"></a></strong>
+    </p>
+  </div>
+  <div id="koszty">
+  <% unless @training.paid %>
+    <p>Studia są bezpłatne</p>
+  <% else %>
+    <p>
+      <strong>Koszty uczestnictwa jednej osoby:</strong>
+      <%= @training.costs %>
+    </p>
+    <p>
+      <strong>Dodatkowe informacje na temat kosztów:</strong>
+      <%= @training.costs_info.gsub(/\n/, '<br />') %>
+    </p>  
+  <% end %>
+  </div>
 </div>
 
-<div id="orgzanizacja_s">
-  <p>
-    <%= @training.moreinfo %>
-  </p>
-</div>
-
-<div id="uczelnia">
-  <p>
-    <strong>Nazwa uczelni:</strong>
-    <%= @training.organizer.name %>
-  </p>
-  <p>
-    <strong>Adres uczelni:</strong>
-    <%= @training.organizer.address %>
-  </p>
-  <p>
-    <strong>Kontakt:</strong>
-    <%= @training.organizer.contact %>
-  </p>
-  <p>
-    <strong>Strona WWW uczelni:</strong>
-    <%= @training.organizer.link %>
-  </p>
-</div>
-<div id="lokalizacja">
-  <p>
-    <strong>Adres wydziału:</strong>
-    <%= @training.address %>
-  </p>
-  <p>
-    <strong><a href="<%= @training.target %>"></a></strong>
-  </p>
-</div>
-<div id="koszty">
-<% if !@training.paid %>
-  <p>Studia są bezpłatne</p>
-<% else %>
-  <p>
-    <strong>Koszty uczestnictwa jednej osoby:</strong>
-    <%= @training.costs %>
-  </p>
-  <p>
-    <strong>Dodatkowe informacje na temat kosztów:</strong>
-    <%= @training.costs_info %>
-  </p>
+<% if signed_in? %>
+  <%= link_to 'Edycja', edit_training_path(@training), class: @training.postgrad ? 'studiap_link_block' : 'studiaw_link_block' %>
 <% end %>
-</div>
 
-<%= link_to 'Edycja', edit_training_path(@training) %> |
-<% if @training.postgrad %>
-<%= link_to 'Wstecz', studia_podyplomowe_trainings_path %>
-<% else %>
-<%= link_to 'Wstecz', studia_wyzsze_trainings_path %>
-<% end %>

@@ -13,7 +13,7 @@ class Training < ActiveRecord::Base
   validate :has_trainers?
 
   def has_trainers?
-    errors.add(:trainers, 'nie wybrano żadnych trenerów!') if self.trainers.blank?
+    errors.add(:trainers, 'nie wybrano żadnych trenerów!') if self.trainers.blank? and self.szkolenie?
   end
 
   #validate :_type_valid, :_category_valid
