@@ -15,27 +15,27 @@
   <div id="program">
     <p>
       <strong>Cel szkolenia:</strong>
-      <%= @training.target.gsub(/\n/, '<br />') %>
+      <%= simple_format  @training.target %>
     </p>
     <p>
       <strong>Forma szkolenia:</strong>
-      <%= @training.elearning ? "E-learning" : "Stacjonarne" %>
+      <%= simple_format @training.elearning ? "E-learning" : "Stacjonarne" %>
     </p>
     <p>
       <strong>Program szkolenia:</strong>
-      <%= @training.info.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.info %>
     </p>
     <p>
       <strong>Metody szkolenia:</strong>
-      <%= @training.methods.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.methods %>
     </p>
     <p>
       <strong>Wielkość grupy:</strong>
-      <%= @training.groupsize.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.groupsize %>
     </p>
     <p>
       <strong>Uwagi:</strong>
-      <%= @training.moreinfo.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.moreinfo %>
     </p>
   </div>
 
@@ -44,7 +44,7 @@
 
     <p>
       <strong>Miejsce szkolenia:</strong>
-      <%= @training.address.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.address %>
     </p>
     <div id="mapa">
     </div>
@@ -61,11 +61,11 @@
     </p>
     <p>
       <strong>Adres organizatora:</strong>
-      <%= @training.organizer.address.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.organizer.address %>
     </p>
     <p>
       <strong>Kontakt:</strong>
-      <%= @training.organizer.contact.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.organizer.contact %>
     </p>
   </div>
 
@@ -75,11 +75,11 @@
   <% else %>
     <p>
       <strong>Koszty uczestnictwa jednej osoby:</strong>
-      <%= @training.costs %>
+      <%= simple_format @training.costs %>
     </p>
     <p>
       <strong>Dodatkowe informacje na temat kosztów:</strong>
-      <%= @training.costs_info.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.costs_info %>
     </p>
   <% end %>
   </div>
@@ -91,7 +91,7 @@
     </p>
     <p>
       <strong>Czas trwania szkolenia:</strong>
-      <%= @training.term_info %>
+      <%= simple_format @training.term_info %>
     </p>
     <p>
       <strong>Data rozpoczęcia:</strong>

@@ -13,17 +13,17 @@
   <div id="info">
     <p>
       <strong>Opis studiów:</strong>
-      <%= @training.info.gsub(/\n/, '<br />') %>
+      <%= simple_format training.info %>
     </p>
     <p>
       <strong>Specjalności:</strong>
-      <%= @training.methods.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.methods  %>
     </p>
   </div>
 
   <div id="orgzanizacja_s">
     <p>
-      <%= @training.moreinfo.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.moreinfo %>
     </p>
   </div>
 
@@ -38,17 +38,17 @@
     </p>
     <p>
       <strong>Adres uczelni:</strong>
-      <%= @training.organizer.address.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.organizer.address  %>
     </p>
     <p>
       <strong>Kontakt:</strong>
-      <%= @training.organizer.contact.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.organizer.contact  %>
     </p>\`
   </div>
   <div id="lokalizacja">
     <p>
       <strong>Adres wydziału:</strong>
-      <%= @training.address.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.address  %>
     </p>
     <p>
       <strong><a href="<%= @training.target %>"></a></strong>
@@ -64,7 +64,7 @@
     </p>
     <p>
       <strong>Dodatkowe informacje na temat kosztów:</strong>
-      <%= @training.costs_info.gsub(/\n/, '<br />') %>
+      <%= simple_format @training.costs_info %>
     </p>  
   <% end %>
   </div>
