@@ -25,5 +25,6 @@
   <%= @organizer.college ? "Tak" : "Nie" %>
 </p>
 
-<%= link_to 'Edycja', edit_organizer_path(@organizer) %> |
-<%= link_to 'Wstecz', organizers_path %>
+<% if signed_in? %>
+  <%= link_to 'Edycja', edit_organizer_path(@organizer) %>
+<% end %>

@@ -13,7 +13,7 @@
   <div id="info">
     <p>
       <strong>Opis studiów:</strong>
-      <%= simple_format training.info %>
+      <%= simple_format @training.info %>
     </p>
     <p>
       <strong>Specjalności:</strong>
@@ -43,7 +43,7 @@
     <p>
       <strong>Kontakt:</strong>
       <%= simple_format @training.organizer.contact  %>
-    </p>\`
+    </p>
   </div>
   <div id="lokalizacja">
     <p>

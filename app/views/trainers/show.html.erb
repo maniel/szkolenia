@@ -10,5 +10,6 @@
   <%= @trainer.info %>
 </p>
 
-<%= link_to 'Edit', edit_trainer_path(@trainer) %> |
-<%= link_to 'Back', trainers_path %>
+<% if signed_in? %>
+	<%= link_to 'Edit', edit_trainer_path(@trainer) %>
+<% end %>

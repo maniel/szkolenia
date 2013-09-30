@@ -1,7 +1,7 @@
 # coding: utf-8
 class OrganizersController < ApplicationController
   before_action :set_organizer, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize, only: [:new, :create, :edit, :update, :destroy, :index]
 
   # GET /organizers
   # GET /organizers.json
@@ -52,9 +52,15 @@ class OrganizersController < ApplicationController
   # DELETE /organizers/1
   # DELETE /organizers/1.json
   def destroy
-    @organizer.destroy
-    respond_to do |format|
-      format.html { redirect_to organizers_url }
+    begin
+      @organizer.destroy
+      respond_to do |format|
+        format.html { redirect_to organizers_url }
+      end
+    rescue ActiveRecord::DeleteRestrictionError
+      respond_to do |format|
+        format.html { redirect_to organizers_url, alert: "Nie można usunąć organizatora który ma przypisane szkolenia" }
+      end
     end
   end
 
