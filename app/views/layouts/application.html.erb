@@ -15,10 +15,10 @@
 	<% if signed_in? -%>
 		<li><%= link_to 'Nowe szkolenie', noweszkolenie_trainings_path, class: "szkolenie_link" %></li>
 		<li><%= link_to 'Nowe studia', nowestudia_trainings_path, class: "studiaw_link" %></li>			
-		<li><%= link_to 'Organizatorzy', organizers_path %></li>
-		<li><%= link_to 'Trenerzy', trainers_path %></li>
-		<li><%= link_to 'Nowy organizator', new_organizer_path %></li>
-		<li><%= link_to 'Nowy trener', new_trainer_path %></li>
+		<li><%= link_to 'Organizatorzy', organizers_path, class: "sbutton" %></li>
+		<li><%= link_to 'Trenerzy', trainers_path, class: "sbutton" %></li>
+		<li><%= link_to 'Nowy organizator', new_organizer_path, class: "sbutton" %></li>
+		<li><%= link_to 'Nowy trener', new_trainer_path, class: "sbutton" %></li>
 	<% end -%>
 	</ul>
 <% if signed_in? -%>
