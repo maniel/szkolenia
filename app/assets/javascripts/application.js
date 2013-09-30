@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require_tree .
 
+history.navigationMode = 'compatible';
+
 $(document).ready(function(){
     $('textarea').autosize();   
 });
