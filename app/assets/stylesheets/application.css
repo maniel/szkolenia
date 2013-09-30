@@ -13,6 +13,10 @@
  */
 
 
+body {
+	width: 1000px;
+	margin: 0 auto;
+}
 
 table td a:visited {
 	color: #000;
@@ -86,7 +90,7 @@ form label {
 
 #content {
 	float: left;
-	position: absolute;
+	position: relative;
 	left: 220px;
 }
 
