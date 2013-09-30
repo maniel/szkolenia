@@ -49,3 +49,5 @@ gem "paperclip", "~> 3.0"
 gem "puma"
 
 gem "clearance", "1.0.1", :path => "vendor/gems/clearance-1.0.1"
+
+gem "mysql2", "0.3.11", :platform => :mingw

@@ -20,7 +20,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql2
+  database: szkolenia
+  host: 127.0.0.1
+  user: root
+  password: BialystokCV
+  encoding: utf8
   pool: 5
   timeout: 5000
