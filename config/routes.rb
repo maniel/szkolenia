@@ -1,5 +1,7 @@
 Szkolenia::Application.routes.draw do
   
+  root to: redirect("/trainings") #ciekawe czy zadziala na produkcji, powinno [?:)]
+  
   resources :trainers
 
   resources :organizers
@@ -7,7 +9,7 @@ Szkolenia::Application.routes.draw do
   resources :trainings do
     collection do
     	get :noweszkolenie, :nowestudia, :szkolenia, :studia_podyplomowe, :studia_wyzsze
-	end
+    end
   end
 
 
