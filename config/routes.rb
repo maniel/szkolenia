@@ -1,6 +1,10 @@
 Szkolenia::Application.routes.draw do
   
-  root to: redirect("/trainings") #ciekawe czy zadziala na produkcji, powinno [?:)]
+  if Rails.env.production? 
+	root to: redirect("/baza/trainings") 
+  else
+	root to: redirect("/trainings") 
+  end
   
   resources :trainers
 
