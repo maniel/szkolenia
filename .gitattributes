@@ -22,7 +22,8 @@ README    text eol=lf
 *.rspec          text eol=lf
 *.css          text eol=lf
 *.scss          text eol=lf
-*.jbuilder
+*.jbuilder      text eol=lf
+*.bat          text eol=crlf
 
 
 # Denote all files that are truly binary and should not be modified.
