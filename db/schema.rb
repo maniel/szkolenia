@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001091111) do
+ActiveRecord::Schema.define(version: 20131001093601) do
 
   create_table "categories", force: true do |t|
     t.boolean  "studies"
@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20131001091111) do
     t.string   "name"
     t.text     "info"
     t.text     "moreinfo"
-    t.string   "target"
+    t.text     "target"
     t.text     "methods"
-    t.string   "groupsize"
+    t.text     "groupsize"
     t.boolean  "studies"
     t.boolean  "postgrad"
     t.boolean  "elearning"
@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(version: 20131001091111) do
     t.datetime "updated_at"
   end
 
-  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id"
-  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id"
-  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id"
+  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id", using: :btree
+  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id", using: :btree
+  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id", using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at",                     null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20131001091111) do
     t.string   "remember_token",     limit: 128, null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

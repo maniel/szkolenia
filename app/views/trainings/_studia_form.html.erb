@@ -13,7 +13,7 @@
 <div id="<%= @training.postgrad ? 'studiapform' : 'studiawform' %>">
   <div class="field">
     <%= f.label :name, "Nazwa studiów" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, size: 80, maxlength: 255 %>
   </div>
 
   <%= field_set_tag "Podstawowe informacje o studiach", id:"info" do %>
