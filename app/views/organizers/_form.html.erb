@@ -12,7 +12,7 @@
 
   <div class="field">
     <%= f.label :name, "Nazwa organizatora/uczelni" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, size: 80, maxlength: 255  %>
   </div>
   <div class="field">
     <%= f.label :address, "Adres organizatora/uczelni" %>
@@ -24,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :link, "Adres WWW organizatora/uczelni" %>
-    <%= f.text_field :link %>
+    <%= f.text_field :link, size: 80, maxlength: 255  %>
   </div>
   <div class="field">
     <%= f.label :college, "Uczelnia" %>

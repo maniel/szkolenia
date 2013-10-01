@@ -12,7 +12,7 @@
 
   <div class="field">
     <%= f.label :name, "Imię i nazwisko trenera" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, size: 80, maxlength: 255  %>
   </div>
   <div class="field">
     <%= f.label :info,  "Dodatkowe informacje o trenerze" %>
