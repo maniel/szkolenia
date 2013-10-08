@@ -10,7 +10,7 @@ class Training < ActiveRecord::Base
   validates_presence_of :organizer, message: "Nie wybrano organizatora!"
   validates_presence_of :category, message: "Nie wybrano kategorii!"
   validates_presence_of :location, message: "Nie wybrano lokalizacji!"
-  validate :has_trainers?
+  #validate :has_trainers?
 
   def has_trainers?
     errors.add(:trainers, 'nie wybrano żadnych trenerów!') if self.trainers.blank? and self.szkolenie?
