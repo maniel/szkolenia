@@ -85,8 +85,15 @@
       <%= f.date_field :end_date %>
     </div>    
   <% end %>
-  <%= field_set_tag "Trener/-rzy", id: "trener" do %>
+  <%= field_set_tag "Kadra", id: "trener" do %>
+    <div class="field hint--info hint--right" data-hint="Jeśli nie zostanie zaznaczony żaden trener, bedzie pokazywane info z pola 'Informacje o kadrze' (odznaczamy przytrzymując Ctrl)">
+      <%= f.label :trainer_ids, "Trenerzy" %>
       <%= f.collection_select(:trainer_ids, Trainer.all, :id, :name, {}, {:multiple => true}) %>
+    </div>
+    <div class="field">
+      <%= f.label :trainers_present, "Informacje o kadrze" %>
+      <%= f.text_area :trainer_info %>
+      </div>
   <% end %>
   <%= field_set_tag "Rejon i kategoria", id: "loccat" do %>
     <div class="field">

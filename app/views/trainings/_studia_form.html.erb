@@ -43,9 +43,7 @@
   <%= field_set_tag "Uczelnia", id:"uczelnia" do %>
     <div class="field hint--info hint--bottom" data-hint="Wyświetlani są tylko organizatorzy oznaczeni jako Uczelnia">
       <%= f.label :organizer_id %>
-      <%= f.select(:organizer_id,
-        Organizer.where(college: true).map { |org| [org.name, org.id] },
-        {include_blank: "Wybierz uczelnię"}) %>
+      <%= f.select(:organizer_id, Organizer.where(college: true).map { |org| [org.name, org.id] }, {include_blank: "Wybierz uczelnię"}) %>
     </div>
   <% end %>
 

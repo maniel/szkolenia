@@ -9,7 +9,6 @@
     <li><a href="#organizator">Organizator</a></li>
     <li><a href="#koszty">Koszty</a></li>
     <li><a href="#termin">Termin</a></li>
-    <li><a href="#trener">Trener/-rzy</a></li>
   </ul>
 
   <div id="program">
@@ -67,6 +66,21 @@
       <strong>Kontakt:</strong>
       <%= simple_format @training.organizer.contact %>
     </p>
+  <% unless @training.trainers.empty? %>
+    <p>
+    <strong>Trener/-rzy:</strong>
+      <ul>
+      <% @training.trainers.each do |trainer| %>
+        <li><%= link_to trainer.name, trainer %></li>
+      <% end %>
+      </ul>
+    </p>
+  <% else %>
+    <p>
+      <strong>Informacje o kadrze:</strong>
+      <%= simple_format @training.trainer_info %>
+    </p>
+  <% end %>
   </div>
 
   <div id="koszty">
@@ -103,11 +117,7 @@
     </p>
   </div>
   <div id="trener">
-    <ul>
-    <% @training.trainers.each do |trainer| %>
-      <li><%= link_to trainer.name, trainer %></li>
-    <% end %>
-    </ul>
+    
   </div>
 </div>
 

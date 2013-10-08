@@ -12,8 +12,25 @@
  *= require_tree .
  */
 
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
 
+#container {
+   min-height:100%;
+   position:relative;
+}
 
+#footer {
+	clear: both;
+	position:absolute;
+	bottom:0;
+	height:160px; 
+	content:url(http://azymut.up.podlasie.pl/templates/jf_texturia/images/logo1.png);
+}
 
 table td a:visited {
 	color: #000;
@@ -89,6 +106,7 @@ form label {
 	float: left;
 	position: absolute;
 	left: 220px;
+	padding-bottom: 160px;
 }
 
 h2 > a:hover {
