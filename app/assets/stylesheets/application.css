@@ -12,24 +12,50 @@
  *= require_tree .
  */
 
-html,
-body {
-   margin:0;
-   padding:0;
-   height:100%;
-}
-
-#container {
-   min-height:100%;
-   position:relative;
-}
 
 #footer {
-	clear: both;
-	position:absolute;
-	bottom:0;
-	height:160px; 
-	content:url(http://azymut.up.podlasie.pl/templates/jf_texturia/images/logo1.png);
+	vertical-align: bottom;
+	bottom: 0;
+	position: relative;
+}
+
+#nav {
+	display: block;
+	float: left;
+	width: 200px;
+	position: fixed;
+	overflow-y: auto;
+}
+
+#nav ul {
+	margin: 5px;
+	padding: 5px;
+	list-style: none;
+	display: block;
+}
+
+#nav ul a {
+	display: block;
+	color: #333333;
+	line-height: 3;
+	font-weight: bold;
+	text-decoration: none;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+
+#nav ul a.sbutton:hover {
+	background-color: lightblue;
+}
+
+#content {
+	height: 100%;
+	float: left;
+	position: absolute;
+	left: 220px;
 }
 
 table td a:visited {
@@ -71,43 +97,6 @@ form label {
 	text-align: right; 
 }
 
-#nav {
-	display: block;
-	float: left;
-	width: 200px;
-	position: fixed;
-	overflow-y: auto;
-}
-
-#nav ul {
-	margin: 5px;
-	padding: 5px;
-	list-style: none;
-	display: block;
-}
-
-#nav ul a {
-	display: block;
-	color: #333333;
-	line-height: 3;
-	font-weight: bold;
-	text-decoration: none;
-    padding: 2px 6px 2px 6px;
-    border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC;
-}
-#nav ul a.sbutton:hover {
-	background-color: lightblue;
-}
-
-#content {
-	float: left;
-	position: absolute;
-	left: 220px;
-	padding-bottom: 160px;
-}
 
 h2 > a:hover {
 	color: white;

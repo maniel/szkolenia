@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="container">
 <div id="nav">
 	<ul>
 		<li><%= link_to 'Szkolenia/kursy', szkolenia_trainings_path, class: "szkolenie_link" %></li>
@@ -29,7 +28,8 @@
     <%= link_to "Zaloguj", sign_in_path %>
 <% end -%>
 </div>
-<div id="content"><%= yield %></div>
-</div>
+<div id="content"><%= yield %>
+<img id="footer" src="http://azymut.up.podlasie.pl/templates/jf_texturia/images/logo1.png"></div>
+
 </body>
 </html>
