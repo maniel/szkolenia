@@ -66,6 +66,14 @@ div a:visited {
 	color: #000;
 }
 
+table {
+	table-layout: fixed;
+    border-spacing: 0;
+}
+th,	 td {	
+	width: 200px;
+	border: 1px solid;
+}
 
 form fieldset legend {
 	font-size: 2em;
