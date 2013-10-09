@@ -12,21 +12,30 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.core
+//= require jquery.ui.widget
+//= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-pl
 //= require turbolinks
 //= require_tree .
 
 history.navigationMode = 'compatible';
 
-$(document).ready(function(){
-    $('textarea').autosize();   
-});
-
 $(document).ready( function() {
+	$('textarea').autosize();
+
     $('tbody > tr').click( function() {
         window.location = $(this).find('a').attr('href');
     }).hover( function() {
         $(this).toggleClass('hover');
     });
+
     $('.nolink').click(function(e){ e.stopPropagation() });
+
+    if(!Modernizr.inputtypes.date){
+    	var _dateoptions = { dateFormat: "yy-mm-dd" }
+    	$('#training_end_date').datepicker(_dateoptions);
+    	$('#training_begin_date').datepicker(_dateoptions);
+    }
 });
 

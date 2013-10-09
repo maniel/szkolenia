@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.ui.all
  *= require_tree .
  */
 
@@ -66,11 +67,12 @@ div a:visited {
 	color: #000;
 }
 
-table {
+table.normal {
 	table-layout: fixed;
     border-spacing: 0;
 }
-th,	 td {	
+
+.normal th, td {	
 	width: 200px;
 	border: 1px solid;
 }
