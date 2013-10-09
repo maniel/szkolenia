@@ -81,7 +81,7 @@ form fieldset legend {
 }
 
 form {
-	font:100% verdana,arial,sans-serif;
+	font: 100% verdana,arial,sans-serif;
 	margin: 0;
 	padding: 0;
 	min-width: 800px;
@@ -124,10 +124,7 @@ form textarea {
 	width: 600px;
 	min-height: 150px;
 	resize: vertical;
-	/* display: inline; inline display must not be set or will hide submit buttons in IE 5x mac */
-	/*width:auto;       set width of form elements to auto-size, otherwise watch for wrap on resize */
-	margin:5px 0 0 10px; /* set margin on left of form elements rather than right of
-                              label aligns textarea better in IE */
+	margin: 5px 0 0 10px;
 }
 
 form select {
@@ -135,10 +132,8 @@ form select {
 }
 
 form input {
-	/* display: inline; inline display must not be set or will hide submit buttons in IE 5x mac */
-	width:auto;     /*  set width of form elements to auto-size, otherwise watch for wrap on resize */
-	margin:5px 0 0 10px; /* set margin on left of form elements rather than right of
-                              label aligns textarea better in IE */
+	width: auto;
+	margin: 5px 0 0 10px;
 }
 
 
