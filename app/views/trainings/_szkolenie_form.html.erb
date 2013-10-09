@@ -52,6 +52,26 @@
       <%= f.label :organizer_id %>
       <%= f.select(:organizer_id, Organizer.all.map { |org| [org.name, org.id] }, {include_blank: "Wybierz organizatora"}) %>
     </div>
+    <div class="organizer">
+    <% f.fields_for :organizer do |org| %>
+      <div class="field">
+        <%= org.label :name, "Nazwa organizatora/uczelni" %>
+        <%= org.text_field :name, size: 80, maxlength: 255  %>
+      </div>
+      <div class="field">
+        <%= org.label :address, "Adres organizatora/uczelni" %>
+        <%= org.text_area :address %>
+      </div>
+      <div class="field">
+        <%= org.label :contact, "Dane kontaktowe" %>
+        <%= org.text_area :contact %>
+      </div>
+      <div class="field">
+        <%= org.label :link, "Adres WWW organizatora/uczelni" %>
+        <%= org.text_field :link, size: 80, maxlength: 255  %>
+      </div>
+    <% end %>
+    </div>
   <% end %>
   <%= field_set_tag "Koszty", id: "koszty" do %>
     <div class="field">

@@ -67,6 +67,7 @@ class TrainingsController < ApplicationController
   # GET /trainings/new
   def new
     @training = Training.new
+    @training.build_organizer
   end
 
   
