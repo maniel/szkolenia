@@ -52,8 +52,10 @@
       <%= f.label :organizer_id %>
       <%= f.select(:organizer_id, Organizer.all.map { |org| [org.name, org.id] }, {include_blank: "Wybierz organizatora"}) %>
     </div>
+  <% if f.object.new_record? %>
     <div class="organizer">
-    <% f.fields_for :organizer do |org| %>
+    <p style="text-align: center">lub wpisz nowego</p>
+    <%= f.fields_for :organizer do |org| %>
       <div class="field">
         <%= org.label :name, "Nazwa organizatora/uczelni" %>
         <%= org.text_field :name, size: 80, maxlength: 255  %>
@@ -72,6 +74,7 @@
       </div>
     <% end %>
     </div>
+  <% end %>
   <% end %>
   <%= field_set_tag "Koszty", id: "koszty" do %>
     <div class="field">
