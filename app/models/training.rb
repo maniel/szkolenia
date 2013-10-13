@@ -5,6 +5,8 @@ class Training < ActiveRecord::Base
   belongs_to :organizer
   has_and_belongs_to_many :trainers
 
+  accepts_nested_attributes_for :organizer
+
 
   # validates_presence_of :trainers, message: "Nie wybrano trenera!", unless: :studies
   validates_presence_of :organizer, message: "Nie wybrano organizatora!"

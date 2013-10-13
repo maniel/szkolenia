@@ -52,6 +52,31 @@
       <%= f.label :organizer_id %>
       <%= f.select(:organizer_id, Organizer.all.map { |org| [org.name, org.id] }, {include_blank: "Wybierz organizatora"}) %>
     </div>
+  <% if f.object.new_record? %>
+    <p style="text-align: center">lub wpisz nowego</p>
+    <%= f.fields_for :organizer do |org| %>
+      <div class="field">
+        <%= org.label :name, "Nazwa organizatora/uczelni" %>
+        <%= org.text_field :name, size: 80, maxlength: 255  %>
+      </div>
+      <div class="field">
+        <%= org.label :address, "Adres organizatora/uczelni" %>
+        <%= org.text_area :address %>
+      </div>
+      <div class="field">
+        <%= org.label :contact, "Dane kontaktowe" %>
+        <%= org.text_area :contact %>
+      </div>
+      <div class="field">
+        <%= org.label :link, "Adres WWW organizatora/uczelni" %>
+        <%= org.text_field :link, size: 80, maxlength: 255  %>
+      </div>
+      <div class="field">
+        <%= org.label :college, "Uczelnia" %>
+        <%= org.check_box :college %>
+      </div>
+    <% end %>
+  <% end %>
   <% end %>
   <%= field_set_tag "Koszty", id: "koszty" do %>
     <div class="field">
@@ -105,8 +130,8 @@
       <%= f.select(:category_id, Category.where(studies: false).map { |cat| [cat.name, cat.id] }, {include_blank: "Wybierz kategorię"}) %>
     </div>
   <% end %>
-  <%= f.hidden_field :postgrad, :value => 0 %>
-  <%= f.hidden_field :studies, :value => 0 %>
+  <%= f.hidden_field :postgrad, value: 0 %>
+  <%= f.hidden_field :studies, value: 0 %>
   <div class="actions">
     <%= f.submit "Zapisz" %>
   </div>

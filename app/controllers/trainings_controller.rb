@@ -67,6 +67,7 @@ class TrainingsController < ApplicationController
   # GET /trainings/new
   def new
     @training = Training.new
+    @training.build_organizer
   end
 
   
@@ -156,9 +157,6 @@ class TrainingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def training_params
       params.require(:training).permit(
-        :name, :info, :moreinfo, :target, :methods, :groupsize, :trainer_info,
-        :studies, :postgrad, :elearning, :paid, :costs, :costs_info, :term,
-        :term_info, :begin_date, :end_date,:address, :organizer_id, :location_id, 
-        :category_id, trainer_ids: [] )
+        :name, :info, :moreinfo, :target, :methods, :groupsize, :trainer_info, :studies, :postgrad, :elearning, :paid, :costs, :costs_info, :term, :term_info, :begin_date, :end_date,:address, :organizer_id, :location_id, :category_id, organizer_attributes: [:name, :address, :contact, :link, :college], trainer_ids: [] )
     end
 end
