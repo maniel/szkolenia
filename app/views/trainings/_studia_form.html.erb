@@ -45,7 +45,7 @@
       <%= f.label :organizer_id %>
       <%= f.select(:organizer_id, Organizer.where(college: true).map { |org| [org.name, org.id] }, {include_blank: "Wybierz uczelnię"}) %>
     </div>
-    <% if f.object.new_record? %>
+  <% if f.object.new_record? %>
     <p style="text-align: center">lub wpisz nowego</p>
     <%= f.fields_for :organizer do |org| %>
       <div class="field">
