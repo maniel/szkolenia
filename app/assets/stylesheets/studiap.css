@@ -12,13 +12,13 @@ FFBF6E
 */
 
 #nav a.studiap_link {
-	background-image: url('/assets/przyciski_azymut.png');
+	background-image: url('/baza/assets/przyciski_azymut.png');
 	background-position: 0px -435px;
 	
 }
 
 #nav a.studiap_link:hover {
-	background-image: url('/assets/przyciski_azymut.png');
+	background-image: url('/baza/assets/przyciski_azymut.png');
 	background-position: 0px -348px;
 }
 
