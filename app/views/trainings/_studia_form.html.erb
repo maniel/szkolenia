@@ -45,6 +45,28 @@
       <%= f.label :organizer_id %>
       <%= f.select(:organizer_id, Organizer.where(college: true).map { |org| [org.name, org.id] }, {include_blank: "Wybierz uczelnię"}) %>
     </div>
+    <% if f.object.new_record? %>
+    <p style="text-align: center">lub wpisz nowego</p>
+    <%= f.fields_for :organizer do |org| %>
+      <div class="field">
+        <%= org.label :name, "Nazwa organizatora/uczelni" %>
+        <%= org.text_field :name, size: 80, maxlength: 255  %>
+      </div>
+      <div class="field">
+        <%= org.label :address, "Adres organizatora/uczelni" %>
+        <%= org.text_area :address %>
+      </div>
+      <div class="field">
+        <%= org.label :contact, "Dane kontaktowe" %>
+        <%= org.text_area :contact %>
+      </div>
+      <div class="field">
+        <%= org.label :link, "Adres WWW organizatora/uczelni" %>
+        <%= org.text_field :link, size: 80, maxlength: 255  %>
+      </div>
+      <%= org.hidden_field :college, value: 1 %>
+    <% end %>
+  <% end %>
   <% end %>
 
   <%= field_set_tag "Koszty", id: "koszty" do %>
@@ -77,7 +99,7 @@
       <%= f.select(:category_id, Category.where(studies: true).map { |cat| [cat.name,cat.id]}, {include_blank: "Wybierz kategorię"}) %>
     </div>
   <% end %>
-  <%= f.hidden_field :studies, :value => 1 %>
+  <%= f.hidden_field :studies, value: 1 %>
   <div class="actions">
     <%= f.submit "Zapisz" %>
   </div>

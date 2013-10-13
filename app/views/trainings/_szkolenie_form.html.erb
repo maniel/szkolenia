@@ -53,7 +53,6 @@
       <%= f.select(:organizer_id, Organizer.all.map { |org| [org.name, org.id] }, {include_blank: "Wybierz organizatora"}) %>
     </div>
   <% if f.object.new_record? %>
-    <div class="organizer">
     <p style="text-align: center">lub wpisz nowego</p>
     <%= f.fields_for :organizer do |org| %>
       <div class="field">
@@ -72,8 +71,11 @@
         <%= org.label :link, "Adres WWW organizatora/uczelni" %>
         <%= org.text_field :link, size: 80, maxlength: 255  %>
       </div>
+      <div class="field">
+        <%= org.label :college, "Uczelnia" %>
+        <%= org.check_box :college %>
+      </div>
     <% end %>
-    </div>
   <% end %>
   <% end %>
   <%= field_set_tag "Koszty", id: "koszty" do %>
@@ -128,8 +130,8 @@
       <%= f.select(:category_id, Category.where(studies: false).map { |cat| [cat.name, cat.id] }, {include_blank: "Wybierz kategorię"}) %>
     </div>
   <% end %>
-  <%= f.hidden_field :postgrad, :value => 0 %>
-  <%= f.hidden_field :studies, :value => 0 %>
+  <%= f.hidden_field :postgrad, value: 0 %>
+  <%= f.hidden_field :studies, value: 0 %>
   <div class="actions">
     <%= f.submit "Zapisz" %>
   </div>
