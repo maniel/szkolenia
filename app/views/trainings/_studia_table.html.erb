@@ -22,7 +22,7 @@
         <td><%= training.location.name %></td>
         <td><%= training.category.name %></td>
       <% if signed_in? %>
-        <td><%= link_to 'Edytuj', edit_training_path(training) %> | <%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+        <td class="nolink"><%= link_to 'Edytuj', edit_training_path(training) %> | <%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       <% end %>
       </tr>
     <% end %>
