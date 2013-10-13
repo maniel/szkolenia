@@ -85,7 +85,7 @@
     </div>
     <div class="field">
       <%= f.label :costs, "Koszty uczestnictwa jednej osoby" %>
-      <%= f.text_field :costs %>
+      <%= f.text_field :costs, size: 80, maxlength: 255 %>
     </div>
     <div class="field">
       <%= f.label :costs_info, "Dodatkowe informacje na temat kosztów" %>
@@ -95,7 +95,7 @@
   <%= field_set_tag "Termin", id: "termin" do %>
     <div class="field">
       <%= f.label :term, "Termin zgłoszenia" %>
-      <%= f.text_field :term %>
+      <%= f.text_field :term, size: 80, maxlength: 255 %>
     </div>
     <div class="field">
       <%= f.label :term_info, "Czas trwania szkolenia" %>
@@ -116,7 +116,7 @@
       <%= f.collection_select(:trainer_ids, Trainer.all, :id, :name, {}, {:multiple => true}) %>
     </div>
     <div class="field">
-      <%= f.label :trainers_present, "Informacje o kadrze" %>
+      <%= f.label :trainers_present, "Informacje o kadrze trenerskiej" %>
       <%= f.text_area :trainer_info %>
       </div>
   <% end %>
