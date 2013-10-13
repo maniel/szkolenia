@@ -9,12 +9,12 @@
 <body>
 <div id="nav">
 	<ul>
-		<li><%= link_to 'Szkolenia/kursy', szkolenia_trainings_path, class: "szkolenie_link" %></li>
-		<li><%= link_to 'Studia wyższe', studia_wyzsze_trainings_path, class: "studiaw_link" %></li>
-		<li><%= link_to 'Studia podyplomowe', studia_podyplomowe_trainings_path, class: "studiap_link" %></li>
+		<li><%= link_to 'Szkolenia/kursy', szkolenia_trainings_path, class: "przycisk szkolenie_link" %></li>
+		<li><%= link_to 'Studia wyższe', studia_wyzsze_trainings_path, class: "przycisk studiaw_link" %></li>
+		<li><%= link_to 'Studia podyplomowe', studia_podyplomowe_trainings_path, class: "przycisk studiap_link" %></li>
 	<% if signed_in? -%>
-		<li><%= link_to 'Nowe szkolenie', noweszkolenie_trainings_path, class: "szkolenie_link" %></li>
-		<li><%= link_to 'Nowe studia', nowestudia_trainings_path, class: "studiaw_link" %></li>			
+		<li><%= link_to 'Nowe szkolenie', noweszkolenie_trainings_path, class: "przycisk szkolenie_link" %></li>
+		<li><%= link_to 'Nowe studia', nowestudia_trainings_path, class: "przycisk studiaw_link" %></li>			
 		<li><%= link_to 'Organizatorzy', organizers_path, class: "sbutton" %></li>
 		<li><%= link_to 'Trenerzy', trainers_path, class: "sbutton" %></li>
 		<li><%= link_to 'Nowy organizator', new_organizer_path, class: "sbutton" %></li>

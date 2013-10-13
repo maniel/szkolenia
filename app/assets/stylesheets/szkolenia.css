@@ -11,6 +11,15 @@ kolory dla szkoleń
 A5D13E
 */
 
+#nav a.szkolenie_link {
+	background-image: url('/assets/przyciski_azymut.png');
+	background-position: 0px -87px;
+}
+
+#nav a.szkolenie_link:hover {
+	background-image: url('/assets/przyciski_azymut.png');
+	background-position: 0px 0px;
+}
 a.szkolenie_link {
 	background: #9DD122;
 }
