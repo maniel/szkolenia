@@ -17,6 +17,7 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-pl
 //= require turbolinks
+//= require jquery.turbolinks
 //= require_tree .
 
 history.navigationMode = 'compatible';
