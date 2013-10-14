@@ -25,13 +25,11 @@ history.navigationMode = 'compatible';
 $(document).ready( function() {
 	$('textarea').autosize();
 
-    $('tbody > tr').click( function() {
+    $('tbody > tr:not(.nolink)').click( function() {
         window.location = $(this).find('a').attr('href');
     }).hover( function() {
         $(this).toggleClass('hover');
     });
-
-    $('.nolink').click(function(e){ e.stopPropagation() });
 
     if(!Modernizr.inputtypes.date){
     	var _dateoptions = { dateFormat: "yy-mm-dd" }
