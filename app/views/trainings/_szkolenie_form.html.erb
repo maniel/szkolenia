@@ -95,15 +95,15 @@
   <%= field_set_tag "Termin", id: "termin" do %>
     <div class="field">
       <%= f.label :term, "Termin zgłoszenia" %>
-      <%= f.text_field :term, size: 80, maxlength: 255 %>
+      <%= f.date_field :term %>
     </div>
     <div class="field">
       <%= f.label :term_info, "Czas trwania szkolenia" %>
       <%= f.text_area :term_info %>
     </div>
     <div class="field hint--info hint--right" data-hint="Zawartość tego pola pole będzie wyświetlana jeśli nie zostanie wybrany termin rozpoczęcia (czyli jeśli wybrano datę rozpoczęcia dobrze by było dodać datę zakończenia, inaczej będzie się wyświetlało się puste)">
-      <%= f.label :term_notes, "Informacje na temat terminu rozpoczęcia" %>
-      <%= f.text_area :term_notes %>
+      <%= f.label :term_notes, "Data rozpoczęcia (tekst)" %>
+      <%= f.text_field :term_notes, size: 80, maxlength: 255 %>
     </div>
     <div class="field">
       <%= f.label :begin_date, "Data rozpoczęcia" %>

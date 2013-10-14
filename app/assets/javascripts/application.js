@@ -25,17 +25,15 @@ history.navigationMode = 'compatible';
 $(document).ready( function() {
 	$('textarea').autosize();
 
-    $('tbody > tr > td:not(.nolink)').click( function() {
-        window.location = $('tbody > tr').find('a').attr('href');
-    });
-    $('tbody > tr').hover( function() {
+    $('tbody > tr').click( function() {
+        window.location = $(this).find('a').attr('href');
+    }).hover( function() {
         $(this).toggleClass('hover');
     });
 
     if(!Modernizr.inputtypes.date){
     	var _dateoptions = { dateFormat: "yy-mm-dd" }
-    	$('#training_end_date').datepicker(_dateoptions);
-    	$('#training_begin_date').datepicker(_dateoptions);
+    	$("input[type='date'").datepicker(_dateoptions);
     }
 });
 
