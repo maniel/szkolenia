@@ -25,9 +25,10 @@ history.navigationMode = 'compatible';
 $(document).ready( function() {
 	$('textarea').autosize();
 
-    $('tbody > tr').click( function() {
-        window.location = $(this).find('a').attr('href');
-    }).hover( function() {
+    $('tbody > tr > td:not(.nolink)').click( function() {
+        window.location = $(this).parent().find('a').attr('href');
+    })
+    $('tbody > tr').hover( function() {
         $(this).toggleClass('hover');
     });
 
