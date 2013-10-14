@@ -107,6 +107,12 @@
       <strong>Czas trwania szkolenia:</strong>
       <%= simple_format @training.term_info %>
     </p>
+  <% if @training.term_contact %>
+    <p>
+      <strong>Kontakt w sprawie szkolenia:</strong>
+      <%= simple_format @training.term_contact %>
+    </p>
+  <% end %>
   <% if @training.begin_date %>
     <p>
       <strong>Data rozpoczęcia:</strong>
