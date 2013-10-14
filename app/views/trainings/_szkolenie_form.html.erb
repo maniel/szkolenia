@@ -101,6 +101,10 @@
       <%= f.label :term_info, "Czas trwania szkolenia" %>
       <%= f.text_area :term_info %>
     </div>
+    <div class="field hint--info hint--right" data-hint="Zawartość tego pola pole będzie wyświetlana jeśli nie zostanie wybrany termin rozpoczęcia (czyli jeśli wybrano datę rozpoczęcia dobrze by było dodać datę zakończenia, inaczej będzie się wyświetlało się puste)">
+      <%= f.label :term_notes, "Informacje na temat terminu rozpoczęcia" %>
+      <%= f.text_area :term_notes %>
+    </div>
     <div class="field">
       <%= f.label :begin_date, "Data rozpoczęcia" %>
       <%= f.date_field :begin_date %>

@@ -107,6 +107,7 @@
       <strong>Czas trwania szkolenia:</strong>
       <%= simple_format @training.term_info %>
     </p>
+  <% if @training.begin_date %>
     <p>
       <strong>Data rozpoczęcia:</strong>
       <%= @training.begin_date %>
@@ -115,9 +116,12 @@
       <strong>Data zakończenia:</strong>
       <%= @training.end_date %>
     </p>
-  </div>
-  <div id="trener">
-    
+  <% else %>
+    <p>
+      <strong>Informacje na temat terminu rozpoczęcia:</strong>
+      <%= simple_format @training.term_notes %>
+    </p>
+  <% end %>
   </div>
 </div>
 
