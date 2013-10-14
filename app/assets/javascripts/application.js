@@ -34,7 +34,7 @@ $(document).ready( function() {
 
     if(!Modernizr.inputtypes.date){
     	var _dateoptions = { dateFormat: "yy-mm-dd" }
-    	$("input[type='date'").datepicker(_dateoptions);
+    	$("input[type='date']").datepicker(_dateoptions);
     }
 });
 
