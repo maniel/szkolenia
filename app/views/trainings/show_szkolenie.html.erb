@@ -18,12 +18,27 @@
     </p>
     <p>
       <strong>Forma szkolenia:</strong>
-      <%= simple_format @training.elearning ? "E-learning" : "Stacjonarne" %>
+      <%= @training.elearning ? "E-learning" : "Stacjonarne" %>
     </p>
     <p>
       <strong>Program szkolenia:</strong>
       <%= simple_format @training.info %>
+    </p>    
+  <% unless @training.trainers.empty? %>
+    <p>
+    <strong>Trener/-rzy:</strong>
+      <ul>
+      <% @training.trainers.each do |trainer| %>
+        <li><%= link_to trainer.name, trainer %></li>
+      <% end %>
+      </ul>
     </p>
+  <% else %>
+    <p>
+      <strong>Informacje o kadrze trenerskiej:</strong>
+      <%= simple_format @training.trainer_info %>
+    </p>
+  <% end %>
     <p>
       <strong>Metody szkolenia:</strong>
       <%= simple_format @training.methods %>
@@ -66,21 +81,6 @@
       <strong>Kontakt:</strong>
       <%= simple_format @training.organizer.contact %>
     </p>
-  <% unless @training.trainers.empty? %>
-    <p>
-    <strong>Trener/-rzy:</strong>
-      <ul>
-      <% @training.trainers.each do |trainer| %>
-        <li><%= link_to trainer.name, trainer %></li>
-      <% end %>
-      </ul>
-    </p>
-  <% else %>
-    <p>
-      <strong>Informacje o kadrze trenerskiej:</strong>
-      <%= simple_format @training.trainer_info %>
-    </p>
-  <% end %>
   </div>
 
   <div id="koszty">
