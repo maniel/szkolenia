@@ -101,7 +101,7 @@
       <%= f.label :term_info, "Czas trwania szkolenia" %>
       <%= f.text_area :term_info %>
     </div>
-    <div class="field hint--info hint--right" data-hint="Zawartość tego pola pole będzie wyświetlana jeśli nie zostanie wybrany termin rozpoczęcia (czyli jeśli wybrano datę rozpoczęcia dobrze by było dodać datę zakończenia, inaczej będzie się wyświetlało się puste)">
+    <div class="field hint--info hint--top" data-hint="Zawartość tego pola pole będzie wyświetlana jeśli nie zostanie wybrany termin rozpoczęcia (czyli jeśli wybrano datę rozpoczęcia dobrze by było dodać datę zakończenia, inaczej będzie się wyświetlało się puste)">
       <%= f.label :term_notes, "Data rozpoczęcia (tekst)" %>
       <%= f.text_field :term_notes, size: 80, maxlength: 255 %>
     </div>
@@ -119,7 +119,7 @@
     </div>  
   <% end %>
   <%= field_set_tag "Kadra", id: "trener" do %>
-    <div class="field hint--info hint--right" data-hint="Jeśli nie zostanie zaznaczony żaden trener, bedzie pokazywane info z pola 'Informacje o kadrze' (odznaczamy przytrzymując Ctrl)">
+    <div class="field hint--info hint--top" data-hint="Jeśli nie zostanie zaznaczony żaden trener, bedzie pokazywane info z pola 'Informacje o kadrze' (odznaczamy przytrzymując Ctrl)">
       <%= f.label :trainer_ids, "Trenerzy" %>
       <%= f.collection_select(:trainer_ids, Trainer.all, :id, :name, {}, {:multiple => true}) %>
     </div>
