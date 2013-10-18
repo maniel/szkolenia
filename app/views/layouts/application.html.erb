@@ -3,6 +3,7 @@
 <head>
   <title>Baza danych o usługach edukacyjnych</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", "http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two&subset=latin-ext,latin" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -12,24 +13,25 @@
 		<li><%= link_to 'Szkolenia/kursy', szkolenia_trainings_path, class: "przycisk szkolenie_link" %></li>
 		<li><%= link_to 'Studia wyższe', studia_wyzsze_trainings_path, class: "przycisk studiaw_link" %></li>
 		<li><%= link_to 'Studia podyplomowe', studia_podyplomowe_trainings_path, class: "przycisk studiap_link" %></li>
-	<% if signed_in? -%>
+	</ul>
+</div>
+<div id="content">
+<%= yield %>
+<img id="footer" src="http://azymut.up.podlasie.pl/templates/jf_texturia/images/logo1.png">
+</div>
+<% if signed_in? %>
+<div id="nav2">
+	<ul>
 		<li><%= link_to 'Nowe szkolenie', noweszkolenie_trainings_path, class: "przycisk szkolenie_link" %></li>
 		<li><%= link_to 'Nowe studia', nowestudia_trainings_path, class: "przycisk studiaw_link" %></li>			
 		<li><%= link_to 'Organizatorzy', organizers_path, class: "sbutton" %></li>
 		<li><%= link_to 'Trenerzy', trainers_path, class: "sbutton" %></li>
 		<li><%= link_to 'Nowy organizator', new_organizer_path, class: "sbutton" %></li>
 		<li><%= link_to 'Nowy trener', new_trainer_path, class: "sbutton" %></li>
-	<% end -%>
 	</ul>
-<% if signed_in? -%>
-	<p> Zalogowany jako <%=current_user.email%></p>
-	<%= link_to "Wyloguj", sign_out_path, :method => :delete %>
-<% else -%>
-    <%= link_to "Zaloguj", sign_in_path %>
-<% end -%>
+	<p> Zalogowany jako <%=current_user.email%>	<%= link_to "Wyloguj", sign_out_path, :method => :delete %></p>
 </div>
-<div id="content"><%= yield %>
-<img id="footer" src="http://azymut.up.podlasie.pl/templates/jf_texturia/images/logo1.png"></div>
+<% end %>
 
 </body>
 </html>

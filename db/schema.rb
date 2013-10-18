@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 20131014082722) do
     t.text     "term_contact"
   end
 
-  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id", using: :btree
-  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id", using: :btree
-  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id", using: :btree
+  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id"
+  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id"
+  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id"
 
   create_table "users", force: true do |t|
     t.datetime "created_at",                     null: false
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20131014082722) do
     t.string   "remember_token",     limit: 128, null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

@@ -1,11 +1,7 @@
 Szkolenia::Application.routes.draw do
   
-  if Rails.env.production? 
-	root to: redirect("/baza/trainings") 
-  else
-	root to: redirect("/trainings") 
-  end
-  
+  root to: redirect("/baza/trainings") 
+    
   resources :trainers
 
   resources :organizers

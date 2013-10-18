@@ -14,54 +14,100 @@
  */
 
 #footer {
-	vertical-align: bottom;
-	bottom: 0;
-	position: relative;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 #nav {
-	display: block;
-	float: left;
-	width: 257px;
 	position: fixed;
-	overflow-y: auto;
+	left: 50%;
+	right: 50%;
+	top: 0px;
+	height: 100px;
+	width: 1000px;
+	margin-left: -500px;
+	overflow: hidden;
+	background-color: white;
+	z-index: 1;
 }
 
 #nav ul {
-	position: relative;
-	margin: 0px;
-	padding: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 820px;
 	list-style: none;
-	display: block;
 }
 #nav ul a.przycisk {
+	font-family: 'Shadows Into Light Two';
 	text-transform: uppercase;
-	font-size: 1.2em;
-	height: 87px;	
-	line-height: 5.5;
+	font-size: 1.5em;
+	height: 87px;
+	font-weight: bold;
+	line-height: 4.5;
 }
 
 #nav ul a {
 	text-align: center;
-	display: block;
+	display: inline-block;
 	color: #333333;
 	line-height: 2;
 	font-weight: bold;
 	text-decoration: none;
-    /*padding: 2px 6px 2px 6px;*/
     height: 30px;
     width: 256px;
 }
 
-#nav ul a.sbutton:hover {
+#nav ul > li {
+	display: inline;
+}
+
+#nav2 {
+	position: fixed;
+	left: 50%;
+	right: 50%;
+	bottom: 0px;
+	height: 70px;
+	width: 1000px;
+	margin-left: -500px;
+	overflow: hidden;
+	background-color: white;
+	z-index: 1;
+}
+
+#nav2 ul {
+	list-style: none;
+}
+
+#nav2 ul a {
+	text-align: center;
+	display: inline-block;
+	color: #333333;
+	line-height: 2;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#nav2 ul a.sbutton:hover {
 	background-color: lightblue;
 }
 
+#nav2 ul > li {
+	display: inline;
+}
+
+#nav2 p {
+	text-align: center;
+}
+
 #content {
-	height: 100%;
-	float: left;
+	width: 1000px;
+	margin-left: -500px;
+	overflow: auto;
+	left: 50%;
+	right: 50%;
+	top: 100px;
 	position: absolute;
-	left: 270px;
 }
 
 table td a:visited {
@@ -72,13 +118,16 @@ div a:visited {
 	color: #000;
 }
 
+table {
+	width: inherit;
+}
+
 table.normal {
 	table-layout: fixed;
     border-spacing: 0;
 }
 
-.normal th, td {	
-	width: 200px;
+.normal th, td {
 	border: 1px solid;
 }
 
@@ -89,10 +138,8 @@ form fieldset legend {
 
 form {
 	font: 100% verdana,arial,sans-serif;
-	margin: 0;
-	padding: 0;
-	min-width: 800px;
-	width: 560px; 
+	width: 80%;
+	margin: 0px auto 0px auto;
 }
 
 form fieldset {

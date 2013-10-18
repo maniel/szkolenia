@@ -49,9 +49,6 @@ table.szkolenia thead {
 	border-color: #9DD122!important;
 }
 
-table.szkolenia th,	 td {	
-	width: 200px;
-}
 table.szkolenia td {	
 	border: 1px solid #648F00;	
 }
