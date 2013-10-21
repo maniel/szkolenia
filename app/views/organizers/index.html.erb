@@ -12,7 +12,6 @@
       <th>Uczelnia</th>
   <% if signed_in? %>
       <th></th>
-      <th></th>
   <% end %>
     </tr>
   </thead>
@@ -26,8 +25,7 @@
 	    <td><%= organizer.link %></td>
 	    <td><%= organizer.college ? "Tak" : "Nie" %></td>
 	<% if signed_in? %>
-	    <td><%= link_to 'Edytuj', edit_organizer_path(organizer) %></td>
-	    <td><%= link_to 'Usuń', organizer, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+	    <td class="nolink"><%= link_to 'Edytuj', edit_organizer_path(organizer) %> | <%= link_to 'Usuń', organizer, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
 	<% end %>    
 	  </tr>
 	<% end %>
