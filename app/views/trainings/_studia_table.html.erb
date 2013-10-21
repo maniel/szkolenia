@@ -20,7 +20,7 @@
         <td><%= training.elearning ? "Tak" : "Nie" %></td>
         <td><%= training.paid ? "Tak" : "Nie" %></td>
         <td><%= training.location.name %></td>
-        <td><%= training.category.name %></td>
+        <td><%= sanitize training.category.name.gsub("/", "/&#8203;") %></td>
       <% if signed_in? %>
         <td class="nolink"><%= link_to 'Edytuj', edit_training_path(training) %> | <%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       <% end %>
