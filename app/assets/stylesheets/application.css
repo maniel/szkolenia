@@ -115,6 +115,11 @@
 	position: absolute;
 }
 
+#content h2 {
+	font-family: 'Segoe Print';
+
+}
+
 table td a:visited {
 	color: #000;
 }
@@ -140,6 +145,10 @@ form fieldset legend {
 	font-family: 'Segoe Print';
 	font-size: 2em;
 	font-weight: bold;
+}
+
+ul.idTabs > li > a {
+	font-family: 'Segoe Print';
 }
 
 form {
