@@ -8,7 +8,7 @@
 <% end %>
 </div>
 <% if signed_in? or params[:commit] %>
-<% unless @trainings.empty? %>
+<% unless @trainings.empty? and params[:commit] %>
 <table class="studiapodyplomowe">
    <%= render "studia_table" %>
 </table>
