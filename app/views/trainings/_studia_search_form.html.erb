@@ -11,7 +11,7 @@
 		<%= select_tag(:category_id, options_from_collection_for_select(Category.where(studies: true), :id, :name, params[:category_id]), prompt: "Wybierz kategorię") %>
 	</div>
 	<div class="field">
-      <%= label_tag :paid, "Płatne" %>
-      <%= check_box_tag :paid, '1', params[:paid]=='1'?true:false %>
+      <%= label_tag :free, "Tylko bezpłatne" %>
+      <%= check_box_tag :free, '1', params[:free]=='1'?true:false %>
     </div>
 	<%= submit_tag "Wyszukaj" %> 

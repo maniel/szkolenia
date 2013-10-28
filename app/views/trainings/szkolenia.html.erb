@@ -15,11 +15,11 @@
 		<%= select_tag(:category_id, options_from_collection_for_select(Category.where(studies: false), :id, :name, params[:category_id]), prompt: "Wybierz kategorię") %>
 	</div>
 	<div class="field">
-      <%= label_tag :paid, "Płatne" %>
-      <%= check_box_tag :paid, '1', params[:paid]=='1'?true:false %>
+      <%= label_tag :free, "Tylko bezpłatne" %>
+      <%= check_box_tag :free, '1', params[:free]=='1'?true:false %>
     </div>
     <div class="field">
-      <%= label_tag :elearning, "E-learning" %>
+      <%= label_tag :elearning, "Tylko e-learning" %>
       <%= check_box_tag :elearning, '1', params[:elearning]=='1'?true:false %>
     </div>
 	<%= submit_tag "Wyszukaj" %> 
@@ -28,6 +28,7 @@
 <% end %>
 </div>
 <% if signed_in? or params[:commit] %>
+<% unless @trainings.empty? %>
 <table class="szkolenia">
   <thead>
     <tr>
@@ -62,4 +63,7 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+<p style="text-align: center; border: dashed 4px red; padding: 20px; width: 800px; margin:  20px auto 20px auto; background: lavenderblush; font-size: large;">Nie znaleziono żadnych pozycji. Przejdź na inną zakładkę albo wybierz inne kryterium wyszukiwania.</p>
+<% end %>
 <% end %>

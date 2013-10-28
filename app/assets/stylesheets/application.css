@@ -35,6 +35,8 @@
 #nav h2 {
 	font-family: 'Segoe Print';	
 	text-align: center;
+	font-size: 2.5em;
+	line-height: 0.01em;
 }
 
 #nav ul {

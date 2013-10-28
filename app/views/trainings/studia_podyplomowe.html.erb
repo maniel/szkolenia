@@ -8,7 +8,11 @@
 <% end %>
 </div>
 <% if signed_in? or params[:commit] %>
+<% unless @trainings.empty? %>
 <table class="studiapodyplomowe">
    <%= render "studia_table" %>
 </table>
- <% end %>
+<% else %>
+<p style="text-align: center; border: dashed 4px red; padding: 20px; width: 800px; margin:  20px auto 20px auto; background: lavenderblush; font-size: large;">Nie znaleziono żadnych pozycji. Przejdź na inną zakładkę albo wybierz inne kryterium wyszukiwania.</p>
+<% end %>
+<% end %>
