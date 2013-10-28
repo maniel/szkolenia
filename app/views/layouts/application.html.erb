@@ -8,7 +8,11 @@
 	  <%= render partial: "layouts/ga" if Rails.env.production? %>
 	</head>
 	<body>
+		<% if params[:action]=="index" %>
+		<div id="nav" style="top: 30%">
+		<% else %>
 		<div id="nav">
+		<% end %>
 		<h2>Baza danych o usługach edukacyjnych</h1>
 			<ul>
 				<li><%= link_to 'Szkolenia/kursy', szkolenia_trainings_path, class: "przycisk szkolenie_link" %></li>
@@ -16,7 +20,11 @@
 				<li><%= link_to 'Studia podyplomowe', studia_podyplomowe_trainings_path, class: "przycisk studiap_link" %></li>
 			</ul>
 		</div>
+		<% if params[:action]=="index" %>
+		<div id="content" style="top: 60%">
+		<% else %>
 		<div id="content">
+		<% end %>
 			<%= yield %>
 			<img id="footer" src="http://azymut.up.podlasie.pl/templates/jf_texturia/images/logo1.png">
 		</div>
