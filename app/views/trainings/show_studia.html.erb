@@ -6,7 +6,7 @@
  <ul class="idTabs">
     <li><a href="#info">Informacje o kierunku</a></li>    
     <li><a href="#orgzanizacja_s">Organizacja studiów</a></li>
-    <li><a href="#uczelnia">Uczelnia</a></li>
+    <li><a href="#uczelnia">Organizator</a></li>
     <li><a href="#lokalizacja">Lokalizacja</a></li>
     <li><a href="#koszty">Koszty</a></li>
   </ul>
@@ -29,7 +29,7 @@
 
   <div id="uczelnia">
     <p>
-      <strong>Nazwa uczelni:</strong>
+      <strong>Nazwa organizatora:</strong>
       <% unless @training.organizer.link.blank? %>
       <a href="<%= @training.organizer.link %>"><%= @training.organizer.name %></a>
       <% else %>
@@ -47,12 +47,10 @@
   </div>
   <div id="lokalizacja">
     <p>
-      <strong>Adres wydziału:</strong>
       <%= simple_format @training.address  %>
     </p>
-    <p>
-      <strong><a href="<%= @training.target %>"></a></strong>
-    </p>
+    <div id="mapa">
+    </div>
   </div>
   <div id="koszty">
   <% unless @training.paid %>
