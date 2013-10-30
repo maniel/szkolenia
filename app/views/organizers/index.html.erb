@@ -8,7 +8,6 @@
       <th>Nazwa</th>
       <th>Adres</th>
       <th>Kontakt</th>
-      <th>WWW</th>
       <th>Uczelnia</th>
   <% if signed_in? %>
       <th></th>
@@ -22,7 +21,6 @@
 	    <td><%= link_to organizer.name, organizer %></td>
 	    <td><%= organizer.address %></td>
 	    <td><%= organizer.contact %></td>
-	    <td><%= organizer.link %></td>
 	    <td><%= organizer.college ? "Tak" : "Nie" %></td>
 	<% if signed_in? %>
 	    <td class="nolink"><%= link_to 'Edytuj', edit_organizer_path(organizer) %> | <%= link_to 'Usuń', organizer, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>

@@ -8,7 +8,7 @@
 	  <%= render partial: "layouts/ga" if Rails.env.production? %>
 	</head>
 	<body>
-		<% if params[:action]=="index" %>
+		<% if params[:action]=="index" && params[:controller]=="trainings"%>
 		<div id="nav" style="top: 30%">
 		<% else %>
 		<div id="nav">
@@ -20,7 +20,7 @@
 				<li><%= link_to 'Studia podyplomowe', studia_podyplomowe_trainings_path, class: "przycisk studiap_link" %></li>
 			</ul>
 		</div>
-		<% if params[:action]=="index" %>
+		<% if params[:action]=="index" && controller.controller_name=="trainings" %>
 		<div id="content" style="top: 60%">
 		<% else %>
 		<div id="content">
