@@ -1,0 +1,122 @@
+<%= form_for(@zawod) do |f| %>
+  <% if @zawod.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= "#{@zawod.errors.count} błędów " %> przeszkodziło w zachowaniu danych:</h2>
+      <ul>
+      <% @zawod.errors.full_messages.each do |msg| %>
+        <li><%= msg[1][0] %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="zawodyform">
+  <div class="field">
+    <%= f.label :name, "Nazwa zawodu" %>
+    <%= f.text_field :name, size: 80, maxlength: 255  %>
+  </div>
+  <%= field_set_tag "Program", id:"program" do %>
+    <div class="field">
+      <%= f.label :description, "Opis kierunku" %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="field">
+      <%= f.label :additional_info, "Program nauczania" %>
+      <%= f.text_area :additional_info %>
+    </div>
+  <% end %>
+  <%= field_set_tag "Lokalizacja", id: "lokalizacja" do %>
+    <div class="field">
+      <%= f.text_area :address %>
+    </div>
+  <% end %>
+  <%= field_set_tag "Organizator", id:"uczelnia" do %>
+    <div class="field">
+      <%= f.label :organizer_id %>
+      <%= f.select(:organizer_id, Organizer.all.map { |org| [org.name, org.id] }, {include_blank: "Wybierz organizatora"}) %>
+    </div>
+  <% if f.object.new_record? %>
+    <p style="text-align: center">lub wpisz nowego</p>
+    <%= f.fields_for :organizer do |org| %>
+      <div class="field">
+        <%= org.label :name, "Nazwa organizatora/uczelni" %>
+        <%= org.text_field :name, size: 80, maxlength: 255  %>
+      </div>
+      <div class="field">
+        <%= org.label :address, "Adres organizatora/uczelni" %>
+        <%= org.text_area :address %>
+      </div>
+      <div class="field">
+        <%= org.label :contact, "Dane kontaktowe" %>
+        <%= org.text_area :contact %>
+      </div>
+      <div class="field">
+        <%= org.label :link, "Adres WWW organizatora/uczelni" %>
+        <%= org.text_field :link, size: 80, maxlength: 255  %>
+      </div>
+      <div class="field">
+        <%= org.label :type, "Typ szkoły" %>
+        <%= org.text_area :type %>
+      </div>
+      <div class="field">
+        <%= org.label :college, "Uczelnia" %>
+        <%= org.check_box :college %>
+      </div>
+    <% end %>
+  <% end %>
+  <% end %>
+
+  <%= field_set_tag "Koszty", id: "koszty" do %>
+    <div class="field">
+      <%= f.label :paid %>
+      <%= f.check_box :paid %>
+    </div>
+    <div class="field">
+      <%= f.label :costs_semester, "Odpłatność za jeden semestr" %>
+      <%= f.text_area :costs_semester %>
+    </div>
+    <div class="field">
+      <%= f.label :costs_info, "Dodatkowe informacje na temat kosztów" %>
+      <%= f.text_area :costs_info %>
+    </div>
+  <% end %>
+
+  <%= field_set_tag "Terminy i warunki rekrutacji", id: "terms" do %>
+    <div class="field">
+      <%= f.label :term_time, "Czas trwania nauki" %>
+      <%= f.text_area :term_time %>
+    </div>
+    <div class="field">
+      <%= f.label :term_info, "Termin składania dokumentów" %>
+      <%= f.text_area :term_info %>
+    </div>
+    <div class="field">
+      <%= f.label :begin_date, "Data rozpoczęcia" %>
+      <%= f.date_field :begin_date %>
+    </div>
+    <div class="field">
+      <%= f.label :end_date, "Data zakończenia" %>
+      <%= f.date_field :end_date %>
+    </div>
+    <div class="field">
+      <%= f.label :documents, "Wymagane dokumenty" %>
+      <%= f.text_area :documents %>
+    </div>
+  <% end %>
+
+  <%= field_set_tag "Rejon i kategoria", id: "loccat" do %>
+    <div class="field">
+      <%= f.label :location_id %>
+      <%= f.select(:location_id, Location.all.map {|location| [location.name, location.id]}, {include_blank: "Wybierz lokalizację"}) %>
+    </div>
+    <div class="field">
+      <%= f.label :category_id %>
+      <%= f.select(:category_id, Category.where(studies: true).map { |cat| [cat.name,cat.id]}, {include_blank: "Wybierz kategorię"}) %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Zapisz" %>
+  </div>
+</div>
+<% end %>

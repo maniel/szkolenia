@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014082722) do
+ActiveRecord::Schema.define(version: 20131104161407) do
 
   create_table "categories", force: true do |t|
     t.boolean  "studies"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20131014082722) do
     t.boolean  "college"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "type"
   end
 
   create_table "trainers", force: true do |t|
@@ -95,5 +96,52 @@ ActiveRecord::Schema.define(version: 20131014082722) do
 
   add_index "users", ["email"], name: "index_users_on_email"
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "zawod", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "additional_info"
+    t.text     "address"
+    t.text     "costs_semester"
+    t.text     "costs_info"
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.text     "term_time"
+    t.text     "term_info"
+    t.text     "documents"
+    t.integer  "organizer_id"
+    t.integer  "location_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "paid"
+  end
+
+  add_index "zawod", ["category_id"], name: "index_zawod_on_category_id"
+  add_index "zawod", ["location_id"], name: "index_zawod_on_location_id"
+  add_index "zawod", ["organizer_id"], name: "index_zawod_on_organizer_id"
+
+  create_table "zawody", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "additional_info"
+    t.text     "address"
+    t.text     "costs_semester"
+    t.text     "costs_info"
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.text     "term_time"
+    t.text     "term_info"
+    t.text     "documents"
+    t.integer  "organizer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "location_id"
+    t.integer  "category_id"
+  end
+
+  add_index "zawody", ["category_id"], name: "index_zawody_on_category_id"
+  add_index "zawody", ["location_id"], name: "index_zawody_on_location_id"
+  add_index "zawody", ["organizer_id"], name: "index_zawody_on_organizer_id"
 
 end

@@ -27,6 +27,10 @@
     <%= f.text_field :link, size: 80, maxlength: 255  %>
   </div>
   <div class="field">
+    <%= f.label :type, "Typ szkoły" %>
+    <%= f.text_area :type %>
+  </div>
+  <div class="field">
     <%= f.label :college, "Uczelnia" %>
     <%= f.check_box :college %>
   </div>

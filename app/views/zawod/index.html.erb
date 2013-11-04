@@ -1,0 +1,61 @@
+<div class="search">
+<%= form_tag zawod_index_path, method: "get" do %>
+  <div id="ustawiczneform">
+  <%= field_set_tag "Szkoły i placówki kształcenia ustawicznego" do %>
+    <div class="field">
+      <%= label_tag :query, "Słowo kluczowe" %>
+      <%= text_field_tag :query, params[:query] %>
+    </div>
+    <div class="field">
+        <%= label_tag :location_id, "Lokalizacja" %>
+      <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name, params[:location_id]), prompt: "Wybierz lokalizację") %>
+    </div>
+    <div class="field">
+        <%= label_tag :training_category_id, "Kategoria" %>
+      <%= select_tag(:category_id, options_from_collection_for_select(Category.where(studies: false), :id, :name, params[:category_id]), prompt: "Wybierz kategorię") %>
+    </div>
+    <div class="field">
+      <%= label_tag :free, "Tylko bezpłatne" %>
+      <%= check_box_tag :free, '1', params[:free]=='1'?true:false %>
+    </div>
+    <%= submit_tag "Wyszukaj" %>
+  <% end %>
+  </div>
+<% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nazwa zawodu</th>
+      <th>Nazwa organizatora</th>
+      <th>Typ szkoły</th>
+      <th>Czas trwania</th>
+      <th>Lokalizacja (powiat)</th>
+      <th>Płatne</th>
+    <% if signed_in? %>
+      <th></th>
+    <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zawod.each do |zawod| %>
+      <tr>
+        <td><%= link_to zawod.name, zawod %></td>
+        <td><%= zawod.organizer.name %></td>
+        <td><%= zawod.organizer.type %></td>
+        <td><%= zawod.term_time %></td>
+        <td><%= zawod.location.name %></td>
+        <td><%= zawod.paid ? "Tak" : "Nie" %></td>
+        <% if signed_in? %>
+        <td class="nolink"><%= link_to 'Edytuj', edit_zawod_path(zawod) %> | <%= link_to 'Usuń', zawod, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zawod', new_zawod_path %>

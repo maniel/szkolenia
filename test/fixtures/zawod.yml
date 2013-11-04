@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  additional_info: MyText
+  address: MyText
+  costs_semester: MyText
+  costs_info: MyText
+  begin_date: 2013-11-04
+  end_date: 2013-11-04
+  term_time: MyText
+  term_info: MyText
+  documents: MyText
+  organizer_id: 
+  location_id: 
+  category_id: 
+
+two:
+  name: MyString
+  description: MyText
+  additional_info: MyText
+  address: MyText
+  costs_semester: MyText
+  costs_info: MyText
+  begin_date: 2013-11-04
+  end_date: 2013-11-04
+  term_time: MyText
+  term_info: MyText
+  documents: MyText
+  organizer_id: 
+  location_id: 
+  category_id: 

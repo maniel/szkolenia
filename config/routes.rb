@@ -1,5 +1,7 @@
 Szkolenia::Application.routes.draw do
   
+  resources :zawod, path: "ksztalcenie_ustawiczne"
+
   root to: redirect("/baza/trainings") 
     
   resources :trainers

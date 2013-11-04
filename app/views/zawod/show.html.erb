@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= link_to @zawod.category.name, zawod_index_path(category_id: @zawod.category.id, commit: true) %>/<%= @zawod.name %> </h2>
+
+<div class="ustawiczne">
+	<ul class="idTabs">
+	    <li><a href="#program">Program</a></li>    
+	    <li><a href="#lokalizacja">Lokalizacja</a></li>
+	    <li><a href="#uczelnia">Organizator</a></li>
+	    <li><a href="#lokalizacja">Lokalizacja</a></li>
+	    <li><a href="#koszty">Koszty</a></li>
+	</ul>
+
+  <div id="program">
+    <p>
+      <strong>Opis kierunku:</strong>
+      <%= simple_format @zawod.description %>
+    </p>
+    <p>
+      <strong>Program nauczania:</strong>
+      <%= simple_format @zawod.additional_info  %>
+    </p>
+  </div>
+
+  <div id="lokalizacja">
+    <p>
+      <%= simple_format @zawod.address  %>
+    </p>
+    <div id="mapa">
+    </div>
+  </div>
+
+  <div id="uczelnia">
+    <p>
+      <strong>Nazwa organizatora:</strong>
+      <% unless @zawod.organizer.link.blank? %>
+      <a href="<%= @zawod.organizer.link %>"><%= @zawod.organizer.name %></a>
+      <% else %>
+      <%= @zawod.organizer.name %>
+      <% end %>
+    </p>
+    <p>
+      <strong>Adres uczelni:</strong>
+      <%= simple_format @zawod.organizer.address  %>
+    </p>
+    <p>
+      <strong>Kontakt:</strong>
+      <%= simple_format @zawod.organizer.contact  %>
+    </p>
+  </div>
+  
+  <div id="koszty">
+  <% unless @zawod.paid %>
+    <p>Kształcenie jest bezpłatne</p>
+  <% else %>
+    <p>
+      <strong>Koszty uczestnictwa jednej osoby:</strong>
+      <%= @zawod.costs %>
+    </p>
+    <p>
+      <strong>Dodatkowe informacje na temat kosztów:</strong>
+      <%= simple_format @zawod.costs_info %>
+    </p>  
+  <% end %>
+  </div>
+</div>
