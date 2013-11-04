@@ -24,7 +24,7 @@
 <% end %>
 </div>
 
-<table>
+<table class="ustawiczne">
   <thead>
     <tr>
       <th>Nazwa zawodu</th>
@@ -41,21 +41,17 @@
 
   <tbody>
     <% @zawod.each do |zawod| %>
-      <tr>
+      <tr class="<%= cycle('odd', 'even') %>">
         <td><%= link_to zawod.name, zawod %></td>
         <td><%= zawod.organizer.name %></td>
         <td><%= zawod.organizer.type %></td>
         <td><%= zawod.term_time %></td>
         <td><%= zawod.location.name %></td>
         <td><%= zawod.paid ? "Tak" : "Nie" %></td>
-        <% if signed_in? %>
+      <% if signed_in? %>
         <td class="nolink"><%= link_to 'Edytuj', edit_zawod_path(zawod) %> | <%= link_to 'Usuń', zawod, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
-        <% end %>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Zawod', new_zawod_path %>
