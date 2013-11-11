@@ -10,7 +10,7 @@
     </div>
   <% end %>
 
-<div id="zawodyform">
+<div id="ustawiczneform">
   <div class="field">
     <%= f.label :name, "Nazwa zawodu" %>
     <%= f.text_field :name, size: 80, maxlength: 255  %>
@@ -55,8 +55,8 @@
         <%= org.text_field :link, size: 80, maxlength: 255  %>
       </div>
       <div class="field">
-        <%= org.label :type, "Typ szkoły" %>
-        <%= org.text_area :type %>
+        <%= org.label :school_type, "Typ szkoły" %>
+        <%= org.text_area :school_type %>
       </div>
       <div class="field">
         <%= org.label :college, "Uczelnia" %>
@@ -68,7 +68,7 @@
 
   <%= field_set_tag "Koszty", id: "koszty" do %>
     <div class="field">
-      <%= f.label :paid %>
+      <%= f.label :paid, "Płatne" %>
       <%= f.check_box :paid %>
     </div>
     <div class="field">
@@ -97,6 +97,14 @@
     <div class="field">
       <%= f.label :end_date, "Data zakończenia" %>
       <%= f.date_field :end_date %>
+    </div>
+    <div class="field">
+      <%= f.label :requirements, "Wymagania" %>
+      <%= f.text_area :requirements %>
+    </div>
+    <div class="field">
+      <%= f.label :term_additional_info, "Informacje dodatkowe" %>
+      <%= f.text_area :term_additional_info %>
     </div>
     <div class="field">
       <%= f.label :documents, "Wymagane dokumenty" %>

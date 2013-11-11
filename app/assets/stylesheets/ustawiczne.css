@@ -1,14 +1,14 @@
 /* 
-style dla studiów wyższych 
+style dla ustawicznych
 */
 
 /*
-kolory dla studiów wyższych
-FFDD00
-D5BD23
-C4AA00
-FFE22A
-FFE74C
+kolory dla ustawicznych
+D9474E
+A35054
+8D171D
+EC757A
+EC9499
 */
 
 #nav a.ustawiczne_link {
@@ -22,15 +22,15 @@ FFE74C
 }
 
 a.ustawiczne_link {
-	background: #FFE74C;
+	background: #EC9499;
 }
 
 a.ustawiczne_link:hover {
-	background: #FFDD00;
+	background: #D9474E;
 }
 
 a.ustawiczne_link_block {
-	background: #FFE74C;
+	background: #EC9499;
 	padding: 2px 6px 2px 6px;
     border-top: 1px solid #CCCCCC;
     border-right: 1px solid #333333;
@@ -39,37 +39,37 @@ a.ustawiczne_link_block {
 }
 
 a.ustawiczne_link_block:hover {
-	background: #FFDD00;
+	background: #D9474E;
 	color: black;
 }
 
 table.kustawiczne .odd {
- 	background: #FFE74C;
+ 	background: #EC9499;
 }
 
 table.kustawiczne .even {
- 	background: #FFDD00;
+ 	background: #D9474E;
 }
 
 table.kustawiczne {
-	border: 1px solid #FFE74C;
+	border: 1px solid #EC9499;
     table-layout: fixed;
     border-spacing: 0;
     margin-top: 10px;
 }
 
 table.kustawiczne thead {
-	background-color: #C4AA00;
+	background-color: #8D171D;
 	color: #fff;
 	border-color: #9DD122!important;
 }
 
 table.kustawiczne td {	
-	border: 1px solid #C4AA00;	
+	border: 1px solid #8D171D;	
 }
 
 table.kustawiczne th {
-	border: 1px solid #FFDD00;	
+	border: 1px solid #D9474E;	
 }
 table.kustawiczne td a:hover {
 	color: #fff;
@@ -78,7 +78,7 @@ table.kustawiczne td a:hover {
 
 
 .ustawiczne {
-	background: #C4AA00;
+	background: #8D171D;
 	color: #111;
 	padding: 5px 5px;
 	width: 900px;
@@ -99,7 +99,7 @@ table.kustawiczne td a:hover {
 	margin-left: 0;
 	font: 20px Verdana;
 	color: black;
-	background: #D5BD23;
+	background: #A35054;
 }
 
 
@@ -111,8 +111,8 @@ table.kustawiczne td a:hover {
 .ustawiczne > ul a.selected {
 	margin-bottom: 0;
 	color: #000;
-	background: #FFE74C;
-	border-bottom: 1px solid #FFDD00;
+	background: #EC9499;
+	border-bottom: 1px solid #D9474E;
 	cursor: default;
 }
 
@@ -121,7 +121,7 @@ table.kustawiczne td a:hover {
 	*padding-top: 3px;
 	*margin-top: -15px;
 	clear: left;
-	background: #FFE74C;
+	background: #EC9499;
 }
 
 
@@ -137,9 +137,9 @@ table.kustawiczne td a:hover {
 }
 
 form #ustawiczneform fieldset {
-	border-color: #C4AA00;
+	border-color: #8D171D;
 }
 
 #ustawiczneform .field:nth-child(odd) {
-	background-color: #FFDD00;
+	background-color: #D9474E;
 }

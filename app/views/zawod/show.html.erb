@@ -7,8 +7,8 @@
 	    <li><a href="#program">Program</a></li>    
 	    <li><a href="#lokalizacja">Lokalizacja</a></li>
 	    <li><a href="#uczelnia">Organizator</a></li>
-	    <li><a href="#lokalizacja">Lokalizacja</a></li>
 	    <li><a href="#koszty">Koszty</a></li>
+	    <li><a href="#terminy">Terminy i warunki rekrutacji</a></li>
 	</ul>
 
   <div id="program">
@@ -54,8 +54,8 @@
     <p>Kształcenie jest bezpłatne</p>
   <% else %>
     <p>
-      <strong>Koszty uczestnictwa jednej osoby:</strong>
-      <%= @zawod.costs %>
+      <strong>Odpłatność za jeden semestr:</strong>
+      <%= @zawod.costs_semester %>
     </p>
     <p>
       <strong>Dodatkowe informacje na temat kosztów:</strong>
@@ -63,4 +63,42 @@
     </p>  
   <% end %>
   </div>
+  <div id="terminy">
+  	<p>
+      <strong>Czas trwania nauki:</strong>
+      <%= simple_format @zawod.term_time %>
+    </p>
+    <p>
+      <strong>Termin składania dokumentów:</strong>
+      <%= simple_format @zawod.term_info %>
+    </p>
+    <p>
+      <strong>Data rozpoczęcia:</strong>
+      <%= @zawod.begin_date %>
+    </p>
+    <p>
+      <strong>Czas trwania nauki:</strong>
+      <%= @zawod.end_date %>
+    </p>
+   <% if @zawod.requirements and @zawod.requirements!="" %>
+    <p>
+      <strong>Wymagania:</strong>
+      <%= simple_format @zawod.requirements %>
+    </p>
+   <% end %>
+   <% if @zawod.term_additional_info and @zawod.term_additional_info!="" %>
+    <p>
+      <strong>Informacje dodatkowe:</strong>
+      <%= simple_format @zawod.term_additional_info %>
+    </p>
+   <% end %>
+    <p>
+      <strong>Wymagane dokumenty:</strong>
+      <%= simple_format @zawod.documents %>
+    </p>
+  </div>
 </div>
+
+<% if signed_in? %>
+  <%= link_to 'Edycja', edit_zawod_path(@zawod), class: "ustawiczne_link_block" %>
+<% end %>

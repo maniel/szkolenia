@@ -24,7 +24,9 @@
 <% end %>
 </div>
 
-<table class="ustawiczne">
+<% if signed_in? or params[:commit] %>
+<% unless @zawod.empty? and params[:commit] %>
+<table class="kustawiczne">
   <thead>
     <tr>
       <th>Nazwa zawodu</th>
@@ -44,7 +46,7 @@
       <tr class="<%= cycle('odd', 'even') %>">
         <td><%= link_to zawod.name, zawod %></td>
         <td><%= zawod.organizer.name %></td>
-        <td><%= zawod.organizer.type %></td>
+        <td><%= zawod.organizer.school_type %></td>
         <td><%= zawod.term_time %></td>
         <td><%= zawod.location.name %></td>
         <td><%= zawod.paid ? "Tak" : "Nie" %></td>
@@ -55,3 +57,7 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+<p style="text-align: center; border: dashed 4px red; padding: 20px; width: 800px; margin:  20px auto 20px auto; background: lavenderblush; font-size: large;">Nie znaleziono żadnych pozycji. Przejdź na inną zakładkę albo wybierz inne kryterium wyszukiwania.</p>
+<% end %>
+<% end %>
