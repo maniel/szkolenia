@@ -1,7 +1,7 @@
 <div class="search">
 <%= form_tag zawod_index_path, method: "get" do %>
   <div id="ustawiczneform">
-  <%= field_set_tag "Szkoły i placówki kształcenia ustawicznego" do %>
+  <%= field_set_tag "Szkoły dla dorosłych" do %>
     <div class="field">
       <%= label_tag :query, "Słowo kluczowe" %>
       <%= text_field_tag :query, params[:query] %>

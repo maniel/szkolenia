@@ -4,33 +4,33 @@ style dla ustawicznych
 
 /*
 kolory dla ustawicznych
-D9474E
-A35054
-8D171D
-EC757A
-EC9499
+07BEF1
+3A879D
+01607B
+5CD8FB
+9FE7FB
 */
 
 #nav a.ustawiczne_link {
 	background-image: url('/baza/przyciski_azymut.png');
-	background-position: 0px -261px;
+	background-position: 0px -441px;
 }
 
 #nav a.ustawiczne_link:hover {
 	background-image: url('/baza/przyciski_azymut.png');
-	background-position: 0px -174px;
+	background-position: 0px -378px;
 }
 
 a.ustawiczne_link {
-	background: #EC9499;
+	background: #9FE7FB;
 }
 
 a.ustawiczne_link:hover {
-	background: #D9474E;
+	background: #07BEF1;
 }
 
 a.ustawiczne_link_block {
-	background: #EC9499;
+	background: #9FE7FB;
 	padding: 2px 6px 2px 6px;
     border-top: 1px solid #CCCCCC;
     border-right: 1px solid #333333;
@@ -39,37 +39,37 @@ a.ustawiczne_link_block {
 }
 
 a.ustawiczne_link_block:hover {
-	background: #D9474E;
+	background: #07BEF1;
 	color: black;
 }
 
 table.kustawiczne .odd {
- 	background: #EC9499;
+ 	background: #9FE7FB;
 }
 
 table.kustawiczne .even {
- 	background: #D9474E;
+ 	background: #07BEF1;
 }
 
 table.kustawiczne {
-	border: 1px solid #EC9499;
+	border: 1px solid #9FE7FB;
     table-layout: fixed;
     border-spacing: 0;
     margin-top: 10px;
 }
 
 table.kustawiczne thead {
-	background-color: #8D171D;
+	background-color: #01607B;
 	color: #fff;
 	border-color: #9DD122!important;
 }
 
 table.kustawiczne td {	
-	border: 1px solid #8D171D;	
+	border: 1px solid #01607B;	
 }
 
 table.kustawiczne th {
-	border: 1px solid #D9474E;	
+	border: 1px solid #07BEF1;	
 }
 table.kustawiczne td a:hover {
 	color: #fff;
@@ -78,7 +78,7 @@ table.kustawiczne td a:hover {
 
 
 .ustawiczne {
-	background: #8D171D;
+	background: #01607B;
 	color: #111;
 	padding: 5px 5px;
 	width: 900px;
@@ -99,7 +99,7 @@ table.kustawiczne td a:hover {
 	margin-left: 0;
 	font: 20px Verdana;
 	color: black;
-	background: #A35054;
+	background: #3A879D;
 }
 
 
@@ -111,8 +111,8 @@ table.kustawiczne td a:hover {
 .ustawiczne > ul a.selected {
 	margin-bottom: 0;
 	color: #000;
-	background: #EC9499;
-	border-bottom: 1px solid #D9474E;
+	background: #9FE7FB;
+	border-bottom: 1px solid #07BEF1;
 	cursor: default;
 }
 
@@ -121,7 +121,7 @@ table.kustawiczne td a:hover {
 	*padding-top: 3px;
 	*margin-top: -15px;
 	clear: left;
-	background: #EC9499;
+	background: #9FE7FB;
 }
 
 
@@ -137,9 +137,9 @@ table.kustawiczne td a:hover {
 }
 
 form #ustawiczneform fieldset {
-	border-color: #8D171D;
+	border-color: #01607B;
 }
 
 #ustawiczneform .field:nth-child(odd) {
-	background-color: #D9474E;
+	background-color: #07BEF1;
 }

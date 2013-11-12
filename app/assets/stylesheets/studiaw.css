@@ -13,12 +13,12 @@ FFE74C
 
 #nav a.studiaw_link {
 	background-image: url('/baza/przyciski_azymut.png');
-	background-position: 0px -261px;
+	background-position: 0px -189px;
 }
 
 #nav a.studiaw_link:hover {
 	background-image: url('/baza/przyciski_azymut.png');
-	background-position: 0px -174px;
+	background-position: 0px -126px;
 }
 
 a.studiaw_link {
