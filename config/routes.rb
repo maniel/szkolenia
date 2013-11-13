@@ -1,6 +1,6 @@
 Szkolenia::Application.routes.draw do
   
-  resources :zawod, path: "ksztalcenie_ustawiczne"
+  resources :zawod, path: "szkoly_dla_doroslych"
 
   root to: redirect("/baza/trainings") 
     
@@ -10,7 +10,7 @@ Szkolenia::Application.routes.draw do
 
   resources :trainings do
     collection do
-    	get :noweszkolenie, :nowestudia, :szkolenia, :studia_podyplomowe, :studia_wyzsze
+    	get :noweszkolenie, :nowestudia, :szkolenia, :studia_podyplomowe, :studia_wyzsze, :instytucje_szkoleniowe
     end
   end
 

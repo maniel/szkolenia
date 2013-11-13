@@ -9,17 +9,28 @@
 	</head>
 	<body>
 		<% if params[:action]=="index" && params[:controller]=="trainings"%>
-		<div id="nav" style="top: 30%">
+		<div id="nav" style="top: 30%; height:200px;">
 		<% else %>
 		<div id="nav">
 		<% end %>
-		<h2>Baza danych o usługach edukacyjnych</h1>
+		<h2>
+		<% if params[:action]=="index" && params[:controller]=="trainings"%>
+			Baza danych o usługach edukacyjnych
+		<% else %>
+			<%= link_to "Baza danych o usługach edukacyjnych", trainings_path %>
+		<% end %>
+		</h2>
 			<ul>
 				<li><%= link_to 'Szkolenia/kursy', szkolenia_trainings_path, class: "przycisk szkolenie_link" %></li>
 				<li><%= link_to 'Studia wyższe', studia_wyzsze_trainings_path, class: "przycisk studiaw_link" %></li>
 				<li><%= link_to 'Studia podyplomowe', studia_podyplomowe_trainings_path, class: "przycisk studiap_link" %></li>
-				<li><%= link_to 'Szkoły dla dorosłych', zawod_index_path, class: "przycisk ustawiczne_link" %></li> 
+				<li><%= link_to 'Szkoły dla dorosłych', zawod_index_path, class: "przycisk ustawiczne_link" %></li>
 			</ul>
+			<% if params[:action]=="index" && params[:controller]=="trainings"%>
+				<p>
+					<%= link_to "Wykaz szkół i instytucji szkoleniowych", instytucje_szkoleniowe_trainings_path, class: "przycisk instytucje_link" %>
+				</p>
+			<% end %>
 		</div>
 		<% if params[:action]=="index" && controller.controller_name=="trainings" %>
 		<div id="content" style="top: 60%">

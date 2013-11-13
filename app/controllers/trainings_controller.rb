@@ -148,6 +148,9 @@ class TrainingsController < ApplicationController
     end
   end
 
+  def instytucje_szkoleniowe
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_training
