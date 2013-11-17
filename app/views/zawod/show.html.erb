@@ -76,14 +76,28 @@
       <strong>Termin składania dokumentów:</strong>
       <%= simple_format @zawod.term_info %>
     </p>
+   <% if @zawod.begin_date %>
     <p>
       <strong>Data rozpoczęcia:</strong>
       <%= @zawod.begin_date %>
     </p>
+   <% else %>
+    <p>
+      <strong>Data rozpoczęcia:</strong>
+      <%= @zawod.begin_date_text %>
+    </p>
+   <% end %>
+   <% if @zawod.end_date %>
     <p>
       <strong>Data zakończenia:</strong>
       <%= @zawod.end_date %>
     </p>
+   <% else %>
+    <p>
+      <strong>Data zakończenia:</strong>
+      <%= @zawod.end_date_text %>
+    </p>
+   <% end %>
    <% if @zawod.requirements and @zawod.requirements!="" %>
     <p>
       <strong>Wymagania:</strong>

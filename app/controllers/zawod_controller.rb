@@ -86,6 +86,6 @@ class ZawodController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def zawod_params
-      params.require(:zawod).permit(:name, :description, :additional_info, :address, :costs_semester, :costs_info, :begin_date, :end_date, :term_time, :term_info, :documents, :organizer_id, :location_id, :category_id, :paid, :term_additional_info, :requirements, organizer_attributes: [:name, :address, :contact, :link, :school_type, :college])
+      params.require(:zawod).permit(:name, :description, :additional_info, :address, :costs_semester, :costs_info, :begin_date, :begin_date_text, :end_date, :end_date_text, :term_time, :term_info, :documents, :organizer_id, :location_id, :category_id, :paid, :term_additional_info, :requirements, organizer_attributes: [:name, :address, :contact, :link, :school_type, :college])
     end
 end
