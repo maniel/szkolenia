@@ -16,8 +16,10 @@
 #mapa label { width: auto; display: inline; }
 
 #mapa {
+	margin-right: auto;
+	margin-left: auto;
 	height: 400px;
-	width: 600px;
+	width: 100%;
 }
 
 #footer {

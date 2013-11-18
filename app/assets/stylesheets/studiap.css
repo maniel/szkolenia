@@ -116,7 +116,7 @@ table.studiapodyplomowe td a:hover {
 	cursor: default;
 }
 
-.studiap div {
+.studiap > div {
 	padding: 10px 10px 8px 10px;
 	*padding-top: 3px;
 	*margin-top: -15px;

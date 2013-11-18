@@ -18,7 +18,6 @@
 //= require jquery.ui.datepicker-pl
 //= require turbolinks
 //= require jquery.turbolinks
-//= require gmap3
 //= require_tree .
 
 history.navigationMode = 'compatible';
@@ -40,17 +39,65 @@ $(document).ready( function() {
     	$("input[type='date']").datepicker(_dateoptions);
     }
 
-    $(".tabs").idTabs();
-/*
     $(".tabs").idTabs(function(id,list,set){
         if(id == "#lokalizacja"){
+            var _address = $("#lokalizacja #mapa").html().trim();
+            var _address_search = '<div style="text-align: center;"><a href="https://www.google.pl/maps?q='
+                                    +encodeURI(_address)+
+                                    '" target="_blank" title="Kliknij aby przejść do Map Google (otwiera nowe okno)">'
+                                    +_address+'</a> </div>';
             $("#mapa").gmap3({
+                map: {
+                    address: _address,
+                    options: {
+                        zoom: 16,
+                        maxZoom: 20,
+                    }
+                },
                 marker: {
-                    latLng:[29.132318972825445,81.32052349999992]
-                }
+                    address: _address,
+                    data: _address_search,
+                    events:{
+                        click: function(marker, event, context){
+                            var map = $(this).gmap3("get"),
+                                infowindow = $(this).gmap3({get: {name: "infowindow"}});
+                            if (infowindow) {
+                                infowindow.open(map, marker);
+                                infowindow.setContent(context.data);
+                            } else {
+                                $(this).gmap3({
+                                    infowindow: {
+                                        anchor: marker,
+                                        options: {
+                                            content: context.data,
+                                            maxWidth: 400                                                
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    },
+                    callback: function(marker){
+                        var map = $(this).gmap3("get"),
+                            infowindow = $(this).gmap3({get: {name: "infowindow"}});
+                        if (infowindow) {
+                            infowindow.open(map, marker);
+                            infowindow.setContent(_address_search);
+                        } else {
+                            $(this).gmap3({
+                                infowindow: {
+                                    anchor: marker,
+                                    options: {
+                                        content: _address_search,
+                                        maxWidth: 400                                                
+                                    }
+                                }
+                            });
+                        }
+                    }
+                },
             })
         }
         return true;
     });
-*/
 });

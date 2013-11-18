@@ -3,7 +3,7 @@
 <h2><%=link_to @training.category.name, @training.postgrad ? studia_podyplomowe_trainings_path(category_id: @training.category.id, commit: true) : studia_wyzsze_trainings_path(category_id: @training.category.id, commit: true) %>/<%= @training.name %></h2>
 
 <div class="<%= @training.postgrad ? 'studiap' : 'studiaw' %>">
- <ul class="idTabs">
+ <ul class="tabs">
     <li><a href="#info">Informacje o kierunku</a></li>    
     <li><a href="#orgzanizacja_s">Organizacja studiów</a></li>
     <li><a href="#uczelnia">Organizator</a></li>
@@ -46,10 +46,8 @@
     </p>
   </div>
   <div id="lokalizacja">
-    <p>
-      <%= simple_format @training.address  %>
-    </p>
     <div id="mapa">
+      <%=  @training.address  %>
     </div>
   </div>
   <div id="koszty">
