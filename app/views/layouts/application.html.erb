@@ -2,10 +2,12 @@
 <html>
 	<head>
 	  <title>Baza danych o usługach edukacyjnych</title>
-	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %> 
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
 	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	  <%= csrf_meta_tags %>
 	  <%= render partial: "layouts/ga" if Rails.env.production? %>
+	  
 	</head>
 	<body>
 		<% if params[:action]=="index" && params[:controller]=="trainings"%>

@@ -37,11 +37,11 @@
   <div id="uczelnia">
     <p>
       <strong>Nazwa organizatora:</strong>
-      <% unless @zawod.organizer.link.blank? %>
+     <% unless @zawod.organizer.link.blank? %>
       <a href="<%= @zawod.organizer.link %>"><%= @zawod.organizer.name %></a>
-      <% else %>
+     <% else %>
       <%= @zawod.organizer.name %>
-      <% end %>
+     <% end %>
     </p>
     <p>
       <strong>Adres siedziby organizatora:</strong>

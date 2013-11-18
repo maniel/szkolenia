@@ -12,6 +12,13 @@
  *= require jquery.ui.all
  *= require_tree .
  */
+#mapa img { max-width: none; }
+#mapa label { width: auto; display: inline; }
+
+#mapa {
+	height: 400px;
+	width: 600px;
+}
 
 #footer {
 	display: block;
@@ -194,7 +201,7 @@ form fieldset legend {
 	font-weight: bold;
 }
 
-ul.idTabs > li > a {
+ul.tabs > li > a {
 	font-family: 'Segoe Print';
 }
 

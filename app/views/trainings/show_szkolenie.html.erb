@@ -3,7 +3,7 @@
 <h2><%=link_to @training.category.name, szkolenia_trainings_path(category_id: @training.category.id, commit: true) %>/<%= @training.name %></h2>
 
 <div class="szkolenie">
-  <ul class="idTabs">
+  <ul class="tabs">
     <li><a href="#program">Program</a></li>
     <li><a href="#lokalizacja">Lokalizacja</a></li>
     <li><a href="#organizator">Organizator</a></li>
@@ -55,7 +55,6 @@
 
 
   <div id="lokalizacja">
-
     <p>
       <strong>Miejsce szkolenia:</strong>
       <%= simple_format @training.address %>

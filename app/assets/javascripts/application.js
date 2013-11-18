@@ -18,11 +18,14 @@
 //= require jquery.ui.datepicker-pl
 //= require turbolinks
 //= require jquery.turbolinks
+//= require gmap3
 //= require_tree .
 
 history.navigationMode = 'compatible';
 
 $(document).ready( function() {
+    history.navigationMode = 'compatible';
+
 	$('textarea').autosize();
 
     $('tbody > tr > td:not(.nolink)').click( function() {
@@ -36,5 +39,18 @@ $(document).ready( function() {
     	var _dateoptions = { dateFormat: "yy-mm-dd" }
     	$("input[type='date']").datepicker(_dateoptions);
     }
-});
 
+    $(".tabs").idTabs();
+/*
+    $(".tabs").idTabs(function(id,list,set){
+        if(id == "#lokalizacja"){
+            $("#mapa").gmap3({
+                marker: {
+                    latLng:[29.132318972825445,81.32052349999992]
+                }
+            })
+        }
+        return true;
+    });
+*/
+});
