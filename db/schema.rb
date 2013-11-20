@@ -81,9 +81,9 @@ ActiveRecord::Schema.define(version: 20131114113857) do
     t.text     "term_contact"
   end
 
-  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id"
-  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id"
-  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id"
+  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id", using: :btree
+  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id", using: :btree
+  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id", using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at",                     null: false
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20131114113857) do
     t.string   "remember_token",     limit: 128, null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "zawod", force: true do |t|
     t.string   "name"
@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(version: 20131114113857) do
     t.text     "end_date_text"
   end
 
-  add_index "zawod", ["category_id"], name: "index_zawod_on_category_id"
-  add_index "zawod", ["location_id"], name: "index_zawod_on_location_id"
-  add_index "zawod", ["organizer_id"], name: "index_zawod_on_organizer_id"
+  add_index "zawod", ["category_id"], name: "index_zawod_on_category_id", using: :btree
+  add_index "zawod", ["location_id"], name: "index_zawod_on_location_id", using: :btree
+  add_index "zawod", ["organizer_id"], name: "index_zawod_on_organizer_id", using: :btree
 
 end
