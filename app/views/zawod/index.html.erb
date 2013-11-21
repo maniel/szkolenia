@@ -46,7 +46,7 @@
       <tr class="<%= cycle('odd', 'even') %>">
         <td><%= link_to zawod.name, zawod %></td>
         <td><%= zawod.organizer.name %></td>
-        <td><%= zawod.organizer.school_type %></td>
+        <td><%= zawod.school_type %></td>
         <td><%= zawod.term_time %></td>
         <td><%= zawod.location.name %></td>
         <td><%= zawod.paid ? "Tak" : "Nie" %></td>
