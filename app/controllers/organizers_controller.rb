@@ -72,6 +72,6 @@ class OrganizersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organizer_params
-      params.require(:organizer).permit(:name, :address, :contact, :link, :college, :school_type)
+      params.require(:organizer).permit(:name, :address, :contact, :link, :college)
     end
 end
