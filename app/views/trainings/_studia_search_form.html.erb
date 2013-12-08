@@ -14,4 +14,5 @@
       <%= label_tag :free, "Tylko bezpłatne" %>
       <%= check_box_tag :free, '1', params[:free]=='1'?true:false %>
     </div>
+    <%= hidden_field_tag :organizer_id, params[:organizer_id] %>
 	<%= submit_tag "Wyszukaj" %> 

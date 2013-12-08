@@ -7,21 +7,22 @@
 	    <%= text_field_tag :query, params[:query] %>
 	</div>
 	<div class="field">
-	    <%= label_tag :location_id, "Lokalizacja" %>
+	  <%= label_tag :location_id, "Lokalizacja" %>
 		<%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name, params[:location_id]), prompt: "Wybierz lokalizację") %>
 	</div>
 	<div class="field">
-	    <%= label_tag :training_category_id, "Kategoria" %>
+	  <%= label_tag :training_category_id, "Kategoria" %>
 		<%= select_tag(:category_id, options_from_collection_for_select(Category.where(studies: false), :id, :name, params[:category_id]), prompt: "Wybierz kategorię") %>
 	</div>
 	<div class="field">
-      <%= label_tag :free, "Tylko bezpłatne" %>
-      <%= check_box_tag :free, '1', params[:free]=='1'?true:false %>
-    </div>
-    <div class="field">
-      <%= label_tag :elearning, "Tylko e-learning" %>
-      <%= check_box_tag :elearning, '1', params[:elearning]=='1'?true:false %>
-    </div>
+    <%= label_tag :free, "Tylko bezpłatne" %>
+    <%= check_box_tag :free, '1', params[:free]=='1'?true:false %>
+  </div>
+  <div class="field">
+    <%= label_tag :elearning, "Tylko e-learning" %>
+    <%= check_box_tag :elearning, '1', params[:elearning]=='1'?true:false %>
+  </div>
+  <%= hidden_field_tag :organizer_id, params[:organizer_id] %>
 	<%= submit_tag "Wyszukaj" %> 
 <% end %>
 </div>

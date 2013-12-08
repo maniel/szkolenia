@@ -81,9 +81,9 @@ ActiveRecord::Schema.define(version: 20131121100955) do
     t.text     "term_contact"
   end
 
-  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id", using: :btree
-  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id", using: :btree
-  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id", using: :btree
+  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id"
+  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id"
+  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id"
 
   create_table "users", force: true do |t|
     t.datetime "created_at",                     null: false
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20131121100955) do
     t.string   "remember_token",     limit: 128, null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "zawod", force: true do |t|
     t.string   "name"
@@ -120,11 +120,35 @@ ActiveRecord::Schema.define(version: 20131121100955) do
     t.text     "program"
     t.text     "begin_date_text"
     t.text     "end_date_text"
+    t.text     "term_notes"
     t.text     "school_type"
   end
 
-  add_index "zawod", ["category_id"], name: "index_zawod_on_category_id", using: :btree
-  add_index "zawod", ["location_id"], name: "index_zawod_on_location_id", using: :btree
-  add_index "zawod", ["organizer_id"], name: "index_zawod_on_organizer_id", using: :btree
+  add_index "zawod", ["category_id"], name: "index_zawod_on_category_id"
+  add_index "zawod", ["location_id"], name: "index_zawod_on_location_id"
+  add_index "zawod", ["organizer_id"], name: "index_zawod_on_organizer_id"
+
+  create_table "zawody", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "additional_info"
+    t.text     "address"
+    t.text     "costs_semester"
+    t.text     "costs_info"
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.text     "term_time"
+    t.text     "term_info"
+    t.text     "documents"
+    t.integer  "organizer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "location_id"
+    t.integer  "category_id"
+  end
+
+  add_index "zawody", ["category_id"], name: "index_zawody_on_category_id"
+  add_index "zawody", ["location_id"], name: "index_zawody_on_location_id"
+  add_index "zawody", ["organizer_id"], name: "index_zawody_on_organizer_id"
 
 end

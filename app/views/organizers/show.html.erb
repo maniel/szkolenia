@@ -24,6 +24,13 @@
   <strong>Uczelnia:</strong>
   <%= @organizer.college ? "Tak" : "Nie" %>
 </p>
+<p>Oferty tego organizatora:</p>
+<ul>
+  <li><%= link_to "Szkolenia", szkolenia_trainings_path(organizer_id: @organizer.id, commit: true) %></li>
+  <li><%= link_to "Studia wyższe", studia_wyzsze_trainings_path(organizer_id: @organizer.id, commit: true) %></li>
+  <li><%= link_to "Studia podyplomowe", studia_podyplomowe_trainings_path(organizer_id: @organizer.id, commit: true) %></li>
+  <li><%= link_to "Kształcenie ustawiczne", zawod_index_path(organizer_id: @organizer.id, commit: true) %></li>
+</ul>
 
 <% if signed_in? %>
   <%= link_to 'Edycja', edit_organizer_path(@organizer) %>
