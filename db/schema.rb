@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131121100955) do
+ActiveRecord::Schema.define(version: 20140108175828) do
 
   create_table "categories", force: true do |t|
     t.boolean  "studies"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20131121100955) do
     t.string   "encrypted_password", limit: 128, null: false
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128, null: false
+    t.text     "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"
