@@ -43,7 +43,7 @@
   <%= field_set_tag "Organizator", id:"uczelnia" do %>
     <div class="field hint--info hint--bottom" data-hint="Wyświetlani są tylko organizatorzy oznaczeni jako Uczelnia">
       <%= f.label :organizer_id %>
-      <%= f.select(:organizer_id, Organizer.all.map { |org| [org.name, org.id] }, {include_blank: "Wybierz organizatora"}) %>
+      <%= f.select(:organizer_id, Organizer.order(:name).map { |org| [org.name, org.id] }, {include_blank: "Wybierz organizatora"}) %>
     </div>
   <% if f.object.new_record? %>
     <p style="text-align: center">lub wpisz nowego</p>
