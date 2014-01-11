@@ -1,5 +1,6 @@
 # coding: utf-8
 class Training < ActiveRecord::Base
+  resourcify
   belongs_to :location
   belongs_to :category
   belongs_to :organizer

@@ -1,4 +1,5 @@
 class Zawod < ActiveRecord::Base
+  resourcify
   belongs_to :organizer
   belongs_to :location
   belongs_to :category
