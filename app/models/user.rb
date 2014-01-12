@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   rolify
+  resourcify
   include Clearance::User
 
 

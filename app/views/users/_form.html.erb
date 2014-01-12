@@ -1,9 +1,18 @@
 <div class='text-field'>
-  <%= form.label :email %>
-  <%= form.text_field :email, :type => 'email' %>
+  <%= form.label :name, "Imię i nazwisko" %>
+  <%= form.text_field :name %>
+</div>
+
+<div class='text-field'>
+  <%= form.label :email, "Login" %>
+  <%= form.text_field :email %>
 </div>
 
 <div class='password-field'>
-  <%= form.label :password %>
+  <%= form.label :password, "Hasło" %>
   <%= form.password_field :password %>
+</div>
+
+<div class='submit-field'>
+	<%= form.submit "Zapisz" %>
 </div>

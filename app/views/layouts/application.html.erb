@@ -50,8 +50,10 @@
 				<li><%= link_to 'Nowy zawód', new_zawod_path, class: "przycisk ustawiczne_link" %></li>
 				<li><%= link_to 'Organizatorzy', organizers_path, class: "sbutton" %></li>
 				<li><%= link_to 'Trenerzy', trainers_path, class: "sbutton" %></li>
+				<li><%= link_to 'Użytkownicy', users_path, class: "sbutton" %></li>
 				<li><%= link_to 'Nowy organizator', new_organizer_path, class: "sbutton" %></li>
 				<li><%= link_to 'Nowy trener', new_trainer_path, class: "sbutton" %></li>
+				<li><%= link_to 'Nowy użytkownik', new_user_path, class: "sbutton" %></li>
 			</ul>
 			<p> Zalogowany jako <%=current_user.email%>	<%= link_to "Wyloguj", sign_out_path, :method => :delete %></p>
 		</div>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     :only => [:create]
 
   resources :users,
-    :only => [:create, :index, :edit, :new, :destroy] do
+    :only => [:create, :index, :edit, :update, :new, :destroy] do
       resource :password,
         :controller => 'clearance/passwords',
         :only => [:create, :edit, :update, :index]
