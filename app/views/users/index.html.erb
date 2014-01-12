@@ -7,6 +7,10 @@
     <tr>
       <th>Imię i nazwisko</th>
       <th>Nazwa użytkownika</th>
+    <% if current_user.admin? %>
+      <th>Administrator</th>
+      <th>Doradca</th>
+    <% end %>
       <th />
     </tr>
   </thead>
@@ -16,7 +20,11 @@
 	  <tr>
 	    <td><%= user.name %></td>
 	    <td><%= user.email %></td>
+    <% if current_user.admin? %>
+      <td><%= user.admin? ? "Tak" : "Nie" %></td>
+      <td><%= user.doradca? ? "Tak" : "Nie" %></td>
       <td class="nolink"><%= link_to 'Edytuj', edit_user_path(user) %> | <%= link_to 'Usuń', user, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+    <% end %>
     </tr>
 	<% end %>
   </tbody>

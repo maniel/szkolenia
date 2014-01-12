@@ -55,7 +55,7 @@
 				<li><%= link_to 'Nowy trener', new_trainer_path, class: "sbutton" %></li>
 				<li><%= link_to 'Nowy użytkownik', new_user_path, class: "sbutton" %></li>
 			</ul>
-			<p> Zalogowany jako <%=current_user.email%>	<%= link_to "Wyloguj", sign_out_path, :method => :delete %></p>
+			<p> Zalogowany jako <%=current_user.name%>	<%= link_to "Wyloguj", sign_out_path, :method => :delete %></p>
 		</div>
 		<% end %>
 	</body>
