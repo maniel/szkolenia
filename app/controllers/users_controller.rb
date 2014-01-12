@@ -1,6 +1,7 @@
 # coding: utf-8
 class UsersController < Clearance::UsersController
   before_action :set_user, only: [:edit, :destroy, :update]
+  before_action :authorize, only: [:new, :create, :index, :destroy, :edit, :update]
 
   def new
     @user = User.new
@@ -16,7 +17,11 @@ class UsersController < Clearance::UsersController
   end
 
   def index
-    @users = User.all    
+    if current_user.admin?
+      @users = User.all
+    else
+      @users = User.all.select {|user| !user.admin? && !user.doradca? }
+    end
   end
 
   def destroy
@@ -29,10 +34,15 @@ class UsersController < Clearance::UsersController
   end
 
   def update
-    p params
-    p @user
-    @user.update(user_params)
-    p @user
+    u_params = user_params
+    [:admin, :doradca].each do |k|
+      if u_params[k] == '1'
+        u_params[k] = true
+      else
+        u_params[k] = false
+      end
+    end
+    @user.update(u_params)
     redirect_to users_url
   end
 
@@ -43,7 +53,7 @@ class UsersController < Clearance::UsersController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :admin, :doradca)
   end
 
   # stupid!;/

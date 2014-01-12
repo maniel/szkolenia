@@ -1,18 +1,41 @@
-<div class='text-field'>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= "#{@user.errors.count} błędów" %> przeszkodziło w zachowaniu danych:</h2>
+  <ul>
+  <% @user.errors.messages.each do |msg| %>
+    <li><%= msg[1][0] %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+<div class='field'>
   <%= form.label :name, "Imię i nazwisko" %>
   <%= form.text_field :name %>
 </div>
 
-<div class='text-field'>
+<div class='field'>
   <%= form.label :email, "Login" %>
   <%= form.text_field :email %>
 </div>
 
-<div class='password-field'>
+<div class='field'>
   <%= form.label :password, "Hasło" %>
   <%= form.password_field :password %>
 </div>
 
-<div class='submit-field'>
+<% if current_user.admin? %>
+
+<div class='field'>
+  <%= form.label :admin, "Administrator" %>
+  <%= form.check_box :admin %>
+</div>
+
+<div class='field'>
+  <%= form.label :doradca, "Doradca" %>
+  <%= form.check_box :doradca %>
+</div>
+<% end %>
+
+<div class='actions'>
 	<%= form.submit "Zapisz" %>
 </div>
