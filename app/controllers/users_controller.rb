@@ -17,10 +17,11 @@ class UsersController < Clearance::UsersController
   end
 
   def index
+    raise ActionController::RoutingError.new('Not Found') unless current_user.admin? or current_user.doradca?
     if current_user.admin?
       @users = User.all
     else
-      @users = User.all.select {|user| !user.admin? && !user.doradca? }
+      @users = User.all - User.with_role(:admin) - User.with_role(:doradca, User)
     end
   end
 
