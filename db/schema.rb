@@ -139,35 +139,11 @@ ActiveRecord::Schema.define(version: 20140111141018) do
     t.text     "program"
     t.text     "begin_date_text"
     t.text     "end_date_text"
-    t.text     "term_notes"
     t.text     "school_type"
   end
 
   add_index "zawod", ["category_id"], name: "index_zawod_on_category_id"
   add_index "zawod", ["location_id"], name: "index_zawod_on_location_id"
   add_index "zawod", ["organizer_id"], name: "index_zawod_on_organizer_id"
-
-  create_table "zawody", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.text     "additional_info"
-    t.text     "address"
-    t.text     "costs_semester"
-    t.text     "costs_info"
-    t.date     "begin_date"
-    t.date     "end_date"
-    t.text     "term_time"
-    t.text     "term_info"
-    t.text     "documents"
-    t.integer  "organizer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "location_id"
-    t.integer  "category_id"
-  end
-
-  add_index "zawody", ["category_id"], name: "index_zawody_on_category_id"
-  add_index "zawody", ["location_id"], name: "index_zawody_on_location_id"
-  add_index "zawody", ["organizer_id"], name: "index_zawody_on_organizer_id"
 
 end
