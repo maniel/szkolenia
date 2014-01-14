@@ -9,3 +9,13 @@ module ActionView::Helpers::TextHelper
 		text.html_safe
 	end
 end
+
+module ActiveRecord
+  # = Active Record Has And Belongs To Many Association
+  module Associations
+    class HasAndBelongsToManyAssociation < CollectionAssociation
+    	def handle_dependency
+    	end
+    end
+end
+end
