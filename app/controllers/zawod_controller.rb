@@ -1,7 +1,8 @@
 # coding: utf-8
 class ZawodController < ApplicationController
   before_action :set_zawod, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize
+  before_action :chek_admin, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /zawod
   # GET /zawod.json
@@ -116,5 +117,9 @@ class ZawodController < ApplicationController
           :link,
           :college
           ])
+    end
+
+    def check_admin
+      raise ActionController::RoutingError.new('Not Found') unless current_user.admin?
     end
 end

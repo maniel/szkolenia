@@ -1,7 +1,8 @@
 # coding: utf-8
 class OrganizersController < ApplicationController
   before_action :set_organizer, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:show, :new, :create, :edit, :update, :destroy, :index]
+  before_action :authorize
+  before_action :chek_admin, only: [:show, :new, :create, :edit, :update, :destroy, :index]
 
   # GET /organizers
   # GET /organizers.json
@@ -73,5 +74,9 @@ class OrganizersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def organizer_params
       params.require(:organizer).permit(:name, :address, :contact, :link, :college)
+    end
+
+    def check_admin
+      raise ActionController::RoutingError.new('Not Found') unless current_user.admin?
     end
 end

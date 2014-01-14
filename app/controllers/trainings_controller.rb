@@ -1,7 +1,8 @@
 # coding: utf-8
 class TrainingsController < ApplicationController
   before_action :set_training, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:noweszkolenie, :nowestudia, :create, :edit, :update, :destroy]
+  before_action :authorize
+  before_action :chek_admin, only: [:noweszkolenie, :nowestudia, :create, :edit, :update, :destroy]
 
   # GET /trainings
   # GET /trainings.json
@@ -191,5 +192,9 @@ class TrainingsController < ApplicationController
           :link,
           :college],
         trainer_ids: [] )
+    end
+
+    def check_admin
+      raise ActionController::RoutingError.new('Not Found') unless current_user.admin?
     end
 end

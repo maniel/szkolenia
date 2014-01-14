@@ -1,14 +1,20 @@
 # coding: utf-8
 class UsersController < Clearance::UsersController
   before_action :set_user, only: [:edit, :destroy, :update]
-  before_action :authorize, only: [:new, :create, :index, :destroy, :edit, :update]
+  before_action :authorize
+  before_action :check_role, only: [:new, :create, :index, :destroy, :edit, :update]
+
 
   def new
     @user = User.new
+    @user.admin = false
+    @user.doradca = false
   end
 
   def create
-    @user = User.new(user_params)
+    u_params = user_params
+    prepare_params(u_params)
+    @user = User.new(u_params)
     if @user.save
       redirect_to users_url, notice: "Użytkownik został pomyślnie dodany"
     else
@@ -17,11 +23,10 @@ class UsersController < Clearance::UsersController
   end
 
   def index
-    raise ActionController::RoutingError.new('Not Found') unless current_user.admin? or current_user.doradca?
     if current_user.admin?
-      @users = User.all
+      @users = User.all.order(:email)
     else
-      @users = User.all - User.with_role(:admin) - User.with_role(:doradca, User)
+      @users = User.all.order(:email) - User.with_role(:admin) - User.with_role(:doradca, User)
     end
   end
 
@@ -30,12 +35,23 @@ class UsersController < Clearance::UsersController
   	redirect_to users_url
   end
 
-  def edit
-    
+  def edit    
   end
 
   def update
     u_params = user_params
+    prepare_params(u_params)
+    @user.update(u_params)
+    redirect_to users_url
+  end
+
+  def edycjakonta
+    @user = current_user
+  end
+
+  private
+
+  def prepare_params(u_params)
     [:admin, :doradca].each do |k|
       if u_params[k] == '1'
         u_params[k] = true
@@ -43,11 +59,7 @@ class UsersController < Clearance::UsersController
         u_params[k] = false
       end
     end
-    @user.update(u_params)
-    redirect_to users_url
   end
-
-  private
   
   def set_user
     @user = User.find params[:id]
@@ -55,6 +67,10 @@ class UsersController < Clearance::UsersController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :admin, :doradca)
+  end
+
+  def check_role
+    raise ActionController::RoutingError.new('Not Found') unless current_user.admin? or current_user.doradca?
   end
 
   # stupid!;/

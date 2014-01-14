@@ -1,7 +1,8 @@
 # coding: utf-8
 class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:new, :create, :edit, :update, :destroy, :index]
+  before_action :authorize
+  before_action :chek_admin, only: [:new, :create, :edit, :update, :destroy, :index]
 
   # GET /trainers
   # GET /trainers.json
@@ -69,4 +70,9 @@ class TrainersController < ApplicationController
     def trainer_params
       params.require(:trainer).permit(:name, :info)
     end
+
+    def check_admin
+      raise ActionController::RoutingError.new('Not Found') unless current_user.admin?
+    end
 end
+
