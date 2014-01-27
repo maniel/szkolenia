@@ -4,7 +4,13 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :development do
+	gem 'sqlite3'
+end
+
+group :production do
+	gem "mysql2", "0.3.11", :platform => :mingw
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -51,7 +57,5 @@ gem "paperclip", "~> 3.0"
 gem "puma"
 
 gem "clearance", "1.0.1", :path => "vendor/gems/clearance-1.0.1"
-
-gem "mysql2", "0.3.11", :platform => :mingw
 
 gem "rolify"
