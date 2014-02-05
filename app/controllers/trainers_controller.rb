@@ -2,7 +2,7 @@
 class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
   before_action :authorize
-  before_action :chek_admin, only: [:new, :create, :edit, :update, :destroy, :index]
+  before_action :check_admin, only: [:new, :create, :edit, :update, :destroy, :index]
 
   # GET /trainers
   # GET /trainers.json

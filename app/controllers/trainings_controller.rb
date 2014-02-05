@@ -2,7 +2,7 @@
 class TrainingsController < ApplicationController
   before_action :set_training, only: [:show, :edit, :update, :destroy]
   before_action :authorize
-  before_action :chek_admin, only: [:noweszkolenie, :nowestudia, :create, :edit, :update, :destroy]
+  before_action :check_admin, only: [:noweszkolenie, :nowestudia, :create, :edit, :update, :destroy]
 
   # GET /trainings
   # GET /trainings.json

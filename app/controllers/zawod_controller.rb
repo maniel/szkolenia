@@ -2,7 +2,7 @@
 class ZawodController < ApplicationController
   before_action :set_zawod, only: [:show, :edit, :update, :destroy]
   before_action :authorize
-  before_action :chek_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_admin, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /zawod
   # GET /zawod.json

@@ -2,7 +2,7 @@
 class OrganizersController < ApplicationController
   before_action :set_organizer, only: [:show, :edit, :update, :destroy]
   before_action :authorize
-  before_action :chek_admin, only: [:show, :new, :create, :edit, :update, :destroy, :index]
+  before_action :check_admin, only: [:show, :new, :create, :edit, :update, :destroy, :index]
 
   # GET /organizers
   # GET /organizers.json
