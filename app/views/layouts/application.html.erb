@@ -15,13 +15,14 @@
 		<% else %>
 		<div id="nav">
 		<% end %>
-		<h2>
-		<% if params[:action]=="index" && params[:controller]=="trainings"%>
+			<h2>
+		<% if (params[:action]=="index" && params[:controller]=="trainings") || !signed_in? %>
 			Baza danych o usługach edukacyjnych
 		<% else %>
 			<%= link_to "Baza danych o usługach edukacyjnych", trainings_path %>
 		<% end %>
-		</h2>
+			</h2>
+		<% if signed_in? %>
 			<ul>
 				<li><%= link_to 'Szkolenia/kursy', szkolenia_trainings_path, class: "przycisk szkolenie_link" %></li>
 				<li><%= link_to 'Studia wyższe', studia_wyzsze_trainings_path, class: "przycisk studiaw_link" %></li>
@@ -33,6 +34,7 @@
 					<%= link_to "Wykaz szkół i instytucji szkoleniowych", instytucje_szkoleniowe_trainings_path, class: "przycisk instytucje_link" %>
 				</p>
 			<% end %>
+		<% end %>
 		</div>
 		<% if params[:action]=="index" && controller.controller_name=="trainings" %>
 		<div id="content" style="top: 60%">
