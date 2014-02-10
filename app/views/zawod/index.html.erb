@@ -36,7 +36,7 @@
       <th>Czas trwania</th>
       <th>Lokalizacja (powiat)</th>
       <th>Płatne</th>
-    <% if signed_in? %>
+    <% if current_user.admin? %>
       <th></th>
     <% end %>
     </tr>
@@ -51,7 +51,7 @@
         <td><%= zawod.term_time %></td>
         <td><%= zawod.location.name %></td>
         <td><%= zawod.paid ? "Tak" : "Nie" %></td>
-      <% if signed_in? %>
+      <% if current_user.admin? %>
         <td class="nolink"><%= link_to 'Edytuj', edit_zawod_path(zawod) %> | <%= link_to 'Usuń', zawod, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       <% end %>
       </tr>

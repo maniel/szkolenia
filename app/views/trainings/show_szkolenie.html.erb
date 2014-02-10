@@ -131,6 +131,6 @@
   </div>
 </div>
 
-<% if signed_in? %>
+<% if current_user.admin? %>
   <%= link_to 'Edycja', edit_training_path(@training), class: "szkolenie_link_block" %>
 <% end %>

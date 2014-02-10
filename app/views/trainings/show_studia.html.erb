@@ -66,7 +66,7 @@
   </div>
 </div>
 
-<% if signed_in? %>
+<% if current_user.admin? %>
   <%= link_to 'Edycja', edit_training_path(@training), class: @training.postgrad ? 'studiap_link_block' : 'studiaw_link_block' %>
 <% end %>
 

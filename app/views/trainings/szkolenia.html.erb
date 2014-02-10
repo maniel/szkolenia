@@ -38,7 +38,7 @@
       <th>Czas trwania</th>
       <th>Lokalizacja (powiat)</th>
       <th>Płatne</th>
-	<% if signed_in? %>
+	<% if current_user.admin? %>
       <th></th>
 	<% end %> 
     </tr>
@@ -57,7 +57,7 @@
         <td><%= training.term_info %></td>
         <td><%= training.location.name %></td>
         <td><%= training.paid ? "Tak" : "Nie" %></td>
-    <% if signed_in? %>
+    <% if current_user.admin? %>
         <td class="nolink"><%= link_to 'Edytuj', edit_training_path(training) %> | <%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
     <% end %>
       </tr>
