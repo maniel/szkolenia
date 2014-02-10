@@ -115,6 +115,6 @@
   </div>
 </div>
 
-<% if signed_in? %>
+<% if current_user.admin? %>
   <%= link_to 'Edycja', edit_zawod_path(@zawod), class: "ustawiczne_link_block" %>
 <% end %>
