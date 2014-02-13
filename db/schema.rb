@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111141018) do
+ActiveRecord::Schema.define(version: 20140213111128) do
 
   create_table "categories", force: true do |t|
     t.boolean  "studies"
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20140111141018) do
     t.datetime "updated_at"
   end
 
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+  add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "trainers", force: true do |t|
     t.string   "name"
@@ -90,11 +90,12 @@ ActiveRecord::Schema.define(version: 20140111141018) do
     t.datetime "updated_at"
     t.text     "term_notes"
     t.text     "term_contact"
+    t.boolean  "is_archived"
   end
 
-  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id", using: :btree
-  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id", using: :btree
-  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id", using: :btree
+  add_index "trainings", ["category_id"], name: "index_trainings_on_category_id"
+  add_index "trainings", ["location_id"], name: "index_trainings_on_location_id"
+  add_index "trainings", ["organizer_id"], name: "index_trainings_on_organizer_id"
 
   create_table "users", force: true do |t|
     t.datetime "created_at",                     null: false
@@ -106,15 +107,15 @@ ActiveRecord::Schema.define(version: 20140111141018) do
     t.text     "name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "users_roles", id: false, force: true do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
 
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
 
   create_table "zawod", force: true do |t|
     t.string   "name"
@@ -140,10 +141,11 @@ ActiveRecord::Schema.define(version: 20140111141018) do
     t.text     "begin_date_text"
     t.text     "end_date_text"
     t.text     "school_type"
+    t.boolean  "is_archived"
   end
 
-  add_index "zawod", ["category_id"], name: "index_zawod_on_category_id", using: :btree
-  add_index "zawod", ["location_id"], name: "index_zawod_on_location_id", using: :btree
-  add_index "zawod", ["organizer_id"], name: "index_zawod_on_organizer_id", using: :btree
+  add_index "zawod", ["category_id"], name: "index_zawod_on_category_id"
+  add_index "zawod", ["location_id"], name: "index_zawod_on_location_id"
+  add_index "zawod", ["organizer_id"], name: "index_zawod_on_organizer_id"
 
 end
