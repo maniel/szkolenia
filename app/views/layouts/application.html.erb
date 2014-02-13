@@ -43,6 +43,7 @@
 		<% end %>
 			<%= yield %>
 			<img id="footer" src="http://azymut.up.podlasie.pl/templates/jf_texturia/images/logo1.png">
+			<% if !signed_in? %><a style="text-align: center; margin-right: auto; margin-left: auto; display: block;" href="http://www.azymut.up.podlasie.pl/">Powrót na stronę główną projektu</a><% end %>
 		</div>
 		<% if signed_in? %>
 		<div id="nav2">
@@ -65,7 +66,7 @@
 				<li><%= link_to 'Nowy użytkownik', new_user_path, class: "sbutton" %></li>
 			<% end %>				
 			</ul>
-			<p> Zalogowany jako <%=current_user.name%>	<%= link_to "Wyloguj", sign_out_path, :method => :delete %></p>
+			<p> Zalogowany jako <%=current_user.name%>	<%= link_to "Wyloguj", sign_out_path, :method => :delete %> | <a href="http://www.azymut.up.podlasie.pl/">Powrót na stronę główną projektu</a></p>
 		</div>
 		<% end %>
 	</body>
