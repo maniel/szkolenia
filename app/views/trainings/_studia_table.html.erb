@@ -6,6 +6,7 @@
       <th>Płatne</th>
       <th>Lokalizacja (powiat)</th>
       <th>Kategoria (dziedzina)</th>
+      <th>Aktywne</th>
   <% if current_user.admin? %>
       <th></th>
   <% end %> 
@@ -21,6 +22,7 @@
         <td><%= training.paid ? "Tak" : "Nie" %></td>
         <td><%= training.location.name %></td>
         <td><%= sanitize training.category.name.gsub("/", "/&#8203;") %></td>
+        <td><%= check_box_tag 'acive', training.id, training.active, :class => 'active' %></td>
       <% if current_user.admin? %>
         <td class="nolink"><%= link_to 'Edytuj', edit_training_path(training) %> | <%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       <% end %>

@@ -1,6 +1,6 @@
 # coding: utf-8
 class TrainingsController < ApplicationController
-  before_action :set_training, only: [:show, :edit, :update, :destroy]
+  before_action :set_training, only: [:show, :edit, :update, :destroy, :toggle_active]
   before_action :authorize
   before_action :check_admin, only: [:noweszkolenie, :nowestudia, :create, :edit, :update, :destroy]
 
@@ -9,6 +9,15 @@ class TrainingsController < ApplicationController
 
   def index
     @trainings = Training.all    
+  end 
+
+  def toggle_active
+    if @training.active?
+      @training.active=false
+    else
+      @training.active=true
+    end
+    render :nothing => true
   end
 
   def studia_wyzsze

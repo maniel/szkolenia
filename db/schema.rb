@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824184920) do
+ActiveRecord::Schema.define(version: 20140824191138) do
 
   create_table "categories", force: true do |t|
     t.boolean  "studies"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20140824184920) do
     t.datetime "updated_at"
     t.text     "term_notes"
     t.text     "term_contact"
-    t.boolean  "active"
+    t.boolean  "active",       default: true
   end
 
   add_index "trainings", ["category_id"], name: "index_trainings_on_category_id"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20140824184920) do
     t.text     "begin_date_text"
     t.text     "end_date_text"
     t.text     "school_type"
-    t.boolean  "active"
+    t.boolean  "active",               default: true
   end
 
   add_index "zawod", ["category_id"], name: "index_zawod_on_category_id"
