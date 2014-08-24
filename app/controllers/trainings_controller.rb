@@ -14,8 +14,10 @@ class TrainingsController < ApplicationController
   def toggle_active
     if @training.active?
       @training.active=false
+      puts 'x'
     else
       @training.active=true
+      puts 'y'
     end
     render :nothing => true
   end

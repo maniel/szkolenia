@@ -25,11 +25,23 @@ history.navigationMode = 'compatible';
 $(document).ready( function() {
     history.navigationMode = 'compatible';
 
+
+    $('input.active').live('change', function(act_id) {
+        $.ajax({
+            url: "/training/toggle_active",
+            beforeSend: function() { alert("Hi") },
+            data: "id="+act_id, 
+            success: function() { alert('Bye') }
+        });
+    });
+    
+
 	$('textarea').autosize();
 
     $('tbody > tr > td:not(.nolink)').click( function() {
         window.location = $(this).parent().find('a').attr('href');
-    })
+    });
+
     $('tbody > tr').hover( function() {
         $(this).toggleClass('hover');
     });

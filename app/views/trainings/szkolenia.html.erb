@@ -58,7 +58,7 @@
         <td><%= training.term_info %></td>
         <td><%= training.location.name %></td>
         <td><%= training.paid ? "Tak" : "Nie" %></td>
-        <td><%= check_box_tag 'acive', training.id, training.active, :class => 'active' %></td>
+        <td class="nolink"><%= check_box_tag 'active'+training.id.to_s, training.id, training.active, :class => 'active' %><label for="<%= "active"+training.id.to_s %>" ><%= training.active ? "Aktywne" : "Nieaktywne" %></label></td>
     <% if current_user.admin? %>
         <td class="nolink"><%= link_to 'Edytuj', edit_training_path(training) %> | <%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
     <% end %>
