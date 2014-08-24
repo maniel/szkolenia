@@ -11,16 +11,6 @@ class TrainingsController < ApplicationController
     @trainings = Training.all    
   end
 
-  def prepare_conditions(conditions)
-  	conditions[:location] = Location.find(params[:location_id].to_i) unless params[:location_id].blank? or params[:location_id] == "18"
-    conditions[:category] = Category.find(params[:category_id].to_i) unless params[:category_id].blank?
-    conditions[:organizer] = Organizer.find(params[:organizer_id].to_i) unless params[:organizer_id].blank?
-  	conditions[:elearning] = true if params[:elearning]=='1'
-  	conditions[:paid] = false if params[:free]=='1'
-  	puts ">> conditions"
-  	p conditions
-  end
-
   def studia_wyzsze
   	conditions= {studies: true, postgrad: false}
   	prepare_conditions(conditions) if params[:commit]
@@ -154,6 +144,17 @@ class TrainingsController < ApplicationController
   end
 
   private
+
+    def prepare_conditions(conditions)
+      conditions[:location] = Location.find(params[:location_id].to_i) unless params[:location_id].blank? or params[:location_id] == "18"
+      conditions[:category] = Category.find(params[:category_id].to_i) unless params[:category_id].blank?
+      conditions[:organizer] = Organizer.find(params[:organizer_id].to_i) unless params[:organizer_id].blank?
+      conditions[:elearning] = true if params[:elearning]=='1'
+      conditions[:paid] = false if params[:free]=='1'
+      puts ">> conditions"
+      p conditions
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_training
       @training = Training.find(params[:id])

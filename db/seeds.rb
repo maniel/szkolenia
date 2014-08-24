@@ -21,10 +21,10 @@ end
 
 # użytkownicy
 [
-	["urszula.miluc@wup.wrotapodlasia.pl", "umiluc1"],
-	["monika.zgliszewska@wup.wrotapodlasia.pl", "mzgliszewska1"], 
-	["ewelina.kapica@wup.wrotapodlasia.pl", "ekapica1"],
-	["daniel.kaminski@wup.wrotapodlasia.pl", "dkaminski1"]
+	["urszula.miluc", "umiluc1"],
+	["monika.zgliszewska", "mzgliszewska1"], 
+	["ewelina.kapica", "ekapica1"],
+	["daniel.kaminski", "dkaminski1"]
 ].each do |user|
 	User.new(email: user[0], password: user[1]).save unless User.exists? email: user[0]
 end
