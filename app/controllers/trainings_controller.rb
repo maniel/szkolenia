@@ -1,15 +1,15 @@
 # coding: utf-8
 class TrainingsController < ApplicationController
   before_action :set_training, only: [:show, :edit, :update, :destroy, :toggle_active]
-  before_action :authorize
-  before_action :check_admin, only: [:noweszkolenie, :nowestudia, :create, :edit, :update, :destroy]
+#  before_action :authorize
+  # before_action :check_admin, only: [:noweszkolenie, :nowestudia, :create, :edit, :update, :destroy]
 
   # GET /trainings
   # GET /trainings.json
 
   def index
-    @trainings = Training.all    
-  end 
+    @trainings = Training.all
+  end
 
   def toggle_active
     if @training.active?
@@ -44,7 +44,7 @@ class TrainingsController < ApplicationController
   	end
   end
 
-  def szkolenia  	
+  def szkolenia
   	conditions = {studies: false}
   	prepare_conditions(conditions) if params[:commit]
   	unless params[:query].blank?
@@ -73,7 +73,7 @@ class TrainingsController < ApplicationController
     @training.build_organizer
   end
 
-  
+
   alias_method :noweszkolenie, :new
 
   alias_method :nowestudia, :new
@@ -103,7 +103,7 @@ class TrainingsController < ApplicationController
       else
         format.html do
           if @training.studies
-            render action: "nowestudia"            
+            render action: "nowestudia"
           else
             render action: "noweszkolenie"
           end
@@ -126,10 +126,10 @@ class TrainingsController < ApplicationController
         format.html do
           if @training.studies
             render action: 'edit_studia'
-          else            
+          else
             render action: 'edit_szkolenie'
           end
-        end          
+        end
       end
     end
   end
@@ -143,7 +143,7 @@ class TrainingsController < ApplicationController
       red_url=studia_wyzsze_trainings_url
     else
       red_url=studia_podyplomowe_trainings_url
-    end        
+    end
     @training.destroy
     respond_to do |format|
       format.html { redirect_to red_url }

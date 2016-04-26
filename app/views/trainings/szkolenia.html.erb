@@ -23,12 +23,12 @@
     <%= check_box_tag :elearning, '1', params[:elearning]=='1'?true:false %>
   </div>
   <%= hidden_field_tag :organizer_id, params[:organizer_id] %>
-	<%= submit_tag "Wyszukaj" %> 
+	<%= submit_tag "Wyszukaj" %>
 <% end %>
 </div>
 <% end %>
 </div>
-<% if signed_in? or params[:commit] %>
+<% if params[:commit] %>
 <% unless @trainings.empty? and params[:commit] %>
 <table class="szkolenia">
   <thead>
@@ -38,10 +38,12 @@
       <th>Czas trwania</th>
       <th>Lokalizacja (powiat)</th>
       <th>Płatne</th>
-      <th>Aktywne</th>
+      <% if false %><th>Aktywne</th><% end %>
+	<% if false %>
 	<% if current_user.admin? %>
       <th></th>
-	<% end %> 
+	<% end %>
+	<% end %>
     </tr>
   </thead>
 
@@ -58,10 +60,10 @@
         <td><%= training.term_info %></td>
         <td><%= training.location.name %></td>
         <td><%= training.paid ? "Tak" : "Nie" %></td>
-        <td class="nolink"><%= check_box_tag 'active'+training.id.to_s, training.id, training.active, :class => 'active' %><label for="<%= "active"+training.id.to_s %>" ><%= training.active ? "Aktywne" : "Nieaktywne" %></label></td>
-    <% if current_user.admin? %>
+        <% if false %><td class="nolink"><%= check_box_tag 'active'+training.id.to_s, training.id, training.active, :class => 'active' %><label for="<%= "active"+training.id.to_s %>" ><%= training.active ? "Aktywne" : "Nieaktywne" %></label></td><% end %>
+    <% if false %><% if current_user.admin? %>
         <td class="nolink"><%= link_to 'Edytuj', edit_training_path(training) %> | <%= link_to 'Usuń', training, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
-    <% end %>
+    <% end %><% end %>
       </tr>
     <% end %>
   </tbody>

@@ -1,8 +1,8 @@
 # coding: utf-8
 class ZawodController < ApplicationController
   before_action :set_zawod, only: [:show, :edit, :update, :destroy]
-  before_action :authorize
-  before_action :check_admin, only: [:new, :create, :edit, :update, :destroy]
+#  before_action :authorize
+  # before_action :check_admin, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /zawod
   # GET /zawod.json
@@ -72,7 +72,7 @@ class ZawodController < ApplicationController
   end
 
   private
-  
+
     def prepare_conditions(conditions)
       conditions[:location] = Location.find(params[:location_id].to_i) unless params[:location_id].blank? or params[:location_id] == "18"
       conditions[:category] = Category.find(params[:category_id].to_i) unless params[:category_id].blank?

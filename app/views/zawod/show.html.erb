@@ -4,7 +4,7 @@
 
 <div class="ustawiczne">
 	<ul class="tabs">
-	    <li><a href="#program">Program</a></li>    
+	    <li><a href="#program">Program</a></li>
 	    <li><a href="#lokalizacja">Lokalizacja</a></li>
 	    <li><a href="#uczelnia">Organizator</a></li>
 	    <li><a href="#koszty">Koszty</a></li>
@@ -50,7 +50,7 @@
       <%= simple_format @zawod.organizer.contact  %>
     </p>
   </div>
-  
+
   <div id="koszty">
   <% unless @zawod.paid %>
     <p>Kształcenie jest bezpłatne</p>
@@ -62,7 +62,7 @@
     <p>
       <strong>Dodatkowe informacje na temat kosztów:</strong>
       <%= simple_format @zawod.costs_info %>
-    </p>  
+    </p>
   <% end %>
   </div>
   <div id="terminy">
@@ -114,7 +114,3 @@
     </p>
   </div>
 </div>
-
-<% if current_user.admin? %>
-  <%= link_to 'Edycja', edit_zawod_path(@zawod), class: "ustawiczne_link_block" %>
-<% end %>

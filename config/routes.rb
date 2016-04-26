@@ -1,16 +1,17 @@
 Szkolenia::Application.routes.draw do
-  
-  resources :zawod, path: "szkoly_dla_doroslych"
 
-  root to: redirect("/baza/trainings") 
-    
-  resources :trainers
+  resources :zawod, path: "szkoly_dla_doroslych", :except => [:new, :create, :edit, :update, :destroy]
 
-  resources :organizers
+  root to: redirect("/baza/trainings")
 
-  resources :trainings do
+  # resources :trainers
+
+  # resources :organizers
+
+  resources :trainings, :except => [:noweszkolenie, :nowestudia, :new, :create, :edit, :update, :destroy] do
     collection do
-    	get :noweszkolenie, :nowestudia, :szkolenia, :studia_podyplomowe, :studia_wyzsze, :instytucje_szkoleniowe
+    	#get :noweszkolenie, :nowestudia, :szkolenia, :studia_podyplomowe, :studia_wyzsze, :instytucje_szkoleniowe
+      get :szkolenia, :studia_podyplomowe, :studia_wyzsze, :instytucje_szkoleniowe
     end
   end
 
@@ -55,7 +56,7 @@ Szkolenia::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

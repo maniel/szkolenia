@@ -4,7 +4,7 @@
 
 <div class="<%= @training.postgrad ? 'studiap' : 'studiaw' %>">
  <ul class="tabs">
-    <li><a href="#info">Informacje o kierunku</a></li>    
+    <li><a href="#info">Informacje o kierunku</a></li>
     <li><a href="#orgzanizacja_s">Organizacja studiów</a></li>
     <li><a href="#uczelnia">Organizator</a></li>
     <li><a href="#lokalizacja">Lokalizacja</a></li>
@@ -61,12 +61,11 @@
     <p>
       <strong>Dodatkowe informacje na temat kosztów:</strong>
       <%= simple_format @training.costs_info %>
-    </p>  
+    </p>
   <% end %>
   </div>
 </div>
 
-<% if current_user.admin? %>
-  <%= link_to 'Edycja', edit_training_path(@training), class: @training.postgrad ? 'studiap_link_block' : 'studiaw_link_block' %>
-<% end %>
-
+<%# <% if current_user.admin? %>
+<%#  <%= link_to 'Edycja', edit_training_path(@training), class: @training.postgrad ? 'studiap_link_block' : 'studiaw_link_block' %>
+<%#<% end %>

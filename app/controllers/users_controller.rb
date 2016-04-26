@@ -1,8 +1,8 @@
 # coding: utf-8
 class UsersController < Clearance::UsersController
   before_action :set_user, only: [:edit, :destroy, :update]
-  before_action :authorize
-  before_action :check_role, only: [:new, :create, :index, :destroy, :edit, :update]
+#  before_action :authorize
+  # before_action :check_role, only: [:new, :create, :index, :destroy, :edit, :update]
 
 
   def new
@@ -35,7 +35,7 @@ class UsersController < Clearance::UsersController
   	redirect_to users_url
   end
 
-  def edit    
+  def edit
   end
 
   def update
@@ -60,7 +60,7 @@ class UsersController < Clearance::UsersController
       end
     end
   end
-  
+
   def set_user
     @user = User.find params[:id]
   end
